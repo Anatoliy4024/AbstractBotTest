@@ -1,10 +1,10 @@
 import os
-from abstract_functions import create_connection, execute_query
-from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton, InputMediaVideo
-from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, MessageHandler, ContextTypes, filters
 import logging
 import random
 from datetime import datetime, timedelta
+from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton, InputMediaVideo
+from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, MessageHandler, ContextTypes, filters
+from abstract_functions import create_connection, execute_query
 from keyboards import language_selection_keyboard, yes_no_keyboard, generate_calendar_keyboard, generate_time_selection_keyboard, generate_person_selection_keyboard, generate_party_styles_keyboard
 
 # Установите путь к базе данных
