@@ -1,38 +1,31 @@
 import sqlite3
-import time
+from sqlite3 import Error
 
 def create_connection(db_file):
-    """Создает соединение с базой данных SQLite."""
+    """ create a database connection to the SQLite database
+        specified by the db_file
+    :param db_file: database file
+    :return: Connection object or None
+    """
     conn = None
     try:
         conn = sqlite3.connect(db_file)
-    except sqlite3.Error as e:
+        return conn
+    except Error as e:
         print(e)
+
     return conn
 
 def execute_query(conn, query, params=()):
-    """Выполняет SQL-запрос."""
+    """ Execute a single query
+    :param conn: Connection object
+    :param query: a SQL query
+    :param params: parameters for the query
+    :return:
+    """
     try:
         c = conn.cursor()
         c.execute(query, params)
         conn.commit()
-    except sqlite3.Error as e:
+    except Error as e:
         print(e)
-
-def execute_query_with_retry(query, params=(), max_retries=5):
-    """Выполняет SQL-запрос с повторными попытками при блокировке базы данных."""
-    retries = 0
-    while retries < max_retries:
-        try:
-            conn = sqlite3.connect('user_sessions.db')
-            cursor = conn.cursor()
-            cursor.execute(query, params)
-            conn.commit()
-            conn.close()
-            break
-        except sqlite3.OperationalError as e:
-            if "database is locked" in str(e):
-                retries += 1
-                time.sleep(1)  # Задержка перед повторной попыткой
-            else:
-                raise e

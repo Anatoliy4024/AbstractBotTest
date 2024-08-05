@@ -1,22 +1,19 @@
 import os
 import logging
 import random
-from datetime import datetime, timedelta
-from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton, InputMediaVideo
+from datetime import datetime
+from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, MessageHandler, ContextTypes, filters
 from abstract_functions import create_connection, execute_query
 from keyboards import language_selection_keyboard, yes_no_keyboard, generate_calendar_keyboard, generate_time_selection_keyboard, generate_person_selection_keyboard, generate_party_styles_keyboard
 
-# Установите путь к базе данных
 DATABASE_PATH = os.path.join(os.path.dirname(__file__), 'user_sessions.db')
 
-# Включаем логирование
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
 )
 logger = logging.getLogger(__name__)
 
-# Пути к видеофайлам
 VIDEO_PATHS = [
     'media/IMG_5981 (online-video-cutter.com).mp4',
     'media/IMG_6156 (online-video-cutter.com).mp4',
@@ -24,10 +21,8 @@ VIDEO_PATHS = [
     'media/IMG_6412 (online-video-cutter.com).mp4'
 ]
 
-# Замените 'YOUR_BOT_TOKEN' на токен вашего бота
 BOT_TOKEN = '7407529729:AAErOT5NBpMSO-V-HPAW-MDu_1WQt0TtXng'
 
-# Создайте соединение с базой данных
 conn = create_connection(DATABASE_PATH)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -82,16 +77,6 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             'pl': 'Wybierz czas rozpoczęcia i zakończenia (minimalny czas trwania 2 godziny)',
             'de': 'Wählen Sie Start- und Endzeit (Mindestdauer 2 Stunden)',
             'it': 'Seleziona l\'ora di inizio e fine (durata minima 2 ore)'
-        },
-        'end': {
-            'en': 'Planning to end around...',
-            'ru': 'Планирую окончание около...',
-            'es': 'Planeo terminar alrededor de...',
-            'fr': 'Je prévois de terminer vers...',
-            'uk': 'Планую закінчити приблизно о...',
-            'pl': 'Planuję zakończyć około...',
-            'de': 'Ich plane zu beenden um...',
-            'it': 'Prevedo di finire intorno alle...'
         }
     }
 
@@ -122,7 +107,6 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user_data['language'] = language_code
         user_data['step'] = 'greeting'
 
-        # Отправляем сообщение с "ожиданием" на выбранном языке
         loading_texts = {
             'en': 'Loading...',
             'ru': 'Ожидай...',
@@ -137,19 +121,15 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             loading_texts.get(language_code, 'Loading...'),
         )
 
-        # Выбор случайного видео
         video_path = random.choice(VIDEO_PATHS)
 
-        # Загрузка видео и обновление сообщения
         if os.path.exists(video_path):
-            # Отправляем видео как документ
             with open(video_path, 'rb') as video_file:
                 await context.bot.send_document(
                     chat_id=update.effective_chat.id,
                     document=video_file,
                     disable_notification=True
                 )
-                # Удаляем сообщение с "ожиданием"
                 await loading_message.delete()
         else:
             await context.bot.send_message(chat_id=update.effective_chat.id, text="Video file not found.")
@@ -208,7 +188,6 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 preferences_request_texts.get(user_data['language'], "Please write your preferences for table setting colors, food items (or exclusions), and desired table accessories (candles, glasses, etc.) - no more than 1000 characters.")
             )
 
-        # Disable the "no" button
         await query.edit_message_reply_markup(reply_markup=disable_yes_no_buttons(query.message.reply_markup))
 
     elif query.data == 'no':
@@ -263,7 +242,6 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user_data['step'] = 'date_confirmation'
         user_data['selected_date'] = selected_date
 
-        # Меняем цвет кнопки на красный и делаем все остальные кнопки неактивными
         await query.edit_message_reply_markup(reply_markup=disable_calendar_buttons(query.message.reply_markup, selected_date))
 
         confirmation_texts = {
@@ -311,7 +289,6 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user_data['step'] = 'people_confirmation'
         user_data['selected_person'] = selected_person
 
-        # Меняем цвет кнопки на красный и делаем все остальные кнопки неактивными
         await query.edit_message_reply_markup(reply_markup=disable_person_buttons(query.message.reply_markup, selected_person))
 
         confirmation_texts = {
@@ -334,7 +311,6 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user_data['step'] = 'style_confirmation'
         user_data['selected_style'] = selected_style
 
-        # Меняем цвет кнопки на красный и делаем все остальные кнопки неактивными
         await query.edit_message_reply_markup(reply_markup=disable_style_buttons(query.message.reply_markup, selected_style))
 
         confirmation_texts = {

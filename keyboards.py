@@ -1,6 +1,9 @@
 from telegram import InlineKeyboardMarkup, InlineKeyboardButton
 from datetime import datetime, timedelta
 import calendar
+import logging
+
+logger = logging.getLogger(__name__)
 
 def generate_month_name(month, language):
     months = {
@@ -27,6 +30,7 @@ def generate_calendar_keyboard(month_offset=0, language='en'):
         base_month += 12
         base_year -= 1
 
+    logger.info(f"Generating calendar for {base_month}/{base_year} with offset {month_offset}")
     first_of_month = datetime(base_year, base_month, 1)
     last_day = calendar.monthrange(first_of_month.year, first_of_month.month)[1]
     last_of_month = first_of_month.replace(day=last_day)
