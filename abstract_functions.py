@@ -1,34 +1,38 @@
-from telegram import InlineKeyboardMarkup, InlineKeyboardButton
+import sqlite3
+import time
 
-# Постоянные функции для создания кнопок
-def A(update, context, confirmation_text):
-    query = update.callback_query
-    query.answer()
-    user_data = context.user_data
-    user_data['last_confirmation_text'] = confirmation_text
+def create_connection(db_file):
+    """Создает соединение с базой данных SQLite."""
+    conn = None
+    try:
+        conn = sqlite3.connect(db_file)
+    except sqlite3.Error as e:
+        print(e)
+    return conn
 
-    query.message.reply_text(
-        confirmation_text,
-        reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton("Да", callback_data='yes')],
-            [InlineKeyboardButton("Назад", callback_data='no')]
-        ])
-    )
+def execute_query(conn, query, params=()):
+    """Выполняет SQL-запрос."""
+    try:
+        c = conn.cursor()
+        c.execute(query, params)
+        conn.commit()
+    except sqlite3.Error as e:
+        print(e)
 
-def B(update, context, next_module):
-    query = update.callback_query
-    query.answer()
-
-    query.edit_message_reply_markup(reply_markup=InlineKeyboardMarkup([]))
-    next_module(update, context)
-
-def C(update, context, current_module):
-    query = update.callback_query
-    query.answer()
-
-    current_module(update, context)
-
-def C_combined(update, context, confirmation_text, next_module, current_module):
-    A(update, context, confirmation_text)
-    B(update, context, next_module)
-    C(update, context, current_module)
+def execute_query_with_retry(query, params=(), max_retries=5):
+    """Выполняет SQL-запрос с повторными попытками при блокировке базы данных."""
+    retries = 0
+    while retries < max_retries:
+        try:
+            conn = sqlite3.connect('user_sessions.db')
+            cursor = conn.cursor()
+            cursor.execute(query, params)
+            conn.commit()
+            conn.close()
+            break
+        except sqlite3.OperationalError as e:
+            if "database is locked" in str(e):
+                retries += 1
+                time.sleep(1)  # Задержка перед повторной попыткой
+            else:
+                raise e
