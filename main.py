@@ -1,85 +1,140 @@
-#
-from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
-from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, MessageHandler, ContextTypes, filters
 import logging
-import os
-from datetime import datetime
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters
 import sqlite3
-from telegram.ext import CallbackQueryHandler
-from keyboards import language_selection_keyboard, generate_calendar_keyboard, generate_time_selection_keyboard, generate_person_selection_keyboard, generate_party_styles_keyboard
-from abstract_functions import A, B, C_combined
+import keyboards
+import os
+import time
 
-import logging
-
+# Устанавливаем уровень логирования
 logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.INFO
 )
+
 logger = logging.getLogger(__name__)
 
-
-def button_callback(update, context):
-    query = update.callback_query
-    query.answer()
-
-    logger.info(f"Button clicked: {query.data}")
-
-VIDEO_PATHS = [
-    'media/video1.mp4',
-    'media/video2.mp4'
-]
-
-BOT_TOKEN = '7407529729:AAErOT5NBpMSO-V-HPAW-MDu_1WQt0TtXng'
-
-db_path = os.path.join(os.path.dirname(__file__), 'user_sessions.db')
+# Устанавливаем путь к базе данных
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+db_path = os.path.join(BASE_DIR, "user_sessions.db")
 print(f"Path to database: {db_path}")
 
-async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user = update.message.from_user
-    await update.message.reply_text(f"Привет, {user.first_name}!\nВыберите язык.", reply_markup=language_selection_keyboard())
+# Создаем таблицу user_sessions, если она не существует
+conn = sqlite3.connect(db_path)
+cursor = conn.cursor()
+cursor.execute('''
+CREATE TABLE IF NOT EXISTS user_sessions (
+    session_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    language TEXT,
+    user_name TEXT,
+    event_date TEXT,
+    start_time TEXT,
+    end_time TEXT,
+    number_of_people INTEGER,
+    party_style TEXT,
+    preferences TEXT,
+    city TEXT,
+    duration TEXT
+)
+''')
+conn.commit()
+conn.close()
 
-async def handle_language_selection(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+# Обработчик команды /start
+async def start(update: Update, context):
+    user_id = update.message.from_user.id
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    cursor.execute('''
+    INSERT INTO user_sessions (user_id) VALUES (?)
+    ''', (user_id,))
+    conn.commit()
+    conn.close()
+    keyboard = [[InlineKeyboardButton("English", callback_data='lang_en'),
+                 InlineKeyboardButton("Русский", callback_data='lang_ru')]]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    await update.message.reply_text("Please choose your language / Пожалуйста, выберите язык",
+                                    reply_markup=reply_markup)
+
+
+# Обработчик нажатия на кнопки
+async def button_callback(update: Update, context):
     query = update.callback_query
-    user_data = context.user_data
+    user_id = query.from_user.id
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
 
     if query.data == 'lang_en':
-        user_data['language'] = 'en'
-        await query.message.reply_text("You selected English!")
+        cursor.execute('''
+        UPDATE user_sessions SET language = 'en' WHERE user_id = ?
+        ''', (user_id,))
+        await query.message.reply_text("Please wait...")
+        time.sleep(3)
+        await query.message.reply_photo(open('media/IMG_4077_1 (online-video-cutter.com).mp4', 'rb'))
+        await query.message.reply_text("Hi! What's your name?")
+
     elif query.data == 'lang_ru':
-        user_data['language'] = 'ru'
-        await query.message.reply_text("Вы выбрали Русский!")
+        cursor.execute('''
+        UPDATE user_sessions SET language = 'ru' WHERE user_id = ?
+        ''', (user_id,))
+        await query.message.reply_text("Пожалуйста, подождите...")
+        time.sleep(3)
+        await query.message.reply_photo(open('media/IMG_4077_1 (online-video-cutter.com).mp4', 'rb'))
+        await query.message.reply_text("Привет! Как вас зовут?")
 
-    await query.message.reply_text("Как вас зовут?")
+    conn.commit()
+    conn.close()
+    await query.answer()
 
-async def handle_name(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user = update.message.from_user
-    user_data = context.user_data
-    user_data['name'] = update.message.text
-    await update.message.reply_text(f"Привет, {user_data['name']}! Хочешь увидеть доступные даты?", reply_markup=InlineKeyboardMarkup([
-        [InlineKeyboardButton("Да", callback_data='yes')],
-        [InlineKeyboardButton("Назад", callback_data='no')]
-    ]))
 
-async def handle_preferences(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_data = context.user_data
-    user_data['preferences'] = update.message.text
-    await update.message.reply_text("Ваши предпочтения сохранены.")
+# Обработчик ввода имени
+async def name_handler(update: Update, context):
+    user_id = update.message.from_user.id
+    user_name = update.message.text
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    cursor.execute('''
+    UPDATE user_sessions SET user_name = ? WHERE user_id = ?
+    ''', (user_name, user_id))
+    conn.commit()
+    conn.close()
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    cursor.execute('SELECT language, user_name FROM user_sessions WHERE user_id = ?', (user_id,))
+    user_data = cursor.fetchone()
+    language = user_data[0]
+    user_name = user_data[1]
+    if language == 'en':
+        greeting = f"Hello, {user_name}! Do you want to see available dates?"
+        keyboard = [[InlineKeyboardButton("Yes", callback_data='confirm_date'),
+                     InlineKeyboardButton("No", callback_data='reject_date')]]
+    else:
+        greeting = f"Привет, {user_name}! Хочешь увидеть доступные даты?"
+        keyboard = [[InlineKeyboardButton("Да", callback_data='confirm_date'),
+                     InlineKeyboardButton("Нет", callback_data='reject_date')]]
+    reply_markup = InlineKeyboardMarkup(keyboard)
+    await update.message.reply_text(greeting, reply_markup=reply_markup)
 
-async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    query = update.callback_query
-    query.answer()
-    user_data = context.user_data
 
-    if query.data == 'yes':
-        await query.message.reply_text("Пожалуйста, выберите дату.", reply_markup=generate_calendar_keyboard())
-    elif query.data == 'no':
-        await query.message.reply_text("Назад.", reply_markup=language_selection_keyboard())
+# Обработчик текстовых сообщений
+async def handle_text(update: Update, context):
+    user_id = update.message.from_user.id
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
+    cursor.execute('SELECT user_name FROM user_sessions WHERE user_id = ?', (user_id,))
+    user_data = cursor.fetchone()
+    if user_data is None or user_data[0] is None:
+        await name_handler(update, context)
 
-if __name__ == '__main__':
-    application = ApplicationBuilder().token(BOT_TOKEN).build()
 
-    application.add_handler(CommandHandler('start', start))
-    application.add_handler(CallbackQueryHandler(button_callback))
-    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_name))
-    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_preferences))
+# Создаем приложение и добавляем обработчики
+application = Application.builder().token("7407529729:AAErOT5NBpMSO-V-HPAW-MDu_1WQt0TtXng").build()
 
-    application.run_polling()
+application.add_handler(CommandHandler("start", start))
+application.add_handler(CallbackQueryHandler(button_callback))
+application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))
+
+# Запуск приложения
+application.run_polling()
