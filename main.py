@@ -1,12 +1,14 @@
-import random
+import os
+from abstract_functions import create_connection, execute_query
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton, InputMediaVideo
 from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, MessageHandler, ContextTypes, filters
 import logging
-import os
+import random
 from datetime import datetime, timedelta
-from abstract_functions import create_connection, execute_query  # Импортируем правильный модуль
-
 from keyboards import language_selection_keyboard, yes_no_keyboard, generate_calendar_keyboard, generate_time_selection_keyboard, generate_person_selection_keyboard, generate_party_styles_keyboard
+
+# Установите путь к базе данных
+DATABASE_PATH = os.path.join(os.path.dirname(__file__), 'user_sessions.db')
 
 # Включаем логирование
 logging.basicConfig(
@@ -24,6 +26,9 @@ VIDEO_PATHS = [
 
 # Замените 'YOUR_BOT_TOKEN' на токен вашего бота
 BOT_TOKEN = '7407529729:AAErOT5NBpMSO-V-HPAW-MDu_1WQt0TtXng'
+
+# Создайте соединение с базой данных
+conn = create_connection(DATABASE_PATH)
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_data = context.user_data
@@ -317,7 +322,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             'uk': f'Ви вибрали {selected_person} людей, правильно?',
             'pl': f'Wybrałeś {selected_person} osób, poprawne?',
             'de': f'Sie haben {selected_person} Personen gewählt, richtig?',
-            'it': f'Hai selezionato {selected_person}, corretto?'
+            'it': f'Hai selezionato {selected_person} persone, corretto?'
         }
         await query.message.reply_text(
             confirmation_texts.get(user_data['language'], f'You selected {selected_person} people, correct?'),
