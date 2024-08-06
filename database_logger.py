@@ -1,4 +1,3 @@
-
 import logging
 import sqlite3
 
@@ -24,17 +23,3 @@ def execute_query_with_logging(conn, query, params=()):
         log_message('Query executed successfully.')
     except sqlite3.Error as e:
         log_message(f'Error executing query: {e}')
-
-
-
-
-
-def execute_query_with_logging(conn, query, params=()):
-    try:
-        cursor = conn.cursor()
-        logging.info(f'Executing query: {query} with params: {params}')
-        cursor.execute(query, params)
-        conn.commit()
-        logging.info('Query executed successfully.')
-    except sqlite3.Error as e:
-        logging.error(f'Error executing query: {e}')
