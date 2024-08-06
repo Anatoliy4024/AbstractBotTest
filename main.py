@@ -10,7 +10,8 @@ from keyboards import language_selection_keyboard, yes_no_keyboard, generate_cal
 DATABASE_PATH = os.path.join(os.path.dirname(__file__), 'user_sessions.db')
 
 logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.INFO
 )
 logger = logging.getLogger(__name__)
 
@@ -28,6 +29,7 @@ conn = create_connection(DATABASE_PATH)
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_data = context.user_data
     user_data['step'] = 'start'
+    logger.info("Starting conversation with user: %s", update.effective_user.id)
     if update.message:
         await update.message.reply_text(
             "Choose your language / Выберите язык / Elige tu idioma",
@@ -43,64 +45,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
     user_data = context.user_data
-
-    time_set_texts = {
-        'start_time': {
-            'en': 'Start time set to {}. Now select end time.',
-            'ru': 'Время начала установлено на {}. Теперь выберите время окончания.',
-            'es': 'La hora de inicio se ha establecido en {}. Ahora selecciona la hora de finalización.',
-            'fr': 'L\'heure de début est fixée à {}. Maintenant, sélectionnez l\'heure de fin.',
-            'uk': 'Час початку встановлено на {}. Тепер виберіть час закінчення.',
-            'pl': 'Czas rozpoczęcia ustawiono na {}. Teraz wybierz czas zakończenia.',
-            'de': 'Startzeit auf {} gesetzt. Wählen Sie nun die Endzeit.',
-            'it': 'L\'ora di inizio è stata impostata su {}. Ora seleziona l\'ora di fine.'
-        },
-        'end_time': {
-            'en': 'End time set to {}. Confirm your selection.',
-            'ru': 'Время окончания установлено на {}. Подтвердите свой выбор.',
-            'es': 'La hora de finalización se ha establecido en {}. Confirma tu selección.',
-            'fr': 'L\'heure de fin est fixée à {}. Confirmez votre sélection.',
-            'uk': 'Час закінчення встановлено на {}. Підтвердіть свій вибір.',
-            'pl': 'Czas zakończenia ustawiono na {}. Potwierdź swój wybór.',
-            'de': 'Endzeit auf {} gesetzt. Bestätigen Sie Ihre Auswahl.',
-            'it': 'L\'ora di fine è stata impostata su {}. Conferma la tua selezione.'
-        }
-    }
-
-    time_selection_headers = {
-        'start': {
-            'en': 'Select start and end time (minimum duration 2 hours)',
-            'ru': 'Выберите время начала и окончания (минимальная продолжительность 2 часа)',
-            'es': 'Selecciona la hora de inicio y fin (duración mínima 2 horas)',
-            'fr': 'Sélectionnez l\'heure de début et de fin (durée minimale 2 heures)',
-            'uk': 'Виберіть час початку та закінчення (мінімальна тривалість 2 години)',
-            'pl': 'Wybierz czas rozpoczęcia i zakończenia (minimalny czas trwania 2 godziny)',
-            'de': 'Wählen Sie Start- und Endzeit (Mindestdauer 2 Stunden)',
-            'it': 'Seleziona l\'ora di inizio e fine (durata minima 2 ore)'
-        }
-    }
-
-    people_selection_headers = {
-        'en': 'How many people are attending?',
-        'ru': 'На сколько персон твоя встреча?',
-        'es': '¿Cuántas personas asistirán?',
-        'fr': 'Combien de personnes participent?',
-        'uk': 'На скільки персон твоя зустріч?',
-        'pl': 'Ile osób będzie uczestniczyć?',
-        'de': 'Wie viele Personen nehmen teil?',
-        'it': 'Quante persone parteciperanno?'
-    }
-
-    party_styles_headers = {
-        'en': 'What style do you choose?',
-        'ru': 'Какой стиль ты выбираешь?',
-        'es': '¿Qué estilo eliges?',
-        'fr': 'Quel style choisis-tu?',
-        'uk': 'Який стиль ти обираєш?',
-        'pl': 'Jaki styl wybierasz?',
-        'de': 'Welchen Stil wählst du?',
-        'it': 'Che stile scegli?'
-    }
+    logger.info("User %s pressed button: %s", update.effective_user.id, query.data)
 
     if query.data.startswith('lang_'):
         language_code = query.data.split('_')[1]
@@ -179,7 +124,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 'ru': 'Напишите свои предпочтения по цвету сервировки и продуктам (или исключения по ним) и желаемые аксессуары сервировки (свечи, бокалы и прочее) - не более 1000 знаков.',
                 'es': 'Escriba sus preferencias de colores para la mesa, artículos de comida (o exclusiones), y accesorios de mesa deseados (velas, copas, etc.) - no más de 1000 caracteres.',
                 'fr': 'Veuillez écrire vos préférences pour les couleurs de la table, les aliments (ou exclusions), et les accessoires de table désirés (bougies, verres, etc.) - pas plus de 1000 caractères.',
-                'uk': 'Напишіть свої уподобання щодо кольору сервіровки та продуктів (або винятки з них) і бажані аксесуари для сервіровки (свічки, келихи тощо) - не більше 1000 знаків.',
+                'uk': 'Напишіть свої уподобання щодо кольору сервіровки та продуктів (або винятки з них) і бажані аксесуары для сервіровки (свічки, келихи тощо) - не більше 1000 знаків.',
                 'pl': 'Napisz swoje preferencje dotyczące kolorów nakrycia stołu, produktów spożywczych (lub wyłączeń) i pożądanych akcesoriów stołowych (świece, szklanki itp.) - nie więcej niż 1000 znaków.',
                 'de': 'Bitte schreiben Sie Ihre Vorlieben für Tischdeckfarben, Lebensmittel (oder Ausschlüsse) und gewünschte Tischaccessoires (Kerzen, Gläser usw.) - nicht mehr als 1000 Zeichen.',
                 'it': 'Scrivi le tue preferenze per i colori della tavola, gli articoli alimentari (o le esclusioni) e gli accessori per la tavola desiderati (candele, bicchieri, ecc.) - non più di 1000 caratteri.'
@@ -299,7 +244,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             'uk': f'Ви вибрали {selected_person} людей, правильно?',
             'pl': f'Wybrałeś {selected_person} osób, poprawne?',
             'de': f'Sie haben {selected_person} Personen gewählt, richtig?',
-            'it': f'Hai selezionato {selected_person} persone, corretto?'
+            'it': f'Hai selezionato {selected_person}, corretto?'
         }
         await query.message.reply_text(
             confirmation_texts.get(user_data['language'], f'You selected {selected_person} people, correct?'),
