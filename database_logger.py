@@ -5,7 +5,8 @@ import sqlite3
 logging.basicConfig(
     filename='db_operations.log',
     format='%(asctime)s - %(levelname)s - %(message)s',
-    level=logging.INFO
+    level=logging.INFO,
+    encoding='utf-8'  # Добавьте эту строку для установки кодировки UTF-8
 )
 
 def log_message(message):
