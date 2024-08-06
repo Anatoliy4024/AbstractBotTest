@@ -26,7 +26,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 def some_database_operation():
     logging.debug("Starting some_database_operation")
-    execute_query_with_logging("INSERT INTO users (name) VALUES (?)", ("John",))
+    execute_query(create_connection(DATABASE_PATH), "INSERT INTO user_sessions (user_name) VALUES (?)", ("John",))
     logging.debug("Finished some_database_operation")
 
 #________________________________________________________________________

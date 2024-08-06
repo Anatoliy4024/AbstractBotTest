@@ -9801,3 +9801,2023 @@ Traceback (most recent call last):
   File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
     raise Conflict(message)
 telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:08:56,427 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:08:56,428 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:00,491 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:00,492 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:14,687 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 608, in button_callback
+    confirmation_texts.get(user_data['language'], f'You selected {selected_date}, correct?'),
+                           ~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'language'
+2024-08-06 22:09:30,736 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:30,736 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:34,811 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:34,811 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:35,864 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:35,864 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:40,432 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:40,432 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:41,988 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:41,988 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:46,049 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:46,049 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:47,115 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:47,115 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:51,194 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:51,194 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:52,757 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:52,758 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:57,353 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:57,353 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:59,657 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:09:59,658 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:04,967 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:04,967 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:08,384 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:08,384 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:12,444 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:12,445 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:17,713 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:17,713 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:19,040 - INFO - Application is stopping. This might take a moment.
+2024-08-06 22:10:19,040 - INFO - Application.stop() complete
+2024-08-06 22:10:21,130 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 22:10:21,819 - INFO - Application started
+2024-08-06 22:10:21,983 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:21,983 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:29,732 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:29,732 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:33,796 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:33,796 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:45,353 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:45,353 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:49,419 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:49,419 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:50,488 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:50,489 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:54,554 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:54,554 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:56,129 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:10:56,129 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:00,700 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:00,700 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:03,017 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:03,017 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:08,340 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:08,340 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:11,780 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:11,780 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:15,210 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:15,210 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:20,448 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:20,448 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:25,683 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:25,683 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:33,460 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:33,460 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:41,228 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:41,228 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:52,798 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:52,798 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:56,842 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:11:56,842 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:12:14,092 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:12:14,092 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:12:18,153 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:12:18,153 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:12:43,946 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:12:43,946 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:12:47,999 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:12:47,999 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:13:18,150 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:13:18,151 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:13:22,205 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:13:22,205 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:13:52,390 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:13:52,390 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:13:56,442 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:13:56,442 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:14:26,612 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:14:26,612 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:14:30,671 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:14:30,671 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:15:00,823 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:15:00,823 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:15:04,899 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:15:04,899 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:15:35,082 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:15:35,082 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:15:39,164 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:15:39,164 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:16:09,345 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:16:09,345 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:16:13,427 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:16:13,427 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:16:43,590 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:16:43,590 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:16:47,649 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:16:47,649 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:17:17,838 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:17:17,838 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:17:21,906 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:17:21,906 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:17:31,065 - INFO - Executing query: 
+    CREATE TABLE IF NOT EXISTS user_sessions (
+        session_id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        language TEXT,
+        user_name TEXT,
+        event_date TEXT,
+        start_time TEXT,
+        end_time TEXT,
+        number_of_people INTEGER,
+        party_style TEXT,
+        preferences TEXT,
+        city TEXT
+    )
+     with params: ()
+2024-08-06 22:17:31,066 - INFO - Query executed successfully.
+2024-08-06 22:17:31,066 - INFO - Tables created successfully.
+2024-08-06 22:17:52,051 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:17:52,052 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:17:56,115 - ERROR - Error while getting Updates: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:17:56,115 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 330, in _request_wrapper
+    raise Conflict(message)
+telegram.error.Conflict: Conflict: terminated by other getUpdates request; make sure that only one bot instance is running
+2024-08-06 22:18:10,057 - INFO - Application is stopping. This might take a moment.
+2024-08-06 22:18:10,057 - INFO - Application.stop() complete
+2024-08-06 22:19:46,145 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 22:19:46,759 - INFO - Application started
+2024-08-06 22:33:33,164 - INFO - Application is stopping. This might take a moment.
+2024-08-06 22:33:33,164 - INFO - Application.stop() complete
+2024-08-06 22:33:35,969 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 22:33:36,614 - INFO - Application started
+2024-08-06 23:02:19,180 - INFO - Application is stopping. This might take a moment.
+2024-08-06 23:02:19,180 - INFO - Application.stop() complete
+2024-08-06 23:02:21,348 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 23:02:22,014 - INFO - Application started
+2024-08-06 23:02:29,043 - INFO - Application is stopping. This might take a moment.
+2024-08-06 23:02:29,043 - INFO - Application.stop() complete
+2024-08-06 23:03:05,737 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 23:03:06,391 - INFO - Application started
