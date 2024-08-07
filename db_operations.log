@@ -12452,3 +12452,23 @@ Traceback (most recent call last):
   File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 204, in do_request
     raise NetworkError(f"httpx HTTPError: {err}") from err
 telegram.error.NetworkError: httpx HTTPError: 
+2024-08-07 08:40:24,723 - INFO - Application is stopping. This might take a moment.
+2024-08-07 08:40:24,723 - INFO - Application.stop() complete
+2024-08-07 08:40:27,028 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 08:40:27,028 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 08:40:27,028 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (493650, 'en', 'John')
+2024-08-07 08:40:27,033 - INFO - Query executed successfully.
+2024-08-07 08:40:27,700 - INFO - Application started
+2024-08-07 08:56:59,861 - INFO - Application is stopping. This might take a moment.
+2024-08-07 08:56:59,861 - INFO - Application.stop() complete
+2024-08-07 09:13:58,745 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 09:13:58,745 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 09:13:58,745 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (965302, 'en', 'John')
+2024-08-07 09:13:58,753 - INFO - Query executed successfully.
+2024-08-07 09:13:59,465 - INFO - Application started

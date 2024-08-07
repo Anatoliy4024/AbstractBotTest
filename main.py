@@ -10,6 +10,9 @@ from abstract_functions import create_connection
 from database_logger import execute_query_with_logging as execute_query, log_message, log_query
 from keyboards import language_selection_keyboard, yes_no_keyboard, generate_calendar_keyboard, generate_time_selection_keyboard, generate_person_selection_keyboard, generate_party_styles_keyboard
 
+from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, MessageHandler, filters
+from message_handlers import handle_message, handle_name
+
 # Установите путь к базе данных
 DATABASE_PATH = os.path.join(os.path.dirname(__file__), 'user_sessions.db')
 
@@ -812,10 +815,16 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
     some_database_operation()  # Вызов функции для тестирования
 
+    # application = ApplicationBuilder().token(BOT_TOKEN).build()
+    # application.add_handler(CommandHandler('start', start))
+    # application.add_handler(CallbackQueryHandler(button_callback))
+    # application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_name))
+
+
     application = ApplicationBuilder().token(BOT_TOKEN).build()
     application.add_handler(CommandHandler('start', start))
     application.add_handler(CallbackQueryHandler(button_callback))
-    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_name))
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
 
     application.run_polling()
 
