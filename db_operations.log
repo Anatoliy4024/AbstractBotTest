@@ -11821,3 +11821,634 @@ telegram.error.Conflict: Conflict: terminated by other getUpdates request; make 
 2024-08-06 23:02:29,043 - INFO - Application.stop() complete
 2024-08-06 23:03:05,737 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
 2024-08-06 23:03:06,391 - INFO - Application started
+2024-08-06 23:11:20,855 - INFO - Application is stopping. This might take a moment.
+2024-08-06 23:11:20,855 - INFO - Application.stop() complete
+2024-08-06 23:11:22,472 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 23:11:22,935 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 23:11:22,935 - INFO - Executing query: INSERT INTO user_sessions (user_name) VALUES (?) with params: ('John',)
+2024-08-06 23:11:22,935 - INFO - Error executing query: NOT NULL constraint failed: user_sessions.user_id
+2024-08-06 23:11:23,352 - INFO - Application started
+2024-08-06 23:11:28,700 - INFO - Application is stopping. This might take a moment.
+2024-08-06 23:11:28,700 - INFO - Application.stop() complete
+2024-08-06 23:11:29,015 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 23:11:29,390 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 23:11:29,390 - INFO - Executing query: INSERT INTO user_sessions (user_name) VALUES (?) with params: ('John',)
+2024-08-06 23:11:29,391 - INFO - Error executing query: NOT NULL constraint failed: user_sessions.user_id
+2024-08-06 23:11:29,747 - INFO - Application started
+2024-08-06 23:13:09,513 - INFO - Application is stopping. This might take a moment.
+2024-08-06 23:13:09,513 - INFO - Application.stop() complete
+2024-08-06 23:13:46,017 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 23:13:46,373 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 23:13:46,373 - INFO - Executing query: INSERT INTO user_sessions (user_name) VALUES (?) with params: ('John',)
+2024-08-06 23:13:46,373 - INFO - Error executing query: NOT NULL constraint failed: user_sessions.user_id
+2024-08-06 23:13:46,810 - INFO - Application started
+2024-08-06 23:15:05,688 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 540, in button_callback
+    await query.edit_message_reply_markup(reply_markup=disable_yes_no_buttons(query.message.reply_markup))
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_callbackquery.py", line 353, in edit_message_reply_markup
+    return await self.message.edit_reply_markup(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_message.py", line 2580, in edit_reply_markup
+    return await self.get_bot().edit_message_reply_markup(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 1423, in edit_message_reply_markup
+    return await super().edit_message_reply_markup(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3496, in edit_message_reply_markup
+    return await self._send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 488, in _send_message
+    result = await super()._send_message(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 515, in _send_message
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 328, in _request_wrapper
+    raise BadRequest(message)
+telegram.error.BadRequest: Message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2024-08-06 23:19:20,768 - INFO - Application is stopping. This might take a moment.
+2024-08-06 23:19:20,768 - INFO - Application.stop() complete
+2024-08-06 23:19:22,699 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 23:19:23,040 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 23:19:23,040 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (487803, 'en', 'John')
+2024-08-06 23:19:23,047 - INFO - Query executed successfully.
+2024-08-06 23:19:23,362 - INFO - Application started
+2024-08-06 23:25:02,160 - INFO - Application is stopping. This might take a moment.
+2024-08-06 23:25:02,160 - INFO - Application.stop() complete
+2024-08-06 23:25:04,215 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 23:25:04,553 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 23:25:04,553 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (477666, 'en', 'John')
+2024-08-06 23:25:04,560 - INFO - Query executed successfully.
+2024-08-06 23:25:04,918 - INFO - Application started
+2024-08-06 23:39:56,482 - INFO - Application is stopping. This might take a moment.
+2024-08-06 23:39:56,483 - INFO - Application.stop() complete
+2024-08-06 23:39:58,142 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 23:39:58,142 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-06 23:39:58,142 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (907707, 'en', 'John')
+2024-08-06 23:39:58,149 - INFO - Query executed successfully.
+2024-08-06 23:39:58,804 - INFO - Application started
+2024-08-07 00:29:12,485 - INFO - Application is stopping. This might take a moment.
+2024-08-07 00:29:12,486 - INFO - Application.stop() complete
+2024-08-07 00:30:02,520 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 00:30:02,521 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 00:30:02,521 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (181692, 'en', 'John')
+2024-08-07 00:30:02,548 - INFO - Query executed successfully.
+2024-08-07 00:30:03,572 - INFO - Application started
+2024-08-07 00:37:58,309 - ERROR - Error while getting Updates: httpx HTTPError: 
+2024-08-07 00:37:58,309 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_exceptions.py", line 10, in map_exceptions
+    yield
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\backends\asyncio.py", line 34, in read
+    return await self._stream.receive(max_bytes=max_bytes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\anyio\streams\tls.py", line 205, in receive
+    data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\anyio\streams\tls.py", line 147, in _call_sslobject_method
+    data = await self.transport_stream.receive()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 1153, in receive
+    raise self._protocol.exception from None
+anyio.BrokenResourceError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 60, in map_httpcore_exceptions
+    yield
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 353, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 253, in handle_async_request
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 237, in handle_async_request
+    response = await connection.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\connection.py", line 90, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\http11.py", line 112, in handle_async_request
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\http11.py", line 91, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\http11.py", line 155, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\http11.py", line 191, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\backends\asyncio.py", line 31, in read
+    with map_exceptions(exc_map):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc)
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 183, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1533, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1620, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1648, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1685, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1722, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 352, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 77, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 288, in _request_wrapper
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 274, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 204, in do_request
+    raise NetworkError(f"httpx HTTPError: {err}") from err
+telegram.error.NetworkError: httpx HTTPError: 
+2024-08-07 00:37:59,327 - ERROR - Error while getting Updates: httpx HTTPError: [Errno 11001] getaddrinfo failed
+2024-08-07 00:37:59,327 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\anyio\_core\_sockets.py", line 187, in connect_tcp
+    addr_obj = ip_address(remote_host)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\ipaddress.py", line 54, in ip_address
+    raise ValueError(f'{address!r} does not appear to be an IPv4 or IPv6 address')
+ValueError: 'api.telegram.org' does not appear to be an IPv4 or IPv6 address
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_exceptions.py", line 10, in map_exceptions
+    yield
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\backends\asyncio.py", line 111, in connect_tcp
+    stream: anyio.abc.ByteStream = await anyio.connect_tcp(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\anyio\_core\_sockets.py", line 190, in connect_tcp
+    gai_res = await getaddrinfo(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\anyio\_core\_sockets.py", line 568, in getaddrinfo
+    gai_res = await get_async_backend().getaddrinfo(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 2403, in getaddrinfo
+    return await get_running_loop().getaddrinfo(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\asyncio\base_events.py", line 901, in getaddrinfo
+    return await self.run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\socket.py", line 964, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 60, in map_httpcore_exceptions
+    yield
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 353, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 253, in handle_async_request
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 237, in handle_async_request
+    response = await connection.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\connection.py", line 86, in handle_async_request
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\connection.py", line 63, in handle_async_request
+    stream = await self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\connection.py", line 111, in _connect
+    stream = await self._network_backend.connect_tcp(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\backends\auto.py", line 29, in connect_tcp
+    return await self._backend.connect_tcp(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\backends\asyncio.py", line 109, in connect_tcp
+    with map_exceptions(exc_map):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc)
+httpcore.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 183, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1533, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1620, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1648, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1685, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1722, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 352, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 77, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 288, in _request_wrapper
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 274, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 204, in do_request
+    raise NetworkError(f"httpx HTTPError: {err}") from err
+telegram.error.NetworkError: httpx HTTPError: [Errno 11001] getaddrinfo failed
+2024-08-07 00:38:44,881 - INFO - Application is stopping. This might take a moment.
+2024-08-07 00:38:44,881 - INFO - Application.stop() complete
+2024-08-07 00:39:23,056 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 00:39:23,056 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 00:39:23,057 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (884557, 'en', 'John')
+2024-08-07 00:39:23,064 - INFO - Query executed successfully.
+2024-08-07 00:39:24,142 - INFO - Application started
+2024-08-07 00:40:11,233 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\anyio\streams\tls.py", line 140, in _call_sslobject_method
+    result = func(*args)
+             ^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\ssl.py", line 859, in read
+    v = self._sslobj.read(len)
+        ^^^^^^^^^^^^^^^^^^^^^^
+ssl.SSLWantReadError: The operation did not complete (read) (_ssl.c:2559)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\anyio\_core\_tasks.py", line 115, in fail_after
+    yield cancel_scope
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\backends\asyncio.py", line 34, in read
+    return await self._stream.receive(max_bytes=max_bytes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\anyio\streams\tls.py", line 205, in receive
+    data = await self._call_sslobject_method(self._ssl_object.read, max_bytes)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\anyio\streams\tls.py", line 147, in _call_sslobject_method
+    data = await self.transport_stream.receive()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 1142, in receive
+    await self._protocol.read_event.wait()
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\asyncio\locks.py", line 212, in wait
+    await fut
+asyncio.exceptions.CancelledError: Cancelled by cancel scope 20cee6be990
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_exceptions.py", line 10, in map_exceptions
+    yield
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\backends\asyncio.py", line 32, in read
+    with anyio.fail_after(timeout):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\anyio\_core\_tasks.py", line 118, in fail_after
+    raise TimeoutError
+TimeoutError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 60, in map_httpcore_exceptions
+    yield
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 353, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 253, in handle_async_request
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 237, in handle_async_request
+    response = await connection.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\connection.py", line 90, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\http11.py", line 112, in handle_async_request
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\http11.py", line 91, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\http11.py", line 155, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\http11.py", line 191, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\backends\asyncio.py", line 31, in read
+    with map_exceptions(exc_map):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc)
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 183, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1533, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1620, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1648, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1685, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1722, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 352, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 77, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 481, in button_callback
+    await context.bot.send_document(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 2359, in send_document
+    return await super().send_document(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 1257, in send_document
+    return await self._send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 488, in _send_message
+    result = await super()._send_message(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 515, in _send_message
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 288, in _request_wrapper
+    raise exc
+db_operations.logne 147, in _call_sslobject_method
+    data = await self.transport_stream.receive()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\anyio\_backends\_asyncio.py", line 1153, in receive
+    raise self._protocol.exception from None
+anyio.BrokenResourceError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 60, in map_httpcore_exceptions
+    yield
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 353, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 253, in handle_async_request
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\connection_pool.py", line 237, in handle_async_request
+    response = await connection.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\connection.py", line 90, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\http11.py", line 112, in handle_async_request
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\http11.py", line 91, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\http11.py", line 155, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_async\http11.py", line 191, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\backends\asyncio.py", line 31, in read
+    with map_exceptions(exc_map):
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc)
+httpcore.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 183, in do_request
+    res = await self._client.request(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1533, in request
+    return await self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1620, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1648, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1685, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_client.py", line 1722, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 352, in handle_async_request
+    with map_httpcore_exceptions():
+  File "C:\Users\USER\AppData\Local\Programs\Python\Python312\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\httpx\_transports\default.py", line 77, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 600, in _network_loop_retry
+    if not await action_cb():
+           ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 327, in polling_action_cb
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_updater.py", line 312, in polling_action_cb
+    updates = await self.bot.get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 524, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3584, in get_updates
+    await self._post(
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 288, in _request_wrapper
+    raise exc
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 274, in _request_wrapper
+    code, payload = await self.do_request(
+                    ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 204, in do_request
+    raise NetworkError(f"httpx HTTPError: {err}") from err
+telegram.error.NetworkError: httpx HTTPError: 

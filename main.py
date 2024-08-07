@@ -26,7 +26,13 @@ logging.basicConfig(level=logging.DEBUG)
 
 def some_database_operation():
     logging.debug("Starting some_database_operation")
-    execute_query(create_connection(DATABASE_PATH), "INSERT INTO user_sessions (user_name) VALUES (?)", ("John",))
+    conn = create_connection(DATABASE_PATH)
+    query = """
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+    """
+    params = (random.randint(1, 1000000), "en", "John")
+    execute_query(conn, query, params)
     logging.debug("Finished some_database_operation")
 
 #________________________________________________________________________
@@ -803,10 +809,13 @@ def disable_yes_no_buttons(reply_markup):
     return InlineKeyboardMarkup(new_keyboard)
 
 if __name__ == '__main__':
-    application = ApplicationBuilder().token(BOT_TOKEN).build()
+    logging.basicConfig(level=logging.DEBUG)
+    some_database_operation()  # Вызов функции для тестирования
 
+    application = ApplicationBuilder().token(BOT_TOKEN).build()
     application.add_handler(CommandHandler('start', start))
     application.add_handler(CallbackQueryHandler(button_callback))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_name))
 
     application.run_polling()
+
