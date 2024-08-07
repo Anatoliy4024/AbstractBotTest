@@ -11,7 +11,7 @@ from database_logger import execute_query_with_logging as execute_query, log_mes
 from keyboards import language_selection_keyboard, yes_no_keyboard, generate_calendar_keyboard, generate_time_selection_keyboard, generate_person_selection_keyboard, generate_party_styles_keyboard
 
 from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, MessageHandler, filters
-from message_handlers import handle_message, handle_name, handle_city
+from message_handlers import handle_message, handle_name, handle_city_confirmation
 
 
 # Установите путь к базе данных
@@ -813,17 +813,15 @@ def disable_yes_no_buttons(reply_markup):
     return InlineKeyboardMarkup(new_keyboard)
 
 if __name__ == '__main__':
+
     logging.basicConfig(level=logging.DEBUG)
     some_database_operation()  # Вызов функции для тестирования
 
-    # application = ApplicationBuilder().token(BOT_TOKEN).build()
-    # application.add_handler(CommandHandler('start', start))
-    # application.add_handler(CallbackQueryHandler(button_callback))
-    # application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_name))
-
     application = ApplicationBuilder().token(BOT_TOKEN).build()
     application.add_handler(CommandHandler('start', start))
-    application.add_handler(CallbackQueryHandler(button_callback))  # Это если у вас есть функция button_callback
+    application.add_handler(CallbackQueryHandler(button_callback))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+    application.add_handler(MessageHandler(filters.TEXT & filters.COMMAND, handle_city_confirmation))
+
     application.run_polling()
 

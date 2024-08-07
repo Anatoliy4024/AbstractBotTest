@@ -12512,3 +12512,19 @@ telegram.error.NetworkError: httpx HTTPError:
      with params: (998702, 'en', 'John')
 2024-08-07 09:53:14,116 - INFO - Query executed successfully.
 2024-08-07 09:53:14,807 - INFO - Application started
+2024-08-07 10:04:55,222 - INFO - Application is stopping. This might take a moment.
+2024-08-07 10:04:55,222 - INFO - Application.stop() complete
+2024-08-07 10:04:55,650 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 10:04:55,650 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 10:04:55,650 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (191576, 'en', 'John')
+2024-08-07 10:04:55,655 - INFO - Query executed successfully.
+2024-08-07 10:06:23,878 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 10:06:23,878 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 10:06:23,878 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (452090, 'en', 'John')
+2024-08-07 10:06:23,889 - INFO - Query executed successfully.
