@@ -11,6 +11,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await handle_name(update, context)
     elif step == 'preferences_request':
         await handle_preferences(update, context)
+    elif step == 'city_request':
+        await handle_city(update, context)
     else:
         await update.message.reply_text(
             "Выбор только кнопками",
@@ -51,20 +53,22 @@ async def handle_preferences(update: Update, context: ContextTypes.DEFAULT_TYPE)
 
     language_code = user_data.get('language', 'en')
 
-    confirmation_texts = {
-        'en': 'Your preferences have been saved.',
-        'ru': 'Ваши предпочтения сохранены.',
-        'es': 'Tus preferencias han sido guardadas.',
-        'fr': 'Vos préférences ont été enregistrées.',
-        'uk': 'Ваші уподобання збережено.',
-        'pl': 'Twoje preferencje zostały zapisane.',
-        'de': 'Ihre Vorlieben wurden gespeichert.',
-        'it': 'Le tue preferenze sono state salvate.'
-    }
-
     await update.message.reply_text(
-        confirmation_texts.get(language_code, 'Your preferences have been saved.')
+        "Please enter your city.",
     )
+
+    user_data['step'] = 'city_request'
+
+# Функция для обработки города
+async def handle_city(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_data = context.user_data
+    user_data['city'] = update.message.text
+
+    # Переход к следующему шагу - сообщение о сохранении данных
+    await update.message.reply_text(
+        "Ваши данные сохранены.",
+    )
+    user_data['step'] = 'data_saved'
 
 # Функция для получения текущей клавиатуры для шага
 def get_current_step_keyboard(step, user_data):

@@ -12472,3 +12472,43 @@ telegram.error.NetworkError: httpx HTTPError:
      with params: (965302, 'en', 'John')
 2024-08-07 09:13:58,753 - INFO - Query executed successfully.
 2024-08-07 09:13:59,465 - INFO - Application started
+2024-08-07 09:50:36,851 - INFO - Application is stopping. This might take a moment.
+2024-08-07 09:50:36,852 - INFO - Application.stop() complete
+2024-08-07 09:50:39,282 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 09:50:39,284 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 09:50:39,284 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (310013, 'en', 'John')
+2024-08-07 09:50:39,291 - INFO - Query executed successfully.
+2024-08-07 09:50:39,993 - INFO - Application started
+2024-08-07 09:50:45,481 - INFO - Application is stopping. This might take a moment.
+2024-08-07 09:50:45,481 - INFO - Application.stop() complete
+2024-08-07 09:50:45,879 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 09:50:45,879 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 09:50:45,879 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (782274, 'en', 'John')
+2024-08-07 09:50:45,886 - INFO - Query executed successfully.
+2024-08-07 09:50:46,573 - INFO - Application started
+2024-08-07 09:50:57,472 - INFO - Application is stopping. This might take a moment.
+2024-08-07 09:50:57,472 - INFO - Application.stop() complete
+2024-08-07 09:51:03,219 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 09:51:03,219 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 09:51:03,219 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (659368, 'en', 'John')
+2024-08-07 09:51:03,226 - INFO - Query executed successfully.
+2024-08-07 09:51:03,857 - INFO - Application started
+2024-08-07 09:53:13,793 - INFO - Application is stopping. This might take a moment.
+2024-08-07 09:53:13,793 - INFO - Application.stop() complete
+2024-08-07 09:53:14,109 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 09:53:14,109 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 09:53:14,109 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (998702, 'en', 'John')
+2024-08-07 09:53:14,116 - INFO - Query executed successfully.
+2024-08-07 09:53:14,807 - INFO - Application started
