@@ -13285,3 +13285,204 @@ telegram.error.TimedOut: Timed out
      with params: (788422, 'en', 'John')
 2024-08-07 18:41:39,627 - INFO - Query executed successfully.
 2024-08-07 18:41:40,316 - INFO - Application started
+2024-08-07 18:47:01,659 - INFO - Application is stopping. This might take a moment.
+2024-08-07 18:47:01,659 - INFO - Application.stop() complete
+2024-08-07 18:47:16,595 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 18:47:16,595 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 18:47:16,596 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (225497, 'en', 'John')
+2024-08-07 18:47:16,602 - INFO - Query executed successfully.
+2024-08-07 18:47:17,245 - INFO - Application started
+2024-08-07 18:50:48,280 - INFO - Application is stopping. This might take a moment.
+2024-08-07 18:50:48,280 - INFO - Application.stop() complete
+2024-08-07 18:50:48,704 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 18:50:48,706 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 18:50:48,706 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (327370, 'en', 'John')
+2024-08-07 18:50:48,712 - INFO - Query executed successfully.
+2024-08-07 18:50:49,508 - INFO - Application started
+2024-08-07 18:51:03,793 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 65, in start
+    cursor.execute('''
+sqlite3.OperationalError: table user_sessions has no column named username
+2024-08-07 18:51:06,976 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 65, in start
+    cursor.execute('''
+sqlite3.OperationalError: table user_sessions has no column named username
+2024-08-07 18:51:08,430 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 65, in start
+    cursor.execute('''
+sqlite3.OperationalError: table user_sessions has no column named username
+2024-08-07 18:51:10,273 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 65, in start
+    cursor.execute('''
+sqlite3.OperationalError: table user_sessions has no column named username
+2024-08-07 18:51:13,360 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 65, in start
+    cursor.execute('''
+sqlite3.OperationalError: table user_sessions has no column named username
+2024-08-07 18:51:14,458 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 65, in start
+    cursor.execute('''
+sqlite3.OperationalError: table user_sessions has no column named username
+2024-08-07 18:51:27,305 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 65, in start
+    cursor.execute('''
+sqlite3.OperationalError: table user_sessions has no column named username
+2024-08-07 18:51:29,445 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 65, in start
+    cursor.execute('''
+sqlite3.OperationalError: table user_sessions has no column named username
+2024-08-07 18:51:30,312 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 65, in start
+    cursor.execute('''
+sqlite3.OperationalError: table user_sessions has no column named username
+2024-08-07 18:51:31,100 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 65, in start
+    cursor.execute('''
+sqlite3.OperationalError: table user_sessions has no column named username
+2024-08-07 18:52:04,761 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 65, in start
+    cursor.execute('''
+sqlite3.OperationalError: table user_sessions has no column named username
+2024-08-07 19:46:51,519 - INFO - Application is stopping. This might take a moment.
+2024-08-07 19:46:51,519 - INFO - Application.stop() complete
+2024-08-07 20:48:00,731 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 20:48:00,731 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 20:48:00,731 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (625454, 'en', 'John')
+2024-08-07 20:48:00,732 - INFO - Error executing query: no such table: user_sessions
+2024-08-07 20:48:01,396 - INFO - Application started
+2024-08-07 21:57:02,131 - INFO - Application is stopping. This might take a moment.
+2024-08-07 21:57:02,132 - INFO - Application.stop() complete
+2024-08-07 21:57:02,516 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 21:57:02,516 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 21:57:02,516 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (710841, 'en', 'John')
+2024-08-07 21:57:02,523 - INFO - Query executed successfully.
+2024-08-07 21:57:03,204 - INFO - Application started
+2024-08-07 22:00:19,053 - INFO - Application is stopping. This might take a moment.
+2024-08-07 22:00:19,054 - INFO - Application.stop() complete
+2024-08-07 22:00:19,383 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 22:00:19,383 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 22:00:19,383 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (492445, 'en', 'John')
+2024-08-07 22:00:19,399 - INFO - Query executed successfully.
+2024-08-07 22:00:20,159 - INFO - Application started
+2024-08-07 22:02:50,681 - INFO - Application is stopping. This might take a moment.
+2024-08-07 22:02:50,681 - INFO - Application.stop() complete
+2024-08-07 22:02:51,091 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 22:02:51,091 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 22:02:51,092 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (678583, 'en', 'John')
+2024-08-07 22:02:51,099 - INFO - Query executed successfully.
+2024-08-07 22:02:51,797 - INFO - Application started
+2024-08-07 22:02:51,825 - INFO - Application is stopping. This might take a moment.
+2024-08-07 22:02:51,825 - INFO - Application.stop() complete
+2024-08-07 22:02:52,221 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 22:02:52,221 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 22:02:52,221 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (123146, 'en', 'John')
+2024-08-07 22:02:52,227 - INFO - Query executed successfully.
+2024-08-07 22:02:53,125 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 22:02:53,125 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 22:02:53,125 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (932683, 'en', 'John')
+2024-08-07 22:02:53,133 - INFO - Query executed successfully.
+2024-08-07 22:02:53,867 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 22:02:53,867 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 22:02:53,867 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (162088, 'en', 'John')
+2024-08-07 22:02:53,873 - INFO - Query executed successfully.
+2024-08-07 22:02:54,865 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 22:02:54,865 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 22:02:54,865 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (789007, 'en', 'John')
+2024-08-07 22:02:54,875 - INFO - Query executed successfully.
+2024-08-07 22:02:55,657 - INFO - Application started
