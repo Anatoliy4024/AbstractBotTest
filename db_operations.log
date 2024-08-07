@@ -12528,3 +12528,11 @@ telegram.error.NetworkError: httpx HTTPError:
     VALUES (?, ?, ?)
      with params: (452090, 'en', 'John')
 2024-08-07 10:06:23,889 - INFO - Query executed successfully.
+2024-08-07 10:06:44,700 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 10:06:44,700 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 10:06:44,700 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (325970, 'en', 'John')
+2024-08-07 10:06:44,705 - INFO - Query executed successfully.
+2024-08-07 10:06:45,392 - INFO - Application started
