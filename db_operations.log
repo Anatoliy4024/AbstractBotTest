@@ -13264,3 +13264,24 @@ Traceback (most recent call last):
   File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 200, in do_request
     raise TimedOut from err
 telegram.error.TimedOut: Timed out
+2024-08-07 15:58:55,735 - INFO - Application is stopping. This might take a moment.
+2024-08-07 15:58:55,736 - INFO - Application.stop() complete
+2024-08-07 15:58:56,393 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 15:58:56,394 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 15:58:56,394 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (823029, 'en', 'John')
+2024-08-07 15:58:56,402 - INFO - Query executed successfully.
+2024-08-07 15:58:57,696 - INFO - Application started
+2024-08-07 18:10:43,032 - INFO - Application is stopping. This might take a moment.
+2024-08-07 18:10:43,033 - INFO - Application.stop() complete
+2024-08-07 18:32:05,683 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 18:41:39,621 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 18:41:39,621 - INFO - Connected to database C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-07 18:41:39,621 - INFO - Executing query: 
+    INSERT INTO user_sessions (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (788422, 'en', 'John')
+2024-08-07 18:41:39,627 - INFO - Query executed successfully.
+2024-08-07 18:41:40,316 - INFO - Application started

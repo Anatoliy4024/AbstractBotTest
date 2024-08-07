@@ -1,14 +1,22 @@
 import sqlite3
-from database_logger import log_message, execute_query_with_logging
 
-def initialize_db():
-    conn = sqlite3.connect('user_sessions.db')
+def create_connection(db_file):
+    conn = None
+    try:
+        conn = sqlite3.connect(db_file)
+        return conn
+    except sqlite3.Error as e:
+        print(e)
+    return conn
+
+def initialize_database():
+    conn = create_connection('user_sessions.db')
     cursor = conn.cursor()
 
-    create_table_query = '''
+    cursor.execute('''
     CREATE TABLE IF NOT EXISTS user_sessions (
-        session_id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER NOT NULL,
+        session_id INTEGER PRIMARY KEY,
+        user_id INTEGER,
         language TEXT,
         user_name TEXT,
         event_date TEXT,
@@ -17,17 +25,13 @@ def initialize_db():
         number_of_people INTEGER,
         party_style TEXT,
         preferences TEXT,
-        city TEXT
+        city TEXT,
+        username TEXT -- добавляем новое поле для username
     )
-    '''
+    ''')
 
-    try:
-        execute_query_with_logging(conn, create_table_query)
-        log_message('Tables created successfully.')
-    except sqlite3.Error as e:
-        log_message(f'Error creating tables: {e}')
-    finally:
-        conn.close()
+    conn.commit()
+    conn.close()
 
-if __name__ == '__main__':
-    initialize_db()
+if __name__ == "__main__":
+    initialize_database()
