@@ -19478,3 +19478,102 @@ Traceback (most recent call last):
   File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_httpxrequest.py", line 204, in do_request
     raise NetworkError(f"httpx HTTPError: {err}") from err
 telegram.error.NetworkError: httpx HTTPError: [Errno 11001] getaddrinfo failed
+2024-08-08 11:45:25,973 - INFO - Application is stopping. This might take a moment.
+2024-08-08 11:45:25,973 - INFO - Application.stop() complete
+2024-08-08 11:45:26,420 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 11:45:26,420 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 11:45:26,420 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 11:45:26,421 - INFO - Executing query: 
+        ALTER TABLE users ADD COLUMN username TEXT
+         with params: ()
+2024-08-08 11:45:26,421 - INFO - Error executing query: duplicate column name: username
+2024-08-08 11:45:26,421 - INFO - Database connection closed
+2024-08-08 11:45:26,421 - INFO - Executing query: 
+    INSERT INTO users (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (587788, 'en', 'John')
+2024-08-08 11:45:26,425 - INFO - Query executed successfully with retry: 
+    INSERT INTO users (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params (587788, 'en', 'John')
+2024-08-08 11:45:26,425 - INFO - Database connection closed after retry
+2024-08-08 11:45:27,221 - INFO - Application started
+2024-08-08 11:58:53,023 - INFO - Application is stopping. This might take a moment.
+2024-08-08 11:58:53,023 - INFO - Application.stop() complete
+2024-08-08 11:58:53,312 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 11:58:53,312 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 11:58:53,312 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 11:58:53,313 - INFO - Executing query: 
+        ALTER TABLE users ADD COLUMN username TEXT
+         with params: ()
+2024-08-08 11:58:53,313 - INFO - Error executing query: duplicate column name: username
+2024-08-08 11:58:53,313 - INFO - Database connection closed
+2024-08-08 11:58:53,313 - INFO - Executing query: 
+    INSERT INTO users (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (758758, 'en', 'John')
+2024-08-08 11:58:53,320 - INFO - Query executed successfully with retry: 
+    INSERT INTO users (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params (758758, 'en', 'John')
+2024-08-08 11:58:53,320 - INFO - Database connection closed after retry
+2024-08-08 11:58:54,038 - INFO - Application started
+2024-08-08 11:59:36,319 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 11:59:36,319 - INFO - Executing query: 
+        INSERT INTO users (user_id, username)
+        VALUES (?, ?)
+         with params: (542067858, 'AnatoliyBordovskyi')
+2024-08-08 11:59:36,319 - INFO - Error executing query: UNIQUE constraint failed: users.user_id
+2024-08-08 11:59:36,319 - INFO - Database connection closed
+2024-08-08 13:10:29,949 - INFO - Application is stopping. This might take a moment.
+2024-08-08 13:10:29,949 - INFO - Application.stop() complete
+2024-08-08 13:10:30,494 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 13:10:30,495 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:10:30,495 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:10:30,495 - INFO - Executing query: 
+        ALTER TABLE users ADD COLUMN username TEXT
+         with params: ()
+2024-08-08 13:10:30,495 - INFO - Error executing query: duplicate column name: username
+2024-08-08 13:10:30,495 - INFO - Database connection closed
+2024-08-08 13:10:30,496 - INFO - Executing query: 
+    INSERT INTO users (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (319464, 'en', 'John')
+2024-08-08 13:10:36,021 - INFO - Database is locked, retrying 1/5
+2024-08-08 13:10:37,022 - INFO - Database connection closed after retry
+2024-08-08 13:10:37,023 - INFO - Executing query: 
+    INSERT INTO users (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (319464, 'en', 'John')
+2024-08-08 13:10:42,568 - INFO - Database is locked, retrying 2/5
+2024-08-08 13:10:43,569 - INFO - Database connection closed after retry
+2024-08-08 13:10:43,569 - INFO - Executing query: 
+    INSERT INTO users (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (319464, 'en', 'John')
+2024-08-08 13:10:49,120 - INFO - Database is locked, retrying 3/5
+2024-08-08 13:10:50,121 - INFO - Database connection closed after retry
+2024-08-08 13:10:50,121 - INFO - Executing query: 
+    INSERT INTO users (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (319464, 'en', 'John')
+2024-08-08 13:10:55,671 - INFO - Database is locked, retrying 4/5
+2024-08-08 13:10:56,672 - INFO - Database connection closed after retry
+2024-08-08 13:10:56,672 - INFO - Executing query: 
+    INSERT INTO users (user_id, language, user_name)
+    VALUES (?, ?, ?)
+     with params: (319464, 'en', 'John')
+2024-08-08 13:11:02,226 - INFO - Database is locked, retrying 5/5
+2024-08-08 13:11:03,226 - INFO - Database connection closed after retry
+2024-08-08 13:11:03,943 - INFO - Application started
+2024-08-08 13:11:39,747 - INFO - Application is stopping. This might take a moment.
+2024-08-08 13:11:39,747 - INFO - Application.stop() complete
+2024-08-08 13:11:40,256 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 13:11:40,256 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:11:40,256 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:11:40,256 - INFO - Executing query: 
+        ALTER TABLE users ADD COLUMN username TEXT
+         with params: ()
+2024-08-08 13:11:40,256 - INFO - Error executing query: duplicate column name: username
+2024-08-08 13:11:40,256 - INFO - Database connection closed
+2024-08-08 13:11:41,039 - INFO - Application started

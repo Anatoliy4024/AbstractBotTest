@@ -542,7 +542,7 @@ if __name__ == '__main__':
     add_username_column()  # Добавить колонку username
 
     logging.basicConfig(level=logging.DEBUG)
-    some_database_operation()  # Вызов функции для тестирования
+ #   some_database_operation()  # Вызов функции для тестирования
 
     application = ApplicationBuilder().token(BOT_TOKEN).build()
     application.add_handler(CommandHandler('start', start))
