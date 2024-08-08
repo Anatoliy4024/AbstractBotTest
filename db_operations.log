@@ -19577,3 +19577,118 @@ telegram.error.NetworkError: httpx HTTPError: [Errno 11001] getaddrinfo failed
 2024-08-08 13:11:40,256 - INFO - Error executing query: duplicate column name: username
 2024-08-08 13:11:40,256 - INFO - Database connection closed
 2024-08-08 13:11:41,039 - INFO - Application started
+2024-08-08 13:25:41,026 - INFO - Application is stopping. This might take a moment.
+2024-08-08 13:25:41,026 - INFO - Application.stop() complete
+2024-08-08 13:25:41,591 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 13:25:41,592 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:25:41,592 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:25:41,592 - INFO - Executing query: 
+        ALTER TABLE users ADD COLUMN username TEXT
+         with params: ()
+2024-08-08 13:25:41,592 - INFO - Error executing query: duplicate column name: username
+2024-08-08 13:25:41,592 - INFO - Database connection closed
+2024-08-08 13:25:42,435 - INFO - Application started
+2024-08-08 13:25:53,626 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:25:53,626 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (921408292, 'maxsuccess4')
+2024-08-08 13:25:59,140 - INFO - Error executing query: database is locked
+2024-08-08 13:25:59,140 - INFO - Database connection closed
+2024-08-08 13:27:16,550 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:27:16,551 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (6076551221, 'nick0598')
+2024-08-08 13:27:22,077 - INFO - Error executing query: database is locked
+2024-08-08 13:27:22,077 - INFO - Database connection closed
+2024-08-08 13:40:06,476 - INFO - Application is stopping. This might take a moment.
+2024-08-08 13:40:06,476 - INFO - Application.stop() complete
+2024-08-08 13:40:06,936 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 13:40:06,938 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:40:06,938 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:40:06,938 - INFO - Executing query: 
+        ALTER TABLE users ADD COLUMN username TEXT
+         with params: ()
+2024-08-08 13:40:06,938 - INFO - Error executing query: duplicate column name: username
+2024-08-08 13:40:06,939 - INFO - Database connection closed
+2024-08-08 13:40:07,879 - INFO - Application started
+2024-08-08 13:40:43,787 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:40:43,787 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (921408292, 'maxsuccess4')
+2024-08-08 13:40:49,326 - INFO - Error executing query: database is locked
+2024-08-08 13:40:49,326 - INFO - Database connection closed
+2024-08-08 13:41:02,906 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:41:02,906 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (542067858, 'AnatoliyBordovskyi')
+2024-08-08 13:41:08,427 - INFO - Error executing query: database is locked
+2024-08-08 13:41:08,427 - INFO - Database connection closed
+2024-08-08 13:41:08,663 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:41:08,664 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (542067858, 'AnatoliyBordovskyi')
+2024-08-08 13:41:14,191 - INFO - Error executing query: database is locked
+2024-08-08 13:41:14,191 - INFO - Database connection closed
+2024-08-08 13:41:14,465 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:41:14,465 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (542067858, 'AnatoliyBordovskyi')
+2024-08-08 13:41:19,988 - INFO - Error executing query: database is locked
+2024-08-08 13:41:19,988 - INFO - Database connection closed
+2024-08-08 13:41:35,880 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:41:35,881 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (921408292, 'maxsuccess4')
+2024-08-08 13:41:41,431 - INFO - Error executing query: database is locked
+2024-08-08 13:41:41,431 - INFO - Database connection closed
+2024-08-08 13:45:33,176 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:45:33,176 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (884649958, 'A_Tuna')
+2024-08-08 13:45:38,714 - INFO - Error executing query: database is locked
+2024-08-08 13:45:38,714 - INFO - Database connection closed
+2024-08-08 13:45:38,955 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:45:38,955 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (884649958, 'A_Tuna')
+2024-08-08 13:45:44,475 - INFO - Error executing query: database is locked
+2024-08-08 13:45:44,475 - INFO - Database connection closed
+2024-08-08 13:51:42,744 - INFO - Application is stopping. This might take a moment.
+2024-08-08 13:51:42,744 - INFO - Application.stop() complete
+2024-08-08 13:51:43,193 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 13:51:43,193 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:51:43,194 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:51:43,194 - INFO - Executing query: 
+        ALTER TABLE users ADD COLUMN username TEXT
+         with params: ()
+2024-08-08 13:51:43,194 - INFO - Error executing query: duplicate column name: username
+2024-08-08 13:51:43,194 - INFO - Database connection closed
+2024-08-08 13:51:44,020 - INFO - Application started
+2024-08-08 13:51:48,981 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:51:48,981 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (921408292, 'maxsuccess4')
+2024-08-08 13:51:48,982 - INFO - Query executed successfully: UPDATE users SET username = ? WHERE user_id= ? with params (921408292, 'maxsuccess4')
+2024-08-08 13:51:48,982 - INFO - Database connection closed
+2024-08-08 13:52:04,709 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:52:04,710 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (884649958, 'A_Tuna')
+2024-08-08 13:52:04,710 - INFO - Query executed successfully: UPDATE users SET username = ? WHERE user_id= ? with params (884649958, 'A_Tuna')
+2024-08-08 13:52:04,710 - INFO - Database connection closed
+2024-08-08 13:54:36,840 - INFO - Application is stopping. This might take a moment.
+2024-08-08 13:54:36,840 - INFO - Application.stop() complete
+2024-08-08 13:54:37,337 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 13:54:37,337 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:54:38,275 - INFO - Application started
+2024-08-08 13:54:42,113 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:54:42,113 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (921408292, 'maxsuccess4')
+2024-08-08 13:54:42,113 - INFO - Query executed successfully: UPDATE users SET username = ? WHERE user_id= ? with params (921408292, 'maxsuccess4')
+2024-08-08 13:54:42,113 - INFO - Database connection closed
+2024-08-08 13:54:58,502 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:54:58,502 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (884649958, 'A_Tuna')
+2024-08-08 13:54:58,502 - INFO - Query executed successfully: UPDATE users SET username = ? WHERE user_id= ? with params (884649958, 'A_Tuna')
+2024-08-08 13:54:58,502 - INFO - Database connection closed
+2024-08-08 13:55:03,758 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:55:03,758 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (884649958, 'A_Tuna')
+2024-08-08 13:55:03,759 - INFO - Query executed successfully: UPDATE users SET username = ? WHERE user_id= ? with params (884649958, 'A_Tuna')
+2024-08-08 13:55:03,759 - INFO - Database connection closed
+2024-08-08 13:55:13,406 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:55:13,406 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (6076551221, 'nick0598')
+2024-08-08 13:55:13,406 - INFO - Query executed successfully: UPDATE users SET username = ? WHERE user_id= ? with params (6076551221, 'nick0598')
+2024-08-08 13:55:13,406 - INFO - Database connection closed
+2024-08-08 13:55:36,185 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:55:36,185 - INFO - Executing query: UPDATE users SET username = ? WHERE user_id= ? with params: (884649958, 'A_Tuna')
+2024-08-08 13:55:36,186 - INFO - Query executed successfully: UPDATE users SET username = ? WHERE user_id= ? with params (884649958, 'A_Tuna')
+2024-08-08 13:55:36,186 - INFO - Database connection closed
+2024-08-08 13:58:12,897 - INFO - Application is stopping. This might take a moment.
+2024-08-08 13:58:12,897 - INFO - Application.stop() complete
+2024-08-08 13:58:13,387 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 13:58:13,388 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:58:14,203 - INFO - Application started
+2024-08-08 13:58:15,937 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:58:15,937 - INFO - Executing query: UPDATE users SET username = ?, language = '1111' WHERE user_id= ? with params: (921408292, 'maxsuccess4')
+2024-08-08 13:58:21,464 - INFO - Error executing query: database is locked
+2024-08-08 13:58:21,464 - INFO - Database connection closed
+2024-08-08 13:58:21,712 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 13:58:21,712 - INFO - Executing query: UPDATE users SET username = ?, language = '1111' WHERE user_id= ? with params: (921408292, 'maxsuccess4')
+2024-08-08 13:58:27,235 - INFO - Error executing query: database is locked
+2024-08-08 13:58:27,235 - INFO - Database connection closed

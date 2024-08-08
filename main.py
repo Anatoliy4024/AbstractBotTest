@@ -74,13 +74,20 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Сохранение username в базу данных
     conn = create_connection(DATABASE_PATH)
     if conn is not None:
-        query = """
-        INSERT INTO users (user_id, username)
-        VALUES (?, ?)
-        """
-        params = (user_id, username)
-        execute_query(conn, query, params)
-        conn.close()
+        try:
+            update_query = "UPDATE users SET username = ?, language = '1111' WHERE user_id= ?"
+            update_params = (user_id, username)
+            execute_query(conn, update_query, update_params)
+        except Exception as e:
+            print(e)
+            query = """
+            INSERT INTO users (user_id, username)
+            VALUES (?, ?)
+            """
+            params = (user_id, username)
+            execute_query(conn, query, params)
+        finally:
+            conn.close()
     else:
         logging.error("Failed to create database connection")
 
@@ -539,7 +546,7 @@ def disable_yes_no_buttons(reply_markup):
     return InlineKeyboardMarkup(new_keyboard)
 
 if __name__ == '__main__':
-    add_username_column()  # Добавить колонку username
+    # add_username_column()  # Добавить колонку username
 
     logging.basicConfig(level=logging.DEBUG)
  #   some_database_operation()  # Вызов функции для тестирования
