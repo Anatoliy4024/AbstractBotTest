@@ -28,7 +28,21 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
-logger.info(f"Database path: {os.path.join(os.path.dirname(__file__), 'user_sessions.db')}")
+logger.info(f"Database path: {os.path.join(os.path.dirname(__file__), 'sqlite.db')}")
+
+#########################################################################
+# добавление обработчика ошибок
+from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, MessageHandler, filters, Application
+from telegram.error import TelegramError
+
+async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
+    """Log the error and send a telegram message to notify the developer."""
+    # Log the error before we do anything else, so we can see it even if something breaks.
+    logger.error(msg="Exception while handling an update:", exc_info=context.error)
+
+    # Notify the developer via Telegram (if desired)
+    if isinstance(update, Update):
+        await update.message.reply_text("An error occurred. The administrator has been notified.")
 
 
 def some_database_operation():
@@ -101,6 +115,80 @@ conn = create_connection(DATABASE_PATH)
 #             "Choose your language / Выберите язык / Elige tu idioma",
 #             reply_markup=language_selection_keyboard()
 #         )
+
+# # Новая версия 1 рабочая, но тоже запирается_____________________________________
+# import time
+# import sqlite3
+# import logging
+#
+# def execute_query_with_retry(conn, query, params=(), max_retries=5, delay=2):
+#     """Выполняет SQL-запрос с повторными попытками при блокировке базы данных."""
+#     retries = 0
+#     while retries < max_retries:
+#         try:
+#             cursor = conn.cursor()
+#             cursor.execute(query, params)
+#             conn.commit()
+#             return
+#         except sqlite3.OperationalError as e:
+#             if "database is locked" in str(e):
+#                 retries += 1
+#                 logging.warning(f"Database is locked, retrying {retries}/{max_retries}")
+#                 time.sleep(delay)  # Увеличение задержки перед повторной попыткой
+#             else:
+#                 logging.error(f"Error executing query: {e}")
+#                 raise e
+#     raise sqlite3.OperationalError(f"Max retries exceeded for query: {query}")
+#
+# async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+#     user_data = context.user_data
+#     user_data['step'] = 'start'
+#     user_id = update.message.from_user.id if update.message else update.callback_query.from_user.id
+#     username = update.message.from_user.username if update.message else update.callback_query.from_user.username
+#
+#     conn = create_connection(DATABASE_PATH)
+#     if conn is not None:
+#         try:
+#             update_query = "UPDATE users SET username = ?, language = 'en' WHERE user_id= ?"
+#             update_params = (username, user_id)
+#             execute_query_with_retry(conn, update_query, update_params)
+#         except sqlite3.Error as e:
+#             if "no such table" in str(e):
+#                 query = """
+#                 CREATE TABLE IF NOT EXISTS users (
+#                     user_id INTEGER PRIMARY KEY,
+#                     username TEXT,
+#                     language TEXT
+#                 )
+#                 """
+#                 execute_query_with_retry(conn, query)
+#                 query = """
+#                 INSERT INTO users (user_id, username)
+#                 VALUES (?, ?)
+#                 """
+#                 params = (user_id, username)
+#                 execute_query_with_retry(conn, query, params)
+#             else:
+#                 log_message(f"Database error: {e}")
+#         finally:
+#             conn.close()
+#     else:
+#         log_message("Failed to create database connection")
+#
+#     if update.message:
+#         await update.message.reply_text(
+#             "Choose your language / Выберите язык / Elige tu idioma",
+#             reply_markup=language_selection_keyboard()
+#         )
+#     elif update.callback_query:
+#         await update.callback_query.message.reply_text(
+#             "Choose your language / Выберите язык / Elige tu idioma",
+#             reply_markup=language_selection_keyboard()
+#         )
+# #Конец новой версии 1
+
+
+#Версия сделанная с 13.00 до 14.00 - 8.08.2024
 import time
 import sqlite3
 import logging
@@ -130,7 +218,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     username = update.message.from_user.username if update.message else update.callback_query.from_user.username
 
     # Сохранение username в базу данных
-    conn = create_connection(DATABASE_PATH)
+    # conn = create_connection(DATABASE_PATH)
     if conn is not None:
         try:
             update_query = "UPDATE users SET username = ?, language = '1111' WHERE user_id= ?"
@@ -160,6 +248,51 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=language_selection_keyboard()
         )
 
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_data = context.user_data
+    user_data['step'] = 'start'
+    user_id = update.message.from_user.id if update.message else update.callback_query.from_user.id
+    username = update.message.from_user.username if update.message else update.callback_query.from_user.username
+
+    conn = create_connection(DATABASE_PATH)
+    if conn is not None:
+        try:
+            update_query = "UPDATE users SET username = ?, language = 'en' WHERE user_id= ?"
+            update_params = (username, user_id)
+            execute_query_with_retry(conn, update_query, update_params)
+        except sqlite3.Error as e:
+            if "no such table" in str(e):
+                query = """
+                CREATE TABLE IF NOT EXISTS users (
+                    user_id INTEGER PRIMARY KEY,
+                    username TEXT,
+                    language TEXT
+                )
+                """
+                execute_query_with_retry(conn, query)
+                query = """
+                INSERT INTO users (user_id, username)
+                VALUES (?, ?)
+                """
+                params = (user_id, username)
+                execute_query_with_retry(conn, query, params)
+            else:
+                log_message(f"Database error: {e}")
+        finally:
+            conn.close()
+    else:
+        log_message("Failed to create database connection")
+
+    if update.message:
+        await update.message.reply_text(
+            "Choose your language / Выберите язык / Elige tu idioma",
+            reply_markup=language_selection_keyboard()
+        )
+    elif update.callback_query:
+        await update.callback_query.message.reply_text(
+            "Choose your language / Выберите язык / Elige tu idioma",
+            reply_markup=language_selection_keyboard()
+        )
 
 
 async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -607,12 +740,15 @@ if __name__ == '__main__':
     # add_username_column()  # Добавить колонку username
 
     logging.basicConfig(level=logging.DEBUG)
- #   some_database_operation()  # Вызов функции для тестирования
+    #some_database_operation()  # Вызов функции для тестирования
 
     application = ApplicationBuilder().token(BOT_TOKEN).build()
     application.add_handler(CommandHandler('start', start))
     application.add_handler(CallbackQueryHandler(button_callback))
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
     application.add_handler(MessageHandler(filters.TEXT & filters.COMMAND, handle_city_confirmation))
+
+    # Регистрация обработчика ошибок
+    application.add_error_handler(error_handler)
 
     application.run_polling()
