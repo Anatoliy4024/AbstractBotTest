@@ -21805,3 +21805,156 @@ AttributeError: 'NoneType' object has no attribute 'reply_text'
 2024-08-08 21:31:17,608 - INFO - Application started
 2024-08-08 21:31:17,776 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
 2024-08-08 21:31:17,906 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 21:54:53,832 - INFO - Application is stopping. This might take a moment.
+2024-08-08 21:54:53,832 - INFO - Application.stop() complete
+2024-08-08 21:54:54,259 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 21:54:54,260 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 21:54:55,023 - INFO - Application started
+2024-08-08 21:59:37,392 - INFO - Application is stopping. This might take a moment.
+2024-08-08 21:59:37,392 - INFO - Application.stop() complete
+2024-08-08 21:59:37,683 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 21:59:37,683 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 21:59:38,408 - INFO - Application started
+2024-08-08 21:59:51,116 - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 466, in button_callback
+    if user_data['step'] == 'calendar':
+       ~~~~~~~~~^^^^^^^^
+KeyError: 'step'
+2024-08-08 21:59:51,117 - ERROR - An error was raised and an uncaught error was raised while handling the error with an error_handler.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 466, in button_callback
+    if user_data['step'] == 'calendar':
+       ~~~~~~~~~^^^^^^^^
+KeyError: 'step'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1576, in process_error
+    await callback(update, context)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 45, in error_handler
+    await update.message.reply_text("An error occurred. The administrator has been notified.")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'reply_text'
+2024-08-08 21:59:53,555 - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 466, in button_callback
+    if user_data['step'] == 'calendar':
+       ~~~~~~~~~^^^^^^^^
+KeyError: 'step'
+2024-08-08 21:59:53,557 - ERROR - An error was raised and an uncaught error was raised while handling the error with an error_handler.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 466, in button_callback
+    if user_data['step'] == 'calendar':
+       ~~~~~~~~~^^^^^^^^
+KeyError: 'step'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1576, in process_error
+    await callback(update, context)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 45, in error_handler
+    await update.message.reply_text("An error occurred. The administrator has been notified.")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'reply_text'
+2024-08-08 21:59:56,707 - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 425, in button_callback
+    if user_data['step'] == 'name_received':
+       ~~~~~~~~~^^^^^^^^
+KeyError: 'step'
+2024-08-08 21:59:56,708 - ERROR - An error was raised and an uncaught error was raised while handling the error with an error_handler.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 425, in button_callback
+    if user_data['step'] == 'name_received':
+       ~~~~~~~~~^^^^^^^^
+KeyError: 'step'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1576, in process_error
+    await callback(update, context)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 45, in error_handler
+    await update.message.reply_text("An error occurred. The administrator has been notified.")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'reply_text'
+2024-08-08 22:00:11,820 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:02:31,552 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:09:30,225 - INFO - Application is stopping. This might take a moment.
+2024-08-08 22:09:30,225 - INFO - Application.stop() complete
+2024-08-08 22:09:31,733 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:09:31,733 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:09:32,479 - INFO - Application started
+2024-08-08 22:09:50,525 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:12:29,436 - INFO - Application is stopping. This might take a moment.
+2024-08-08 22:12:29,436 - INFO - Application.stop() complete
+2024-08-08 22:12:30,883 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:12:30,885 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:12:31,553 - INFO - Application started
+2024-08-08 22:12:46,092 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:15:14,834 - INFO - Application is stopping. This might take a moment.
+2024-08-08 22:15:14,834 - INFO - Application.stop() complete
+2024-08-08 22:15:15,139 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:15:15,139 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:15:15,852 - INFO - Application started
+2024-08-08 22:15:29,879 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:31:22,057 - INFO - Application is stopping. This might take a moment.
+2024-08-08 22:31:22,057 - INFO - Application.stop() complete
+2024-08-08 22:31:22,500 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:31:22,500 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:31:23,301 - INFO - Application started
+2024-08-08 22:31:41,412 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:31:41,412 - INFO - Executing query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ? with params: ('AnatoliyBordovskyi', 542067858)
+2024-08-08 22:31:41,413 - INFO - Query executed successfully with retry: UPDATE users SET username = ?, language = 'en' WHERE user_id= ? with params ('AnatoliyBordovskyi', 542067858)
+2024-08-08 22:38:19,839 - INFO - Application is stopping. This might take a moment.
+2024-08-08 22:38:19,839 - INFO - Application.stop() complete
+2024-08-08 22:38:20,273 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:38:20,273 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:38:21,025 - INFO - Application started
+2024-08-08 22:38:44,059 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:38:44,059 - INFO - Executing query: INSERT INTO users (user_id, username, language) VALUES (?, ?, ?) with params: (542067858, 'AnatoliyBordovskyi', 'en')
+2024-08-08 22:38:44,071 - INFO - Query executed successfully with retry: INSERT INTO users (user_id, username, language) VALUES (?, ?, ?) with params (542067858, 'AnatoliyBordovskyi', 'en')
+2024-08-08 22:39:58,928 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:39:58,928 - INFO - Executing query: INSERT INTO users (user_id, username, language) VALUES (?, ?, ?) with params: (884649958, 'A_Tuna', 'en')
+2024-08-08 22:39:58,945 - INFO - Query executed successfully with retry: INSERT INTO users (user_id, username, language) VALUES (?, ?, ?) with params (884649958, 'A_Tuna', 'en')
+2024-08-08 22:44:40,838 - INFO - Application is stopping. This might take a moment.
+2024-08-08 22:44:40,839 - INFO - Application.stop() complete
+2024-08-08 22:44:41,255 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:44:41,257 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:44:41,977 - INFO - Application started
+2024-08-08 22:45:05,970 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 22:45:05,971 - INFO - Executing query: UPDATE users SET username = ?, language = ? WHERE user_id= ? with params: ('A_Tuna', 'en', 884649958)
+2024-08-08 22:45:05,971 - INFO - Query executed successfully with retry: UPDATE users SET username = ?, language = ? WHERE user_id= ? with params ('A_Tuna', 'en', 884649958)
