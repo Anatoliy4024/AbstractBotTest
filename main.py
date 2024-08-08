@@ -4,42 +4,52 @@ import random
 from datetime import datetime, timedelta
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton, InputMediaVideo
 from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, MessageHandler, ContextTypes, filters
-from abstract_functions import create_connection
+from abstract_functions import create_connection, execute_query, execute_query_with_retry
 import sqlite3
 
-from database_logger import execute_query_with_logging as execute_query, log_message, log_query
+from database_logger import log_message, log_query
 from keyboards import language_selection_keyboard, yes_no_keyboard, generate_calendar_keyboard, generate_time_selection_keyboard, generate_person_selection_keyboard, generate_party_styles_keyboard
 
 from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, MessageHandler, filters
-from message_handlers import handle_message, handle_name, handle_city_confirmation
+from message_handlers import handle_message, handle_city_confirmation
 
 
 # Установите путь к базе данных
-DATABASE_PATH = os.path.join(os.path.dirname(__file__), 'user_sessions.db')
-
-# Включаем логирование
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO
-)
-logger = logging.getLogger(__name__)
-#________________________________________________________________________
-#Временное логирование для поднятия db_operation.log
+from constants import DATABASE_PATH
 import logging
+import os
 
-logging.basicConfig(level=logging.DEBUG)
+# Включаем логирование и указываем файл для логов
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.DEBUG,  # Установите уровень на DEBUG для детальной информации
+    filename='db_operations.log',  # Укажите имя файла для логов
+    filemode='w'  # 'w' - перезаписывать файл при каждом запуске, 'a' - добавлять к существующему файлу
+)
+
+logger = logging.getLogger(__name__)
+logger.info(f"Database path: {os.path.join(os.path.dirname(__file__), 'user_sessions.db')}")
+
 
 def some_database_operation():
     logging.debug("Starting some_database_operation")
-    conn = create_connection(DATABASE_PATH)
     query = """
-    INSERT INTO user_sessions (user_id, language, user_name)
+    INSERT INTO users (user_id, language, user_name)
     VALUES (?, ?, ?)
     """
     params = (random.randint(1, 1000000), "en", "John")
-    execute_query(conn, query, params)
+    execute_query_with_retry(query, params)
     logging.debug("Finished some_database_operation")
 
-#________________________________________________________________________
+def add_username_column():
+    conn = create_connection(DATABASE_PATH)
+    if conn is not None:
+        query = """
+        ALTER TABLE users ADD COLUMN username TEXT
+        """
+        execute_query(conn, query)
+    else:
+        logging.error("Failed to create database connection")
 
 # Пути к видеофайлам
 VIDEO_PATHS = [
@@ -58,16 +68,21 @@ conn = create_connection(DATABASE_PATH)
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_data = context.user_data
     user_data['step'] = 'start'
-    user_data['username'] = update.message.from_user.username  # Сохраняем username
+    user_id = update.message.from_user.id if update.message else update.callback_query.from_user.id
+    username = update.message.from_user.username if update.message else update.callback_query.from_user.username
 
-    conn = sqlite3.connect(DATABASE_PATH)
-    cursor = conn.cursor()
-    cursor.execute('''
-    INSERT INTO user_sessions (user_id, username, language, user_name)
-    VALUES (?, ?, ?, ?)
-    ''', (update.message.from_user.id, user_data['username'], user_data.get('language', 'en'), user_data.get('name', '')))
-    conn.commit()
-    conn.close()
+    # Сохранение username в базу данных
+    conn = create_connection(DATABASE_PATH)
+    if conn is not None:
+        query = """
+        INSERT INTO users (user_id, username)
+        VALUES (?, ?)
+        """
+        params = (user_id, username)
+        execute_query(conn, query, params)
+        conn.close()
+    else:
+        logging.error("Failed to create database connection")
 
     if update.message:
         await update.message.reply_text(
@@ -79,6 +94,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "Choose your language / Выберите язык / Elige tu idioma",
             reply_markup=language_selection_keyboard()
         )
+
 
 
 async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -146,12 +162,12 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     party_styles_headers = {
         'en': 'What style do you choose?',
         'ru': 'Какой стиль ты выбираешь?',
-        'es': '¿Qué estilo eliges?',
-        'fr': 'Quel style choisis-tu?',
+        'es': '¿Qué стиль eliges?',
+        'fr': 'Quel стиль choisis-tu?',
         'uk': 'Який стиль ти обираєш?',
-        'pl': 'Jaki styl wybierasz?',
-        'de': 'Welchen Stil wählst du?',
-        'it': 'Che stile scegli?'
+        'pl': 'Jaki стиль wybierasz?',
+        'de': 'Welchen стиль wählst du?',
+        'it': 'Che стиль scegli?'
     }
 
     if query.data.startswith('lang_'):
@@ -166,7 +182,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             'es': 'Cargando...',
             'fr': 'Chargement...',
             'uk': 'Завантаження...',
-            'pl': 'Ładowanie...',
+            'pl': 'Ładowание...',
             'de': 'Laden...',
             'it': 'Caricamento...'
         }
@@ -198,7 +214,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             'es': '¡Hola! ¿Cómo te llamas?',
             'fr': 'Salut! Quel est votre nom ?',
             'uk': 'Привіт! Як вас звати?',
-            'pl': 'Cześć! Jak masz na imię?',
+            'pl': 'Cześć! Jak masz на імʼя?',
             'de': 'Hallo! Wie heißt du?',
             'it': 'Ciao! Come ti chiami?'
         }
@@ -234,12 +250,12 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             preferences_request_texts = {
                 'en': 'Please write your preferences for table setting colors, food items (or exclusions), and desired table accessories (candles, glasses, etc.) - no more than 1000 characters.',
                 'ru': 'Напишите свои предпочтения по цвету сервировки и продуктам (или исключения по ним) и желаемые аксессуары сервировки (свечи, бокалы и прочее) - не более 1000 знаков.',
-                'es': 'Escriba sus preferencias de colores para la mesa, artículos de comida (o exclusiones), y accesorios de mesa deseados (velas, copas, etc.) - no más de 1000 caracteres.',
-                'fr': 'Veuillez écrire vos préférences pour les couleurs de la table, les aliments (ou exclusions), et les accessoires de table désirés (bougies, verres, etc.) - pas plus de 1000 caractères.',
-                'uk': 'Напишіть свої уподобання щодо кольору сервіровки та продуктів (або винятки з них) і бажані аксесуари для сервіровки (свічки, келихи тощо) - не більше 1000 знаків.',
-                'pl': 'Napisz swoje preferencje dotyczące kolorów nakrycia stołu, produktów spożywczych (lub wyłączeń) i pożądanych akcesoriów stołowych (świece, szklanki itp.) - nie więcej niż 1000 znaków.',
-                'de': 'Bitte schreiben Sie Ihre Vorlieben für Tischdeckfarben, Lebensmittel (oder Ausschlüsse) und gewünschte Tischaccessoires (Kerzen, Gläser usw.) - nicht mehr als 1000 Zeichen.',
-                'it': 'Scrivi le tue preferenze per i colori della tavola, gli articoli alimentari (o le esclusioni) e gli accessori per la tavola desiderati (candele, bicchieri, ecc.) - non più di 1000 caratteri.'
+                'es': 'Escriba sus preferencias de colores para la mesa, artículos de comida (o исключения), и аксессуары для стола (velas, copas, etc.) - не более 1000 знаков.',
+                'fr': 'Veuillez écrire vos préférences pour les couleurs de la table, les aliments (ou исключения), et les accessoires de table désirés (bougies, verres, etc.) - pas plus de 1000 caractères.',
+                'uk': 'Напишіть свої уподобання щодо кольору сервіровки та продуктів (або исключения з них) і бажані аксесуари для сервіровки (свічки, келихи тощо) - не більше 1000 знаків.',
+                'pl': 'Napisz swoje preferencje dotyczące kolorów nakrycia stołu, produktów spożywczych (lub исключения) и аксессуаров для стола (świece, szklanki itp.) - не больше 1000 знаков.',
+                'de': 'Bitte schreiben Sie Ihre Vorlieben für Tischdeckfarben, Lebensmittel (oder исключения) und gewünschte Tischaccessoires (Kerzen, Gläser usw.) - nicht mehr als 1000 Zeichen.',
+                'it': 'Scrivi le tue preferenze per i colori della tavola, gli articoli alimentari (o исключения) e gli accessori per la tavola desiderati (candele, bicchieri, ecc.) - не больше 1000 символов.'
             }
             await query.message.reply_text(
                 preferences_request_texts.get(user_data['language'], "Please write your preferences for table setting colors, food items (or exclusions), and desired table accessories (candles, glasses, etc.) - no more than 1000 characters.")
@@ -309,7 +325,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             'es': f'Seleccionaste {selected_date}, ¿correcto?',
             'fr': f'Vous avez sélectionné {selected_date}, correct ?',
             'uk': f'Ви вибрали {selected_date}, правильно?',
-            'pl': f'Wybrałeś {selected_date}, poprawne?',
+            'pl': f'Wybrałeś {selected_date}, poprawне?',
             'de': f'Sie haben {selected_date} gewählt, richtig?',
             'it': f'Hai selezionato {selected_date}, corretto?'
         }
@@ -357,7 +373,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             'es': f'Seleccionaste {selected_person} personas, ¿correcto?',
             'fr': f'Vous avez sélectionné {selected_person} personnes, correct ?',
             'uk': f'Ви вибрали {selected_person} людей, правильно?',
-            'pl': f'Wybrałeś {selected_person} osób, poprawne?',
+            'pl': f'Wybrałeś {selected_person} osób, poprawне?',
             'de': f'Sie haben {selected_person} Personen gewählt, richtig?',
             'it': f'Hai selezionato {selected_person} persone, corretto?'
         }
@@ -377,12 +393,12 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         confirmation_texts = {
             'en': f'You selected {selected_style} style, correct?',
             'ru': f'Вы выбрали стиль {selected_style}, правильно?',
-            'es': f'Seleccionaste el estilo {selected_style}, ¿correcto?',
-            'fr': f'Vous avez sélectionné le style {selected_style}, correct ?',
+            'es': f'Seleccionaste el стиль {selected_style}, ¿correcto?',
+            'fr': f'Vous avez sélectionné le стиль {selected_style}, correct ?',
             'uk': f'Ви вибрали стиль {selected_style}, правильно?',
-            'pl': f'Wybrałeś styl {selected_style}, poprawne?',
-            'de': f'Sie haben den Stil {selected_style} gewählt, richtig?',
-            'it': f'Hai selezionato lo stile {selected_style}, corretto?'
+            'pl': f'Wybrałeś стиль {selected_style}, poprawне?',
+            'de': f'Sie haben den стиль {selected_style} gewählt, richtig?',
+            'it': f'Hai selezionato lo стиль {selected_style}, corretto?'
         }
         await query.message.reply_text(
             confirmation_texts.get(user_data['language'], f'You selected {selected_style} style, correct?'),
@@ -393,9 +409,6 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         month_offset = int(query.data.split('_')[2])
         user_data['month_offset'] = month_offset
         await show_calendar(query, month_offset, user_data.get('language', 'en'))
-
-
-
 
 async def show_calendar(query, month_offset, language):
     if month_offset < -1:
@@ -423,14 +436,28 @@ async def show_calendar(query, month_offset, language):
 
 async def handle_name(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_data = context.user_data
+    username = update.message.from_user.username if update.message else "Имя пользователя"
     if update.callback_query:
         user_data['name'] = "Имя пользователя"
     else:
         user_data['name'] = update.message.text
 
     user_data['step'] = 'name_received'
+    user_data['username'] = username
 
     language_code = user_data.get('language', 'en')
+
+    # Сохранение имени пользователя и username в базу данных
+    conn = create_connection(DATABASE_PATH)
+    if conn is not None:
+        query = """
+        INSERT INTO user_sessions (user_id, language, user_name, username)
+        VALUES (?, ?, ?, ?)
+        """
+        params = (update.message.from_user.id, language_code, user_data['name'], username)
+        execute_query(conn, query, params)
+    else:
+        logging.error("Failed to create database connection")
 
     greeting_texts = {
         'en': f'Hello {user_data["name"]}! Do you want to see available dates?',
@@ -512,6 +539,7 @@ def disable_yes_no_buttons(reply_markup):
     return InlineKeyboardMarkup(new_keyboard)
 
 if __name__ == '__main__':
+    add_username_column()  # Добавить колонку username
 
     logging.basicConfig(level=logging.DEBUG)
     some_database_operation()  # Вызов функции для тестирования
