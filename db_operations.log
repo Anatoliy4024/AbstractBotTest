@@ -21181,3 +21181,627 @@ Traceback (most recent call last):
 telegram.error.BadRequest: Query is too old and response timeout expired or query id is invalid
 2024-08-08 15:34:08,061 - INFO - Application is stopping. This might take a moment.
 2024-08-08 15:34:08,061 - INFO - Application.stop() complete
+2024-08-08 17:28:14,555 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 17:28:14,555 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 17:28:15,354 - INFO - Application started
+2024-08-08 17:30:10,673 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 17:30:16,216 - WARNING - Database is locked, retrying 1/5
+2024-08-08 17:30:22,769 - WARNING - Database is locked, retrying 2/5
+2024-08-08 17:30:29,341 - WARNING - Database is locked, retrying 3/5
+2024-08-08 17:30:35,874 - WARNING - Database is locked, retrying 4/5
+2024-08-08 17:30:42,414 - WARNING - Database is locked, retrying 5/5
+2024-08-08 17:30:43,681 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 17:30:49,228 - WARNING - Database is locked, retrying 1/5
+2024-08-08 17:30:55,795 - WARNING - Database is locked, retrying 2/5
+2024-08-08 17:31:02,344 - WARNING - Database is locked, retrying 3/5
+2024-08-08 17:31:08,875 - WARNING - Database is locked, retrying 4/5
+2024-08-08 17:31:15,437 - WARNING - Database is locked, retrying 5/5
+2024-08-08 17:31:16,696 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 17:31:22,252 - WARNING - Database is locked, retrying 1/5
+2024-08-08 17:31:28,796 - WARNING - Database is locked, retrying 2/5
+2024-08-08 17:31:35,331 - WARNING - Database is locked, retrying 3/5
+2024-08-08 17:31:41,871 - WARNING - Database is locked, retrying 4/5
+2024-08-08 17:31:48,211 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 212, in button_callback
+    await query.answer()
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_callbackquery.py", line 180, in answer
+    return await self.get_bot().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 752, in answer_callback_query
+    return await super().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3218, in answer_callback_query
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 328, in _request_wrapper
+    raise BadRequest(message)
+telegram.error.BadRequest: Query is too old and response timeout expired or query id is invalid
+2024-08-08 17:40:31,614 - INFO - Application is stopping. This might take a moment.
+2024-08-08 17:40:31,614 - INFO - Application.stop() complete
+2024-08-08 17:40:32,005 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 17:40:32,005 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 17:40:32,725 - INFO - Application started
+2024-08-08 17:43:23,686 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 17:44:03,284 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 17:46:57,074 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 17:47:02,598 - WARNING - Database is locked, retrying 1/5
+2024-08-08 17:47:10,142 - WARNING - Database is locked, retrying 2/5
+2024-08-08 17:47:17,679 - WARNING - Database is locked, retrying 3/5
+2024-08-08 17:47:25,254 - WARNING - Database is locked, retrying 4/5
+2024-08-08 17:47:32,819 - WARNING - Database is locked, retrying 5/5
+2024-08-08 17:47:34,820 - INFO - Database error: Max retries exceeded for query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ?
+2024-08-08 17:47:35,090 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 17:47:40,617 - WARNING - Database is locked, retrying 1/5
+2024-08-08 17:47:48,158 - WARNING - Database is locked, retrying 2/5
+2024-08-08 17:47:55,677 - WARNING - Database is locked, retrying 3/5
+2024-08-08 17:48:03,209 - WARNING - Database is locked, retrying 4/5
+2024-08-08 17:48:10,756 - WARNING - Database is locked, retrying 5/5
+2024-08-08 17:48:12,757 - INFO - Database error: Max retries exceeded for query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ?
+2024-08-08 17:48:13,010 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 17:48:18,539 - WARNING - Database is locked, retrying 1/5
+2024-08-08 17:48:26,069 - WARNING - Database is locked, retrying 2/5
+2024-08-08 17:48:33,639 - WARNING - Database is locked, retrying 3/5
+2024-08-08 17:48:41,203 - WARNING - Database is locked, retrying 4/5
+2024-08-08 17:48:48,800 - WARNING - Database is locked, retrying 5/5
+2024-08-08 17:48:50,801 - INFO - Database error: Max retries exceeded for query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ?
+2024-08-08 17:48:51,107 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 17:48:56,635 - WARNING - Database is locked, retrying 1/5
+2024-08-08 17:49:04,166 - WARNING - Database is locked, retrying 2/5
+2024-08-08 17:49:11,498 - WARNING - Database is locked, retrying 3/5
+2024-08-08 17:49:19,093 - WARNING - Database is locked, retrying 4/5
+2024-08-08 17:49:26,689 - WARNING - Database is locked, retrying 5/5
+2024-08-08 17:49:28,689 - INFO - Database error: Max retries exceeded for query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ?
+2024-08-08 17:49:28,999 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 17:49:34,314 - WARNING - Database is locked, retrying 1/5
+2024-08-08 17:49:41,674 - WARNING - Database is locked, retrying 2/5
+2024-08-08 17:49:49,276 - WARNING - Database is locked, retrying 3/5
+2024-08-08 17:49:56,851 - WARNING - Database is locked, retrying 4/5
+2024-08-08 17:50:04,431 - WARNING - Database is locked, retrying 5/5
+2024-08-08 17:50:06,431 - INFO - Database error: Max retries exceeded for query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ?
+2024-08-08 17:50:06,763 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 286, in button_callback
+    await query.answer()
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_callbackquery.py", line 180, in answer
+    return await self.get_bot().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 752, in answer_callback_query
+    return await super().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3218, in answer_callback_query
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 328, in _request_wrapper
+    raise BadRequest(message)
+telegram.error.BadRequest: Query is too old and response timeout expired or query id is invalid
+2024-08-08 17:56:57,044 - INFO - Application is stopping. This might take a moment.
+2024-08-08 17:56:57,044 - INFO - Application.stop() complete
+2024-08-08 17:56:57,460 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 17:56:57,461 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 17:57:56,781 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 17:57:56,782 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:08:18,560 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 18:08:18,560 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:09:53,600 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 18:09:53,600 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:09:54,267 - INFO - Application started
+2024-08-08 18:10:16,168 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:10:16,168 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 248, in start
+    execute_query_with_retry(conn, update_query, update_params)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\abstract_functions.py", line 35, in execute_query_with_retry
+    while retries < max_retries:
+          ^^^^^^^^^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'int' and 'tuple'
+2024-08-08 18:12:10,452 - INFO - Application is stopping. This might take a moment.
+2024-08-08 18:12:10,453 - INFO - Application.stop() complete
+2024-08-08 18:12:10,764 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\user_sessions.db
+2024-08-08 18:12:10,765 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:12:11,508 - INFO - Application started
+2024-08-08 18:12:23,963 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:12:29,533 - WARNING - Database is locked, retrying 1/5
+2024-08-08 18:12:37,118 - WARNING - Database is locked, retrying 2/5
+2024-08-08 18:12:44,710 - WARNING - Database is locked, retrying 3/5
+2024-08-08 18:12:52,299 - WARNING - Database is locked, retrying 4/5
+2024-08-08 18:12:59,867 - WARNING - Database is locked, retrying 5/5
+2024-08-08 18:13:01,867 - INFO - Database error: Max retries exceeded for query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ?
+2024-08-08 18:20:17,711 - INFO - Application is stopping. This might take a moment.
+2024-08-08 18:20:17,711 - INFO - Application.stop() complete
+2024-08-08 18:20:18,114 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\users.db
+2024-08-08 18:20:18,114 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:20:18,848 - INFO - Application started
+2024-08-08 18:20:20,818 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:27:36,617 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:27:42,214 - WARNING - Database is locked, retrying 1/5
+2024-08-08 18:27:49,796 - WARNING - Database is locked, retrying 2/5
+2024-08-08 18:27:57,365 - WARNING - Database is locked, retrying 3/5
+2024-08-08 18:28:04,967 - WARNING - Database is locked, retrying 4/5
+2024-08-08 18:28:12,550 - WARNING - Database is locked, retrying 5/5
+2024-08-08 18:28:14,551 - INFO - Database error: Max retries exceeded for query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ?
+2024-08-08 18:28:14,758 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:28:20,347 - WARNING - Database is locked, retrying 1/5
+2024-08-08 18:28:27,920 - WARNING - Database is locked, retrying 2/5
+2024-08-08 18:28:35,496 - WARNING - Database is locked, retrying 3/5
+2024-08-08 18:28:43,082 - WARNING - Database is locked, retrying 4/5
+2024-08-08 18:28:50,823 - WARNING - Database is locked, retrying 5/5
+2024-08-08 18:28:52,824 - INFO - Database error: Max retries exceeded for query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ?
+2024-08-08 18:28:53,064 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:28:58,629 - WARNING - Database is locked, retrying 1/5
+2024-08-08 18:29:06,473 - WARNING - Database is locked, retrying 2/5
+2024-08-08 18:29:14,043 - WARNING - Database is locked, retrying 3/5
+2024-08-08 18:29:21,597 - WARNING - Database is locked, retrying 4/5
+2024-08-08 18:29:29,158 - WARNING - Database is locked, retrying 5/5
+2024-08-08 18:29:31,158 - INFO - Database error: Max retries exceeded for query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ?
+2024-08-08 18:29:31,403 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:29:36,939 - WARNING - Database is locked, retrying 1/5
+2024-08-08 18:29:44,497 - WARNING - Database is locked, retrying 2/5
+2024-08-08 18:29:52,143 - WARNING - Database is locked, retrying 3/5
+2024-08-08 18:29:59,716 - WARNING - Database is locked, retrying 4/5
+2024-08-08 18:30:07,270 - WARNING - Database is locked, retrying 5/5
+2024-08-08 18:30:09,271 - INFO - Database error: Max retries exceeded for query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ?
+2024-08-08 18:30:09,536 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:30:15,071 - WARNING - Database is locked, retrying 1/5
+2024-08-08 18:30:22,495 - WARNING - Database is locked, retrying 2/5
+2024-08-08 18:30:29,920 - WARNING - Database is locked, retrying 3/5
+2024-08-08 18:30:37,209 - WARNING - Database is locked, retrying 4/5
+2024-08-08 18:30:44,613 - WARNING - Database is locked, retrying 5/5
+2024-08-08 18:30:46,614 - INFO - Database error: Max retries exceeded for query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ?
+2024-08-08 18:30:46,801 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:30:52,084 - WARNING - Database is locked, retrying 1/5
+2024-08-08 18:30:59,324 - WARNING - Database is locked, retrying 2/5
+2024-08-08 18:31:06,873 - WARNING - Database is locked, retrying 3/5
+2024-08-08 18:31:14,195 - WARNING - Database is locked, retrying 4/5
+2024-08-08 18:31:21,796 - WARNING - Database is locked, retrying 5/5
+2024-08-08 18:31:23,798 - INFO - Database error: Max retries exceeded for query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ?
+2024-08-08 18:31:24,146 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:31:29,785 - WARNING - Database is locked, retrying 1/5
+2024-08-08 18:31:37,410 - WARNING - Database is locked, retrying 2/5
+2024-08-08 18:31:45,001 - WARNING - Database is locked, retrying 3/5
+2024-08-08 18:31:52,585 - WARNING - Database is locked, retrying 4/5
+2024-08-08 18:32:00,161 - WARNING - Database is locked, retrying 5/5
+2024-08-08 18:32:02,163 - INFO - Database error: Max retries exceeded for query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ?
+2024-08-08 18:32:02,471 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 286, in button_callback
+    await query.answer()
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_callbackquery.py", line 180, in answer
+    return await self.get_bot().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 752, in answer_callback_query
+    return await super().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3218, in answer_callback_query
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 328, in _request_wrapper
+    raise BadRequest(message)
+telegram.error.BadRequest: Query is too old and response timeout expired or query id is invalid
+2024-08-08 18:42:34,269 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 575, in button_callback
+    await query.edit_message_reply_markup(reply_markup=disable_style_buttons(query.message.reply_markup, selected_style))
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_callbackquery.py", line 353, in edit_message_reply_markup
+    return await self.message.edit_reply_markup(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_message.py", line 2580, in edit_reply_markup
+    return await self.get_bot().edit_message_reply_markup(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 1423, in edit_message_reply_markup
+    return await super().edit_message_reply_markup(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3496, in edit_message_reply_markup
+    return await self._send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 488, in _send_message
+    result = await super()._send_message(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 515, in _send_message
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 328, in _request_wrapper
+    raise BadRequest(message)
+telegram.error.BadRequest: Message is not modified: specified new message content and reply markup are exactly the same as a current content and reply markup of the message
+2024-08-08 18:47:31,602 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:47:37,151 - WARNING - Database is locked, retrying 1/5
+2024-08-08 18:47:44,694 - WARNING - Database is locked, retrying 2/5
+2024-08-08 18:47:52,235 - WARNING - Database is locked, retrying 3/5
+2024-08-08 18:47:59,743 - WARNING - Database is locked, retrying 4/5
+2024-08-08 18:48:07,268 - WARNING - Database is locked, retrying 5/5
+2024-08-08 18:48:09,269 - INFO - Database error: Max retries exceeded for query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ?
+2024-08-08 18:48:09,568 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 18:48:15,094 - WARNING - Database is locked, retrying 1/5
+2024-08-08 18:48:22,639 - WARNING - Database is locked, retrying 2/5
+2024-08-08 18:48:30,193 - WARNING - Database is locked, retrying 3/5
+2024-08-08 18:48:37,744 - WARNING - Database is locked, retrying 4/5
+2024-08-08 18:48:45,309 - WARNING - Database is locked, retrying 5/5
+2024-08-08 18:48:47,310 - INFO - Database error: Max retries exceeded for query: UPDATE users SET username = ?, language = 'en' WHERE user_id= ?
+2024-08-08 19:25:11,265 - INFO - Application is stopping. This might take a moment.
+2024-08-08 19:25:11,266 - INFO - Application.stop() complete
+2024-08-08 19:25:11,669 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\users.db
+2024-08-08 19:25:11,669 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 19:25:12,494 - INFO - Application started
+2024-08-08 19:29:47,892 - INFO - Application is stopping. This might take a moment.
+2024-08-08 19:29:47,892 - INFO - Application.stop() complete
+2024-08-08 19:30:17,000 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\users.db
+2024-08-08 19:30:17,001 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 19:30:17,666 - INFO - Application started
+2024-08-08 19:30:37,546 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 19:30:43,119 - WARNING - Database is locked, retrying 1/5
+2024-08-08 19:30:49,722 - WARNING - Database is locked, retrying 2/5
+2024-08-08 19:30:56,236 - WARNING - Database is locked, retrying 3/5
+2024-08-08 19:31:02,794 - WARNING - Database is locked, retrying 4/5
+2024-08-08 19:31:09,319 - WARNING - Database is locked, retrying 5/5
+2024-08-08 19:31:10,528 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 19:31:16,094 - WARNING - Database is locked, retrying 1/5
+2024-08-08 19:31:22,660 - WARNING - Database is locked, retrying 2/5
+2024-08-08 19:31:29,230 - WARNING - Database is locked, retrying 3/5
+2024-08-08 19:31:35,788 - WARNING - Database is locked, retrying 4/5
+2024-08-08 19:31:42,350 - WARNING - Database is locked, retrying 5/5
+2024-08-08 19:31:43,659 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 286, in button_callback
+    await query.answer()
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_callbackquery.py", line 180, in answer
+    return await self.get_bot().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 752, in answer_callback_query
+    return await super().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3218, in answer_callback_query
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 328, in _request_wrapper
+    raise BadRequest(message)
+telegram.error.BadRequest: Query is too old and response timeout expired or query id is invalid
+2024-08-08 19:32:49,165 - INFO - Application is stopping. This might take a moment.
+2024-08-08 19:32:49,165 - INFO - Application.stop() complete
+2024-08-08 19:32:58,951 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\users.db
+2024-08-08 19:32:58,951 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 19:36:44,636 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\users.db
+2024-08-08 19:36:44,637 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 19:36:45,333 - INFO - Application started
+2024-08-08 19:36:45,697 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 286, in button_callback
+    await query.answer()
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_callbackquery.py", line 180, in answer
+    return await self.get_bot().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 752, in answer_callback_query
+    return await super().answer_callback_query(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 334, in decorator
+    result = await func(*args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 3218, in answer_callback_query
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 422, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_extbot.py", line 306, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\_bot.py", line 453, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 165, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\request\_baserequest.py", line 328, in _request_wrapper
+    raise BadRequest(message)
+telegram.error.BadRequest: Query is too old and response timeout expired or query id is invalid
+2024-08-08 19:43:54,535 - INFO - Application is stopping. This might take a moment.
+2024-08-08 19:43:54,535 - INFO - Application.stop() complete
+2024-08-08 19:43:54,970 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 19:43:54,971 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 19:43:55,725 - INFO - Application started
+2024-08-08 19:44:01,916 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 517, in button_callback
+    confirmation_texts.get(user_data['language'], f'You selected {selected_date}, correct?'),
+                           ~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'language'
+2024-08-08 19:44:15,265 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 19:44:20,775 - WARNING - Database is locked, retrying 1/5
+2024-08-08 19:44:27,269 - WARNING - Database is locked, retrying 2/5
+2024-08-08 19:44:33,836 - WARNING - Database is locked, retrying 3/5
+2024-08-08 19:44:40,397 - WARNING - Database is locked, retrying 4/5
+2024-08-08 19:44:46,862 - WARNING - Database is locked, retrying 5/5
+2024-08-08 19:44:48,121 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 19:44:53,745 - WARNING - Database is locked, retrying 1/5
+2024-08-08 19:45:00,151 - WARNING - Database is locked, retrying 2/5
+2024-08-08 19:45:06,638 - WARNING - Database is locked, retrying 3/5
+2024-08-08 19:45:13,203 - WARNING - Database is locked, retrying 4/5
+2024-08-08 19:45:19,852 - WARNING - Database is locked, retrying 5/5
+2024-08-08 20:04:13,886 - INFO - Application is stopping. This might take a moment.
+2024-08-08 20:04:13,886 - INFO - Application.stop() complete
+2024-08-08 20:04:16,064 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 20:04:16,065 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 20:04:16,685 - INFO - Application started
+2024-08-08 20:04:30,378 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 20:08:53,689 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 452, in button_callback
+    if user_data['step'] == 'calendar':
+       ~~~~~~~~~^^^^^^^^
+KeyError: 'step'
+2024-08-08 20:08:55,365 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 411, in button_callback
+    if user_data['step'] == 'name_received':
+       ~~~~~~~~~^^^^^^^^
+KeyError: 'step'
+2024-08-08 20:08:57,384 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 411, in button_callback
+    if user_data['step'] == 'name_received':
+       ~~~~~~~~~^^^^^^^^
+KeyError: 'step'
+2024-08-08 20:08:58,225 - ERROR - No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 452, in button_callback
+    if user_data['step'] == 'calendar':
+       ~~~~~~~~~^^^^^^^^
+KeyError: 'step'
+2024-08-08 20:10:39,649 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 20:11:17,353 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 20:11:26,853 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 20:20:02,865 - INFO - Application is stopping. This might take a moment.
+2024-08-08 20:20:02,866 - INFO - Application.stop() complete
+2024-08-08 20:20:03,165 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 20:20:03,165 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 20:20:03,898 - INFO - Application started
+2024-08-08 20:20:14,490 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 20:23:34,688 - INFO - Application is stopping. This might take a moment.
+2024-08-08 20:23:34,688 - INFO - Application.stop() complete
+2024-08-08 20:23:35,102 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 20:23:35,103 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 20:23:35,929 - INFO - Application started
+2024-08-08 20:25:56,712 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 21:11:54,855 - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 531, in button_callback
+    confirmation_texts.get(user_data['language'], f'You selected {selected_date}, correct?'),
+                           ~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'language'
+2024-08-08 21:11:54,855 - ERROR - An error was raised and an uncaught error was raised while handling the error with an error_handler.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 531, in button_callback
+    confirmation_texts.get(user_data['language'], f'You selected {selected_date}, correct?'),
+                           ~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'language'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1576, in process_error
+    await callback(update, context)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 45, in error_handler
+    await update.message.reply_text("An error occurred. The administrator has been notified.")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'reply_text'
+2024-08-08 21:12:15,081 - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 531, in button_callback
+    confirmation_texts.get(user_data['language'], f'You selected {selected_date}, correct?'),
+                           ~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'language'
+2024-08-08 21:12:15,081 - ERROR - An error was raised and an uncaught error was raised while handling the error with an error_handler.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 531, in button_callback
+    confirmation_texts.get(user_data['language'], f'You selected {selected_date}, correct?'),
+                           ~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'language'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1576, in process_error
+    await callback(update, context)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 45, in error_handler
+    await update.message.reply_text("An error occurred. The administrator has been notified.")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'reply_text'
+2024-08-08 21:12:22,271 - ERROR - Exception while handling an update:
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 540, in button_callback
+    time_set_texts['start_time'].get(user_data['language'], 'Start time set to {}. Now select end time.').format(selected_time),
+                                     ~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'language'
+2024-08-08 21:12:22,271 - ERROR - An error was raised and an uncaught error was raised while handling the error with an error_handler.
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1063, in process_update
+    await coroutine
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_handler.py", line 141, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 540, in button_callback
+    time_set_texts['start_time'].get(user_data['language'], 'Start time set to {}. Now select end time.').format(selected_time),
+                                     ~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'language'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\.venv\Lib\site-packages\telegram\ext\_application.py", line 1576, in process_error
+    await callback(update, context)
+  File "C:\Users\USER\PycharmProjects\AbstractBotTest\main.py", line 45, in error_handler
+    await update.message.reply_text("An error occurred. The administrator has been notified.")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'reply_text'
+2024-08-08 21:24:44,225 - INFO - Application is stopping. This might take a moment.
+2024-08-08 21:24:44,225 - INFO - Application.stop() complete
+2024-08-08 21:24:46,110 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 21:24:46,111 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 21:24:46,803 - INFO - Application started
+2024-08-08 21:25:13,321 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 21:26:20,405 - INFO - Application is stopping. This might take a moment.
+2024-08-08 21:26:20,405 - INFO - Application.stop() complete
+2024-08-08 21:31:16,973 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 21:31:16,973 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 21:31:17,608 - INFO - Application started
+2024-08-08 21:31:17,776 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-08 21:31:17,906 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
