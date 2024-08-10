@@ -31,7 +31,7 @@ def generate_calendar_buttons(year, month, selected_day=None, disable=False):
                 if str(day) == selected_day:
                     buttons[row].append(InlineKeyboardButton(f"🔴 {day}", callback_data=f"day_{day}"))
                 else:
-                    text = f"🟢 {day}" if not disable else f"{day}"
+                    text = f"🟢 {day}" if not disable else f"🟢 {day}"
                     callback_data = f"day_{day}" if not disable else 'none'
                     buttons[row].append(InlineKeyboardButton(text, callback_data=callback_data))
                 day += 1
@@ -41,6 +41,13 @@ def generate_calendar_buttons(year, month, selected_day=None, disable=False):
     # Добавляем пустые кнопки в конце недели после окончания месяца
     while len(buttons[-1]) < 6:
         buttons[-1].append(InlineKeyboardButton(" ", callback_data="none"))
+
+    # Добавляем кнопки для прокрутки и название месяца
+    buttons.append([
+        InlineKeyboardButton("<", callback_data="none"),
+        InlineKeyboardButton(f"{calendar.month_name[month]} {year}", callback_data="none"),
+        InlineKeyboardButton(">", callback_data="none")
+    ])
 
     return buttons
 
@@ -86,26 +93,6 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.message.reply_text("Спасибо, тест закончен. Чтобы начать снова, нажмите /start.")
 
     elif query.data == 'no':
-        buttons = generate_calendar_buttons(year, month)
-        await query.message.edit_text("Выберите дату:", reply_markup=InlineKeyboardMarkup(buttons))
-
-    elif query.data == 'prev_month':
-        month -= 1
-        if month < 1:
-            month = 12
-            year -= 1
-        user_data['year'] = year
-        user_data['month'] = month
-        buttons = generate_calendar_buttons(year, month)
-        await query.message.edit_text("Выберите дату:", reply_markup=InlineKeyboardMarkup(buttons))
-
-    elif query.data == 'next_month':
-        month += 1
-        if month > 12:
-            month = 1
-            year += 1
-        user_data['year'] = year
-        user_data['month'] = month
         buttons = generate_calendar_buttons(year, month)
         await query.message.edit_text("Выберите дату:", reply_markup=InlineKeyboardMarkup(buttons))
 
