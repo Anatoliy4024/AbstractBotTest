@@ -224,7 +224,7 @@ def generate_time_selection_keyboard(language, stage='start', start_time=None):
                 time_buttons.append(InlineKeyboardButton(f"🟢 {time_str}", callback_data=f'time_{time_str}'))
         current_time += timedelta(minutes=30)
 
-    num_buttons_per_row = 5
+    num_buttons_per_row = 4
     rows = [time_buttons[i:i + num_buttons_per_row] for i in range(0, len(time_buttons), num_buttons_per_row)]
 
     time_selection_headers = {
@@ -295,8 +295,8 @@ def yes_no_keyboard(language):
     return InlineKeyboardMarkup(keyboard)
 
 def generate_person_selection_keyboard(language):
-    person_buttons = [InlineKeyboardButton(f"🟢 {i}", callback_data=f'person_{i}') for i in range(2, 22)]
-    num_buttons_per_row = 7
+    person_buttons = [InlineKeyboardButton(f"🟢 {i}", callback_data=f'person_{i}') for i in range(2, 21)]
+    num_buttons_per_row = 5
     rows = [person_buttons[i:i + num_buttons_per_row] for i in range(0, len(person_buttons), num_buttons_per_row)]
     return InlineKeyboardMarkup(rows)
 
