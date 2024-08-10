@@ -26387,3 +26387,47 @@ AttributeError: 'NoneType' object has no attribute 'reply_text'
 2024-08-10 07:53:10,087 - INFO - Query executed successfully with retry: UPDATE users SET username = ?, language = ? WHERE user_id= ? with params ('AnatoliyBordovskyi', 'en', 542067858)
 2024-08-10 08:06:25,897 - INFO - Application is stopping. This might take a moment.
 2024-08-10 08:06:25,897 - INFO - Application.stop() complete
+2024-08-10 12:33:25,115 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 12:33:25,119 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 12:33:25,750 - INFO - Application started
+2024-08-10 12:33:34,974 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 12:33:34,975 - INFO - Executing query: UPDATE users SET username = ?, language = ? WHERE user_id= ? with params: ('AnatoliyBordovskyi', 'en', 542067858)
+2024-08-10 12:33:34,975 - INFO - Query executed successfully with retry: UPDATE users SET username = ?, language = ? WHERE user_id= ? with params ('AnatoliyBordovskyi', 'en', 542067858)
+2024-08-10 12:34:31,534 - INFO - Application is stopping. This might take a moment.
+2024-08-10 12:34:31,534 - INFO - Application.stop() complete
+2024-08-10 13:18:14,313 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 13:18:14,313 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 13:18:14,906 - INFO - Application started
+2024-08-10 14:22:45,240 - INFO - Application is stopping. This might take a moment.
+2024-08-10 14:22:45,240 - INFO - Application.stop() complete
+2024-08-10 14:39:27,760 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 14:39:27,760 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 14:39:28,394 - INFO - Application started
+2024-08-10 14:39:33,713 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 14:39:33,714 - INFO - Executing query: UPDATE users SET username = ?, language = ? WHERE user_id= ? with params: ('AnatoliyBordovskyi', 'en', 542067858)
+2024-08-10 14:39:33,715 - INFO - Query executed successfully with retry: UPDATE users SET username = ?, language = ? WHERE user_id= ? with params ('AnatoliyBordovskyi', 'en', 542067858)
+2024-08-10 14:48:05,547 - INFO - Application is stopping. This might take a moment.
+2024-08-10 14:48:05,547 - INFO - Application.stop() complete
+2024-08-10 15:12:52,863 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 15:12:52,863 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 15:12:53,546 - INFO - Application started
+2024-08-10 15:12:54,677 - INFO - Application is stopping. This might take a moment.
+2024-08-10 15:12:54,677 - INFO - Application.stop() complete
+2024-08-10 15:12:55,079 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 15:12:55,079 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 15:12:55,813 - INFO - Application started
+2024-08-10 15:13:37,184 - INFO - Application is stopping. This might take a moment.
+2024-08-10 15:13:37,184 - INFO - Application.stop() complete
+2024-08-10 15:51:54,247 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 15:51:54,248 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 15:51:54,859 - INFO - Application started
+2024-08-10 15:51:55,008 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 15:51:55,009 - INFO - Executing query: UPDATE users SET username = ?, language = ? WHERE user_id= ? with params: ('AnatoliyBordovskyi', 'en', 542067858)
+2024-08-10 15:51:55,009 - INFO - Query executed successfully with retry: UPDATE users SET username = ?, language = ? WHERE user_id= ? with params ('AnatoliyBordovskyi', 'en', 542067858)
+2024-08-10 15:51:56,134 - INFO - Application is stopping. This might take a moment.
+2024-08-10 15:51:56,134 - INFO - Application.stop() complete
+2024-08-10 15:51:56,462 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 15:51:56,462 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 15:51:57,179 - INFO - Application started
+2024-08-10 15:52:58,433 - INFO - Application is stopping. This might take a moment.
+2024-08-10 15:52:58,434 - INFO - Application.stop() complete
