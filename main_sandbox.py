@@ -6,13 +6,12 @@ from datetime import datetime
 
 # Настройка логирования
 logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    format='%(asctime)s - %(name)s - %(levellevel)s - %(message)s',
     level=logging.DEBUG
 )
 
 # Ваш токен
 BOT_TOKEN = '7365546887:AAFimfH_lZxsv-v2RyaSktBRk7ww_s5Vs0U'
-
 
 # Генерация кнопок календаря
 def generate_calendar_buttons(year, month, selected_day=None, disable=False):
@@ -29,9 +28,10 @@ def generate_calendar_buttons(year, month, selected_day=None, disable=False):
             if col == 0 and row < first_weekday:  # Пустые кнопки до первого дня месяца
                 buttons[row].append(InlineKeyboardButton(" ", callback_data="none"))
             elif day <= num_days:
+                # Если день находится в прошлом или он совпадает с текущим днем, делаем его неактивным и красным
                 if (year < today.year or
                    (year == today.year and month < today.month) or
-                   (year == today.year and month == today.month and day < today.day)):
+                   (year == today.year and month == today.month and day <= today.day)):
                     buttons[row].append(InlineKeyboardButton(f"🔴 {day}", callback_data="none"))
                 elif str(day) == selected_day:
                     buttons[row].append(InlineKeyboardButton(f"🔴 {day}", callback_data=f"day_{day}"))
