@@ -26431,3 +26431,14 @@ AttributeError: 'NoneType' object has no attribute 'reply_text'
 2024-08-10 15:51:57,179 - INFO - Application started
 2024-08-10 15:52:58,433 - INFO - Application is stopping. This might take a moment.
 2024-08-10 15:52:58,434 - INFO - Application.stop() complete
+2024-08-10 21:05:04,065 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 21:05:04,065 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 21:05:04,726 - INFO - Application started
+2024-08-10 21:05:10,404 - INFO - Application is stopping. This might take a moment.
+2024-08-10 21:05:10,404 - INFO - Application.stop() complete
+2024-08-10 21:05:13,139 - INFO - Database path: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 21:05:13,140 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 21:05:13,757 - INFO - Application started
+2024-08-10 21:05:39,614 - INFO - Database connected: C:\Users\USER\PycharmProjects\AbstractBotTest\sqlite.db
+2024-08-10 21:05:39,615 - INFO - Executing query: UPDATE users SET username = ?, language = ? WHERE user_id= ? with params: ('AnatoliyBordovskyi', 'en', 542067858)
+2024-08-10 21:05:39,616 - INFO - Query executed successfully with retry: UPDATE users SET username = ?, language = ? WHERE user_id= ? with params ('AnatoliyBordovskyi', 'en', 542067858)

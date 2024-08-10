@@ -43,32 +43,22 @@ def generate_calendar_keyboard(month_offset=0, language='en'):
         'it': ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"]
     }
 
-    calendar_buttons = [
-        [InlineKeyboardButton(f"{month_name} {first_of_month.year}", callback_data='none')],
-        [InlineKeyboardButton(day, callback_data='none') for day in days_of_week[language]]
-    ]
+    # Добавляем дни недели в первую колонку
+    calendar_buttons = [[InlineKeyboardButton(day, callback_data='none')] for day in days_of_week[language]]
 
     start_weekday = first_of_month.weekday()
-    week_row = [InlineKeyboardButton(" ", callback_data='none') for _ in range(start_weekday)]
-
     current_date = first_of_month
-    while current_date <= last_of_month:
-        if len(week_row) == 7:
-            calendar_buttons.append(week_row)
-            week_row = []
 
+    while current_date <= last_of_month:
+        day_column_index = (current_date.weekday() + 1) % 7
         if current_date <= today:
             day_button = InlineKeyboardButton(f"🔴 {current_date.day}", callback_data='none')
         else:
             day_button = InlineKeyboardButton(f"🟢 {current_date.day}",
                                               callback_data=f'date_{current_date.strftime("%Y-%m-%d")}')
 
-        week_row.append(day_button)
+        calendar_buttons[day_column_index].append(day_button)
         current_date += timedelta(days=1)
-
-    if week_row:
-        week_row.extend([InlineKeyboardButton(" ", callback_data='none') for _ in range(7 - len(week_row))])
-        calendar_buttons.append(week_row)
 
     prev_month_button = InlineKeyboardButton("<",
                                              callback_data=f"prev_month_{month_offset - 1}") if month_offset > -1 else InlineKeyboardButton(
@@ -76,6 +66,8 @@ def generate_calendar_keyboard(month_offset=0, language='en'):
     next_month_button = InlineKeyboardButton(">",
                                              callback_data=f"next_month_{month_offset + 1}") if month_offset < 2 else InlineKeyboardButton(
         " ", callback_data="none")
+
+    # Кнопки переключения месяцев добавляем в последнюю строку
     calendar_buttons.append([prev_month_button, next_month_button])
 
     return InlineKeyboardMarkup(calendar_buttons)
