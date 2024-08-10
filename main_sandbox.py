@@ -18,6 +18,7 @@ BOT_TOKEN = '7365546887:AAFimfH_lZxsv-v2RyaSktBRk7ww_s5Vs0U'
 def generate_calendar_buttons(year, month, selected_day=None, disable=False):
     # Получаем первый день месяца и количество дней в месяце
     first_weekday, num_days = calendar.monthrange(year, month)
+    today = datetime.now()
 
     weekdays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
     buttons = [[InlineKeyboardButton(day, callback_data="none")] for day in weekdays]
@@ -28,10 +29,14 @@ def generate_calendar_buttons(year, month, selected_day=None, disable=False):
             if col == 0 and row < first_weekday:  # Пустые кнопки до первого дня месяца
                 buttons[row].append(InlineKeyboardButton(" ", callback_data="none"))
             elif day <= num_days:
-                if str(day) == selected_day:
+                if (year < today.year or
+                   (year == today.year and month < today.month) or
+                   (year == today.year and month == today.month and day < today.day)):
+                    buttons[row].append(InlineKeyboardButton(f"🔴 {day}", callback_data="none"))
+                elif str(day) == selected_day:
                     buttons[row].append(InlineKeyboardButton(f"🔴 {day}", callback_data=f"day_{day}"))
                 else:
-                    text = f"🟢 {day}" if not disable else f"🟢 {day}"
+                    text = f"🟢 {day}" if not disable else f"{day}"
                     callback_data = f"day_{day}" if not disable else 'none'
                     buttons[row].append(InlineKeyboardButton(text, callback_data=callback_data))
                 day += 1
@@ -44,9 +49,9 @@ def generate_calendar_buttons(year, month, selected_day=None, disable=False):
 
     # Добавляем кнопки для прокрутки и название месяца
     buttons.append([
-        InlineKeyboardButton("<", callback_data="none"),
+        InlineKeyboardButton("<", callback_data="prev_month"),
         InlineKeyboardButton(f"{calendar.month_name[month]} {year}", callback_data="none"),
-        InlineKeyboardButton(">", callback_data="none")
+        InlineKeyboardButton(">", callback_data="next_month")
     ])
 
     return buttons
@@ -93,6 +98,26 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.message.reply_text("Спасибо, тест закончен. Чтобы начать снова, нажмите /start.")
 
     elif query.data == 'no':
+        buttons = generate_calendar_buttons(year, month)
+        await query.message.edit_text("Выберите дату:", reply_markup=InlineKeyboardMarkup(buttons))
+
+    elif query.data == 'prev_month':
+        month -= 1
+        if month < 1:
+            month = 12
+            year -= 1
+        user_data['year'] = year
+        user_data['month'] = month
+        buttons = generate_calendar_buttons(year, month)
+        await query.message.edit_text("Выберите дату:", reply_markup=InlineKeyboardMarkup(buttons))
+
+    elif query.data == 'next_month':
+        month += 1
+        if month > 12:
+            month = 1
+            year += 1
+        user_data['year'] = year
+        user_data['month'] = month
         buttons = generate_calendar_buttons(year, month)
         await query.message.edit_text("Выберите дату:", reply_markup=InlineKeyboardMarkup(buttons))
 
