@@ -6,7 +6,7 @@ from datetime import datetime
 
 # Настройка логирования
 logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levellevel)s - %(message)s',
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.DEBUG
 )
 
@@ -77,6 +77,9 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     year = user_data.get('year')
     month = user_data.get('month')
 
+    current_year = datetime.now().year
+    current_month = datetime.now().month
+
     if query.data.startswith('day_'):
         selected_day = query.data.split('_')[1]
         user_data['selected_day'] = selected_day
@@ -89,31 +92,45 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=yes_no_keyboard(disable=False)
         )
 
+    elif query.data == 'prev_month':
+        # Ограничение на переход к предыдущему месяцу
+        if month == current_month and year == current_year:
+            pass  # Не позволяем идти на месяц назад из текущего месяца
+        else:
+            month -= 1
+            if month < 1:
+                month = 12
+                year -= 1
+            user_data['year'] = year
+            user_data['month'] = month
+            buttons = generate_calendar_buttons(year, month)
+            await query.message.edit_text("Выберите дату:", reply_markup=InlineKeyboardMarkup(buttons))
+
+    elif query.data == 'next_month':
+        # Ограничение на переход на два месяца вперед
+        max_month = current_month + 2
+        max_year = current_year
+        if max_month > 12:
+            max_month -= 12
+            max_year += 1
+
+        if year > max_year or (year == max_year and month >= max_month):
+            pass  # Не позволяем идти дальше двух месяцев вперед
+        else:
+            month += 1
+            if month > 12:
+                month = 1
+                year += 1
+            user_data['year'] = year
+            user_data['month'] = month
+            buttons = generate_calendar_buttons(year, month)
+            await query.message.edit_text("Выберите дату:", reply_markup=InlineKeyboardMarkup(buttons))
+
     elif query.data == 'yes':
         await query.message.edit_reply_markup(reply_markup=yes_no_keyboard(disable=True))
         await query.message.reply_text("Спасибо, тест закончен. Чтобы начать снова, нажмите /start.")
 
     elif query.data == 'no':
-        buttons = generate_calendar_buttons(year, month)
-        await query.message.edit_text("Выберите дату:", reply_markup=InlineKeyboardMarkup(buttons))
-
-    elif query.data == 'prev_month':
-        month -= 1
-        if month < 1:
-            month = 12
-            year -= 1
-        user_data['year'] = year
-        user_data['month'] = month
-        buttons = generate_calendar_buttons(year, month)
-        await query.message.edit_text("Выберите дату:", reply_markup=InlineKeyboardMarkup(buttons))
-
-    elif query.data == 'next_month':
-        month += 1
-        if month > 12:
-            month = 1
-            year += 1
-        user_data['year'] = year
-        user_data['month'] = month
         buttons = generate_calendar_buttons(year, month)
         await query.message.edit_text("Выберите дату:", reply_markup=InlineKeyboardMarkup(buttons))
 
