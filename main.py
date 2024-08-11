@@ -13,6 +13,7 @@ from keyboards import language_selection_keyboard, yes_no_keyboard, generate_cal
 from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, MessageHandler, filters
 from message_handlers import handle_message, handle_city_confirmation
 
+from constants import TemporaryData
 
 # Установите путь к базе данных
 from constants import DATABASE_PATH
@@ -45,15 +46,15 @@ async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> N
         await update.message.reply_text("An error occurred. The administrator has been notified.")
 
 
-def some_database_operation():
-    logging.debug("Starting some_database_operation")
-    query = """
-    INSERT INTO users (user_id, language, user_name)
-    VALUES (?, ?, ?)
-    """
-    params = (random.randint(1, 1000000), "en", "John")
-    execute_query_with_retry(query, params)
-    logging.debug("Finished some_database_operation")
+# def some_database_operation():
+#     logging.debug("Starting some_database_operation")
+#     query = """
+#     INSERT INTO users (user_id, language, user_name)
+#     VALUES (?, ?, ?)
+#     """
+#     params = (random.randint(1, 1000000), "en", "John")
+#     execute_query_with_retry(query, params)
+#     logging.debug("Finished some_database_operation")
 
 def add_username_column():
     conn = create_connection(DATABASE_PATH)
@@ -302,17 +303,21 @@ def execute_query_with_retry(conn, query, params=(), max_retries=5):
 
 # Использование в вашей функции start:
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    logging.info("Функция start запущена")
     user_data = context.user_data
     user_data['step'] = 'start'
     user_id = update.message.from_user.id if update.message else update.callback_query.from_user.id
     username = update.message.from_user.username if update.message else update.callback_query.from_user.username
     language = 'en'  # или получите значение из user_data, если оно доступно
 
+    logging.info(f"Получен user_id: {user_id}, username: {username}")
+
     # Создайте соединение с базой данных
     conn = create_connection(DATABASE_PATH)
     if conn is not None:
         try:
             # Проверка существования пользователя
+            logging.info(f"Проверка существования пользователя с user_id: {user_id}")
             select_query = "SELECT 1 FROM users WHERE user_id = ?"
             cursor = conn.cursor()
             cursor.execute(select_query, (user_id,))
@@ -320,21 +325,24 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
             if exists:
                 # Обновление данных пользователя
+                logging.info(f"Обновление данных пользователя: {username}")
                 update_query = "UPDATE users SET username = ?, language = ? WHERE user_id= ?"
                 update_params = (username, language, user_id)
                 execute_query_with_retry(conn, update_query, update_params)
             else:
                 # Вставка нового пользователя
+                logging.info(f"Вставка нового пользователя: {username}")
                 insert_query = "INSERT INTO users (user_id, username, language) VALUES (?, ?, ?)"
                 insert_params = (user_id, username, language)
                 execute_query_with_retry(conn, insert_query, insert_params)
 
         except Exception as e:
-            logging.error(f"Database error: {e}")
+            logging.error(f"Ошибка базы данных: {e}")
         finally:
             conn.close()
+            logging.info("Соединение с базой данных закрыто")
     else:
-        logging.error("Failed to create database connection")
+        logging.error("Не удалось создать соединение с базой данных")
 
     if update.message:
         await update.message.reply_text(
@@ -346,6 +354,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"Welcome {username}! Choose your language / Выберите язык / Elige tu idioma",
             reply_markup=language_selection_keyboard()
         )
+    logging.info("Функция start завершена")
 
 async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -684,50 +693,67 @@ async def show_calendar(query, month_offset, language):
         reply_markup=calendar_keyboard
     )
 
+
 async def handle_name(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_data = context.user_data
     username = update.message.from_user.username if update.message else "Имя пользователя"
+
+    logging.info("Проверка выполнения: до блока if update.callback_query")
+
     if update.callback_query:
         user_data['name'] = "Имя пользователя"
     else:
+        logging.info(f"Получено значение из update.message.text: {update.message.text}")
         user_data['name'] = update.message.text
+        logging.info(f"Имя пользователя, присвоенное в user_data['name']: {user_data['name']}")
+
+    logging.info("Проверка выполнения: после блока if update.callback_query")
 
     user_data['step'] = 'name_received'
     user_data['username'] = username
 
-    language_code = user_data.get('language', 'en')
+    logging.info(f"Получено имя пользователя из update.message.text: {update.message.text}")
 
-    # Сохранение имени пользователя и username в базу данных
+    # Сохраняем имя пользователя во временное хранилище
+    temp_data.set_user_name(user_data['name'])
+    logging.info(f"Сохранено имя пользователя во временное хранилище: {temp_data.get_user_name()}")
+
+    language_code = user_data.get('language', 'en')
+    logging.info(f"Saving user_name: {user_data['name']} and username: {username}")
+
+    # Далее идет код для сохранения в базу данных
+
+    # Извлечение имени пользователя из временного хранилища перед записью в базу данных
     conn = create_connection(DATABASE_PATH)
     if conn is not None:
         query = """
-        INSERT INTO user_sessions (user_id, language, user_name, username)
+        INSERT INTO users (user_id, language, user_name, username)
         VALUES (?, ?, ?, ?)
         """
-        params = (update.message.from_user.id, language_code, user_data['name'], username)
+        params = (update.message.from_user.id, language_code, temp_data.get_user_name(), username)
         execute_query(conn, query, params)
     else:
         logging.error("Failed to create database connection")
 
     greeting_texts = {
-        'en': f'Hello {user_data["name"]}! Do you want to see available dates?',
-        'ru': f'Привет {user_data["name"]}! Хочешь увидеть доступные даты?',
-        'es': f'Hola {user_data["name"]}! ¿Quieres ver las fechas disponibles?',
-        'fr': f'Bonjour {user_data["name"]}! Voulez-vous voir les dates disponibles?',
-        'uk': f'Привіт {user_data["name"]}! Хочеш подивитися які дати доступні?',
-        'pl': f'Cześć {user_data["name"]}! Chcesz zobaczyć dostępne daty?',
-        'de': f'Hallo {user_data["name"]}! Möchten Sie verfügbare Daten sehen?',
-        'it': f'Ciao {user_data["name"]}! Vuoi vedere le date disponibili?'
+        'en': f'Hello {temp_data.get_user_name()}! Do you want to see available dates?',
+        'ru': f'Привет {temp_data.get_user_name()}! Хочешь увидеть доступные даты?',
+        'es': f'Hola {temp_data.get_user_name()}! ¿Quieres ver las fechas disponibles?',
+        'fr': f'Bonjour {temp_data.get_user_name()}! Voulez-vous voir les dates disponibles?',
+        'uk': f'Привіт {temp_data.get_user_name()}! Хочеш подивитися які дати доступні?',
+        'pl': f'Cześć {temp_data.get_user_name()}! Chcesz zobaczyć dostępne daty?',
+        'de': f'Hallo {temp_data.get_user_name()}! Möchten Sie verfügbare Daten sehen?',
+        'it': f'Ciao {temp_data.get_user_name()}! Vuoi vedere le date disponibili?'
     }
 
     if update.message:
         await update.message.reply_text(
-            greeting_texts.get(language_code, f'Hello {user_data["name"]}! Do you want to see available dates?'),
+            greeting_texts.get(language_code, f'Hello {temp_data.get_user_name()}! Do you want to see available dates?'),
             reply_markup=yes_no_keyboard(language_code)
         )
     elif update.callback_query:
         await update.callback_query.message.reply_text(
-            greeting_texts.get(language_code, f'Hello {user_data["name"]}! Do you want to see available dates?'),
+            greeting_texts.get(language_code, f'Hello {temp_data.get_user_name()}! Do you want to see available dates?'),
             reply_markup=yes_no_keyboard(language_code)
         )
 
@@ -789,7 +815,24 @@ def disable_yes_no_buttons(reply_markup):
     return InlineKeyboardMarkup(new_keyboard)
 
 if __name__ == '__main__':
-    # add_username_column()  # Добавить колонку username
+    temp_data = TemporaryData()
+
+
+    async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
+        """Log the error and send a telegram message to notify the developer."""
+        logger.error(msg="Exception while handling an update:", exc_info=context.error)
+
+        # Уведомление разработчика через Telegram
+        if isinstance(update, Update):
+            try:
+                if update.message:
+                    await update.message.reply_text("An error occurred. The administrator has been notified.")
+                elif update.callback_query:
+                    await update.callback_query.message.reply_text(
+                        "An error occurred. The administrator has been notified.")
+            except Exception as e:
+                logger.error(f"Error notifying the user: {e}")
+
 
     logging.basicConfig(level=logging.DEBUG)
     #some_database_operation()  # Вызов функции для тестирования
