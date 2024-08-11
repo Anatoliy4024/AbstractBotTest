@@ -2,26 +2,25 @@ import os
 import logging
 import random
 import sqlite3
+import time
+
 from datetime import datetime, timedelta
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton, InputMediaVideo
 from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, MessageHandler, ContextTypes, filters
 from abstract_functions import create_connection, execute_query, execute_query_with_retry
-
 from database_logger import log_message, log_query
 from keyboards import language_selection_keyboard, yes_no_keyboard, generate_calendar_keyboard, generate_time_selection_keyboard, generate_person_selection_keyboard, generate_party_styles_keyboard
 from message_handlers import handle_message, handle_city_confirmation
-
 from constants import TemporaryData
 
-# Установите путь к базе данных
+# Установливаем путь к базе данных
 from constants import DATABASE_PATH
-
 
 # Включаем логирование и указываем файл для логов
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.DEBUG,  # Установите уровень на DEBUG для детальной информации
-    filename='db_operations.log',  # Укажите имя файла для логов
+    level=logging.DEBUG,  # Установлтиаем уровень на DEBUG для детальной информации
+    filename='db_operations.log',  # Указываем имя файла для логов
     filemode='w'  # 'w' - перезаписывать файл при каждом запуске, 'a' - добавлять к существующему файлу
 )
 
@@ -59,26 +58,26 @@ VIDEO_PATHS = [
 # Замените 'YOUR_BOT_TOKEN' на токен вашего бота
 BOT_TOKEN = '7407529729:AAErOT5NBpMSO-V-HPAW-MDu_1WQt0TtXng'
 
-# Создайте соединение с базой данных
+# Создаём соединение с базой данных
 conn = create_connection(DATABASE_PATH)
 
-def execute_query_with_retry(conn, query, params=(), max_retries=5):
-    """Выполняет SQL-запрос с повторными попытками при блокировке базы данных."""
-    retries = 0
-    while retries < max_retries:
-        try:
-            cursor = conn.cursor()
-            cursor.execute(query, params)
-            conn.commit()
-            return
-        except sqlite3.OperationalError as e:
-            if "database is locked" in str(e):
-                retries += 1
-                logging.warning(f"Database is locked, retrying {retries}/{max_retries}")
-                time.sleep(1)  # Задержка перед повторной попыткой
-            else:
-                logging.error(f"Error executing query: {e}")
-                raise e
+# def execute_query_with_retry(conn, query, params=(), max_retries=5):
+#     """Выполняет SQL-запрос с повторными попытками при блокировке базы данных."""
+#     retries = 0
+#     while retries < max_retries:
+#         try:
+#             cursor = conn.cursor()
+#             cursor.execute(query, params)
+#             conn.commit()
+#             return
+#         except sqlite3.OperationalError as e:
+#             if "database is locked" in str(e):
+#                 retries += 1
+#                 logging.warning(f"Database is locked, retrying {retries}/{max_retries}")
+#                 time.sleep(1)  # Задержка перед повторной попыткой
+#             else:
+#                 logging.error(f"Error executing query: {e}")
+#                 raise e
 
 from constants import DATABASE_PATH
 
@@ -92,38 +91,37 @@ def create_connection(db_file):
         log_message(f"Error connecting to database: {e}")
         return None
 
-def execute_query(conn, query, params=()):
-    """Выполняет SQL-запрос."""
-    try:
-        c = conn.cursor()
-        log_query(query, params)  # Логирование запроса
-        c.execute(query, params)
-        conn.commit()
-        log_message(f"Query executed successfully: {query} with params {params}")
-    except sqlite3.Error as e:
-        log_message(f"Error executing query: {e}")
+# def execute_query(conn, query, params=()):
+#     """Выполняет SQL-запрос."""
+#     try:
+#         c = conn.cursor()
+#         log_query(query, params)  # Логирование запроса
+#         c.execute(query, params)
+#         conn.commit()
+#         log_message(f"Query executed successfully: {query} with params {params}")
+#     except sqlite3.Error as e:
+#         log_message(f"Error executing query: {e}")
+#
+# def execute_query_with_retry(conn, query, params=(), max_retries=5):
+#     """Выполняет SQL-запрос с повторными попытками при блокировке базы данных."""
+#     retries = 0
+#     while retries < max_retries:
+#         try:
+#             cursor = conn.cursor()
+#             log_query(query, params)  # Логирование запроса
+#             cursor.execute(query, params)
+#             conn.commit()
+#             log_message(f"Query executed successfully with retry: {query} with params {params}")
+#             break
+#         except sqlite3.OperationalError as e:
+#             if "database is locked" in str(e):
+#                 retries += 1
+#                 log_message(f"Database is locked, retrying {retries}/{max_retries}")
+#                 time.sleep(1)  # Задержка перед повторной попыткой
+#             else:
+#                 log_message(f"Error executing query with retry: {e}")
+#                 raise e
 
-def execute_query_with_retry(conn, query, params=(), max_retries=5):
-    """Выполняет SQL-запрос с повторными попытками при блокировке базы данных."""
-    retries = 0
-    while retries < max_retries:
-        try:
-            cursor = conn.cursor()
-            log_query(query, params)  # Логирование запроса
-            cursor.execute(query, params)
-            conn.commit()
-            log_message(f"Query executed successfully with retry: {query} with params {params}")
-            break
-        except sqlite3.OperationalError as e:
-            if "database is locked" in str(e):
-                retries += 1
-                log_message(f"Database is locked, retrying {retries}/{max_retries}")
-                time.sleep(1)  # Задержка перед повторной попыткой
-            else:
-                log_message(f"Error executing query with retry: {e}")
-                raise e
-
-# Использование в вашей функции start:
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     logging.info("Функция start запущена")
     user_data = context.user_data
@@ -134,7 +132,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     logging.info(f"Получен user_id: {user_id}, username: {username}")
 
-    # Создайте соединение с базой данных
+    # Создаём соединение с базой данных
     conn = create_connection(DATABASE_PATH)
     if conn is not None:
         try:
