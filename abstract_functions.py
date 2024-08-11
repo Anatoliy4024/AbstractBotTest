@@ -4,44 +4,56 @@ from database_logger import log_message, log_query
 from constants import DATABASE_PATH
 
 def create_connection(db_file):
-    """ create a database connection to the SQLite database specified by the db_file """
-    conn = None
+    """Создает соединение с базой данных SQLite, указанной в db_file."""
     try:
         conn = sqlite3.connect(db_file)
         log_message(f"Database connected: {db_file}")
         return conn
     except sqlite3.Error as e:
         log_message(f"Error connecting to database: {e}")
-
-    return conn
+        return None
 
 def execute_query(conn, query, params=()):
     """Выполняет SQL-запрос."""
+    if conn is None:
+        log_message("No database connection available")
+        return False
+
     try:
         c = conn.cursor()
         log_query(query, params)  # Логирование запроса
         c.execute(query, params)
         conn.commit()
         log_message(f"Query executed successfully: {query} with params {params}")
+        return True
     except sqlite3.Error as e:
         log_message(f"Error executing query: {e}")
+        return False
     finally:
-        conn.close()  # Закрытие соединения
-        log_message("Database connection closed")
+        try:
+            conn.close()  # Закрытие соединения
+            log_message("Database connection closed")
+        except sqlite3.Error as e:
+            log_message(f"Error closing database connection: {e}")
 
 def execute_query_with_retry(query, params=(), max_retries=5):
     """Выполняет SQL-запрос с повторными попытками при блокировке базы данных."""
     retries = 0
+    conn = None
+
     while retries < max_retries:
         try:
             conn = sqlite3.connect(DATABASE_PATH)
+            if conn is None:
+                log_message("Failed to create database connection")
+                return False
+
             cursor = conn.cursor()
             log_query(query, params)  # Логирование запроса
             cursor.execute(query, params)
             conn.commit()
-            conn.close()
             log_message(f"Query executed successfully with retry: {query} with params {params}")
-            break
+            return True
         except sqlite3.OperationalError as e:
             if "database is locked" in str(e):
                 retries += 1
@@ -49,41 +61,11 @@ def execute_query_with_retry(query, params=(), max_retries=5):
                 time.sleep(1)  # Задержка перед повторной попыткой
             else:
                 log_message(f"Error executing query with retry: {e}")
-                raise e
+                return False
         finally:
             if conn:
-                conn.close()
-                log_message("Database connection closed after retry")
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# #import sqlite3
-# from sqlite3 import Error
-#
-# def create_connection(db_file):
-#     """ create a database connection to the SQLite database
-#         specified by the db_file
-#     :param db_file: database file
-#     :return: Connection object or None
-#     """
-#     conn = None
-#     try:
-#         conn = sqlite3.connect(db_file)
-#         return conn
-#     except Error as e:
-#         print(e)
-#
-#     return conn
-#
-# def execute_query(conn, query, params=()):
-#     """ Execute a single query
-#     :param conn: Connection object
-#     :param query: a SQL query
-#     :param params: parameters for the query
-#     :return:
-#     """
-#     try:
-#         c = conn.cursor()
-#         c.execute(query, params)
-#         conn.commit()
-#     except Error as e:
-        print(e)
+                try:
+                    conn.close()
+                    log_message("Database connection closed after retry")
+                except sqlite3.Error as e:
+                    log_message(f"Error closing database connection after retry: {e}")

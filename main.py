@@ -434,6 +434,9 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         user_data['language'] = language_code
         user_data['step'] = 'greeting'
 
+        # Блокируем кнопки языков после выбора
+        await query.edit_message_reply_markup(reply_markup=disable_language_buttons(query.message.reply_markup))
+
         # Отправляем сообщение с "ожиданием" на выбранном языке
         loading_texts = {
             'en': 'Loading...',
@@ -832,6 +835,17 @@ if __name__ == '__main__':
                         "An error occurred. The administrator has been notified.")
             except Exception as e:
                 logger.error(f"Error notifying the user: {e}")
+
+
+    def disable_language_buttons(reply_markup):
+        new_keyboard = []
+        for row in reply_markup.inline_keyboard:
+            new_row = []
+            for button in row:
+                # Делаем кнопку неактивной, присваивая ей callback_data='none'
+                new_row.append(InlineKeyboardButton(button.text, callback_data='none'))
+            new_keyboard.append(new_row)
+        return InlineKeyboardMarkup(new_keyboard)
 
 
     logging.basicConfig(level=logging.DEBUG)
