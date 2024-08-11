@@ -260,16 +260,16 @@ def generate_time_selection_keyboard(language, stage='start', start_time=None):
 def language_selection_keyboard():
     keyboard = [
         [
-            InlineKeyboardButton("🇪🇸 ES", callback_data='lang_es'),
             InlineKeyboardButton("🇬🇧 EN", callback_data='lang_en'),
-            InlineKeyboardButton("🇵🇱 PL", callback_data='lang_pl'),
+            InlineKeyboardButton("🇷🇺 RU", callback_data='lang_ru'),
+            InlineKeyboardButton("🇪🇸 ES", callback_data='lang_es'),
             InlineKeyboardButton("🇫🇷 FR", callback_data='lang_fr')
         ],
         [
             InlineKeyboardButton("🇺🇦 UA", callback_data='lang_uk'),
+            InlineKeyboardButton("🇵🇱 PL", callback_data='lang_pl'),
             InlineKeyboardButton("🇩🇪 DE", callback_data='lang_de'),
-            InlineKeyboardButton("🇮🇹 IT", callback_data='lang_it'),
-            InlineKeyboardButton("🇷🇺 RU", callback_data='lang_ru')
+            InlineKeyboardButton("🇮🇹 IT", callback_data='lang_it')
         ]
     ]
     return InlineKeyboardMarkup(keyboard)
@@ -295,7 +295,7 @@ def yes_no_keyboard(language):
     return InlineKeyboardMarkup(keyboard)
 
 def generate_person_selection_keyboard(language):
-    person_buttons = [InlineKeyboardButton(f"🟢 {i}", callback_data=f'person_{i}') for i in range(2, 22)]
+    person_buttons = [InlineKeyboardButton(f"🟢 {i}", callback_data=f'person_{i}') for i in range(2, 21)]
     num_buttons_per_row = 5
     rows = [person_buttons[i:i + num_buttons_per_row] for i in range(0, len(person_buttons), num_buttons_per_row)]
     return InlineKeyboardMarkup(rows)
