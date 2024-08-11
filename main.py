@@ -31,7 +31,7 @@ logger.info(f"Database path: {os.path.join(os.path.dirname(__file__), 'sqlite.db
 # добавление обработчика ошибок
 async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Log the error and send a telegram message to notify the developer."""
-    # Log the error before we do anything else, so we can see it even if something breaks.
+    # Log the error before we do anything else, so we can see it even if something breaks
     logger.error(msg="Exception while handling an update:", exc_info=context.error)
 
     # Notify the developer via Telegram (if desired)
