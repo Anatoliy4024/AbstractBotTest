@@ -45,17 +45,6 @@ async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> N
     if isinstance(update, Update):
         await update.message.reply_text("An error occurred. The administrator has been notified.")
 
-
-# def some_database_operation():
-#     logging.debug("Starting some_database_operation")
-#     query = """
-#     INSERT INTO users (user_id, language, user_name)
-#     VALUES (?, ?, ?)
-#     """
-#     params = (random.randint(1, 1000000), "en", "John")
-#     execute_query_with_retry(query, params)
-#     logging.debug("Finished some_database_operation")
-
 def add_username_column():
     conn = create_connection(DATABASE_PATH)
     if conn is not None:
@@ -429,6 +418,25 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         'it': 'Che стиль scegli?'
     }
 
+#     # if query.data.startswith('lang_'):
+#     #     language_code = query.data.split('_')[1]
+#     #     user_data['language'] = language_code
+#     #     user_data['step'] = 'greeting'
+#
+#         # Обновляем язык в базе данных
+#         conn = create_connection(DATABASE_PATH)
+#         if conn is not None:
+#             try:
+#                 update_query = "UPDATE users SET language = ? WHERE user_id = ?"
+#                 update_params = (language_code, update.callback_query.from_user.id)
+#                 execute_query_with_retry(conn, update_query, update_params)
+#             except Exception as e:
+#                 logging.error(f"Ошибка обновления языка в базе данных: {e}")
+#             finally:
+#                 conn.close()
+#
+# #______________________________
+
     if query.data.startswith('lang_'):
         language_code = query.data.split('_')[1]
         user_data['language'] = language_code
@@ -436,6 +444,19 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         # Блокируем кнопки языков после выбора
         await query.edit_message_reply_markup(reply_markup=disable_language_buttons(query.message.reply_markup))
+
+        # Обновляем язык в базе данных
+        conn = create_connection(DATABASE_PATH)
+        if conn is not None:
+            try:
+                update_query = "UPDATE users SET language = ? WHERE user_id = ?"
+                update_params = (language_code, update.callback_query.from_user.id)
+                execute_query_with_retry(conn, update_query, update_params)
+            except Exception as e:
+                logging.error(f"Ошибка обновления языка в базе данных: {e}")
+            finally:
+                conn.close()
+
 
         # Отправляем сообщение с "ожиданием" на выбранном языке
         loading_texts = {
