@@ -18,10 +18,9 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await handle_city(update, context)
     else:
         await update.message.reply_text(
-            "Выбор только кнопками",
+            get_translation(user_data, 'buttons_only'),  # Используем функцию для получения перевода
             reply_markup=get_current_step_keyboard(step, user_data)
         )
-
 
 # Функция для обработки имени
 async def handle_name(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -128,7 +127,7 @@ async def handle_city_confirmation(update: Update, context: ContextTypes.DEFAULT
 def get_current_step_keyboard(step, user_data):
     language = user_data.get_language()
     if step == 'calendar':
-        month_offset = user_data.get('month_offset', 0)
+        month_offset = user_data.get_month_offset() if hasattr(user_data, 'get_month_offset') else 0
         return generate_calendar_keyboard(month_offset, language)
     elif step == 'time_selection':
         return generate_time_selection_keyboard(language, 'start')
@@ -138,3 +137,21 @@ def get_current_step_keyboard(step, user_data):
         return generate_party_styles_keyboard(language)
     else:
         return None
+
+
+# Словарь с переводами сообщения "Выбор только кнопками" на разные языки
+translations = {
+    'en': "Please use the buttons",
+    'ru': "Выбор только кнопками",
+    'es': "Por favor, usa los botones",
+    'fr': "Veuillez utiliser les boutons",
+    'de': "Bitte verwenden Sie die Tasten",
+    'it': "Si prega di utilizzare i pulsanti",
+    'uk': "Будь ласка, використовуйте кнопки",
+    'pl': "Proszę użyć przycisków"
+}
+
+# Функция для получения перевода на основе языка пользователя
+def get_translation(user_data, key):
+    language_code = user_data.get_language()  # Получаем код языка пользователя
+    return translations.get(language_code, translations['en'])  # Возвращаем перевод или английский по умолчанию

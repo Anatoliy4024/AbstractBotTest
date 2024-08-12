@@ -124,9 +124,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_data.set_user_id(user_id)
     user_data.set_username(username)
     user_data.set_step('start')
-    user_data.set_language('en')  # или получите значение из user_data, если оно доступно
+    user_data.set_language('en')  # Здесь можно задать язык или получить его от пользователя
 
-    logging.info(f"Получен user_id: {user_id}, username: {username}")
+    logging.info(f"Получен user_id: {user_id}, username: {username}, language: {user_data.get_language()}")
 
     # Создайте соединение с базой данных
     conn = create_connection(DATABASE_PATH)
@@ -171,6 +171,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=language_selection_keyboard()
         )
     logging.info("Функция start завершена")
+
 
 async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     logging.info("Функция button_callback запущена")
@@ -278,13 +279,13 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             user_data.set_step('preferences_request')
             preferences_request_texts = {
                 'en': 'Please write your preferences for table setting colors, food items (or exclusions), and desired table accessories (candles, glasses, etc.) - no more than 1000 characters.',
-                'ru': 'Напишите свои предпочтения по цвету сервировки и продуктам (или исключения по ним) и желаемые аксессуары сервировки (свечи, бокалы и прочее) - не более 1000 знаков.',
-                'es': 'Escriba sus preferencias de colores para la mesa, artículos de comida (o исключения), и аксессуары для стола (velas, copas, etc.) - не более 1000 знаков.',
-                'fr': 'Veuillez écrire vos préférences pour les couleurs de la table, les aliments (ou исключения), и les accessoires de table désirés (bougies, verres, etc.) - не более 1000 символов.',
-                'uk': 'Напишіть свої уподобання щодо кольору сервіровки та продуктів (або исключения з них) і бажані аксесуари для сервіровки (свічки, келихи тощо) - не більше 1000 знаків.',
-                'pl': 'Napisz swoje preferencje dotyczące kolorów nakrycia stołu, produktów spożywczych (lub исключения) и аксессуаров для стола (świece, szklanki itp.) - не больше 1000 знаков.',
-                'de': 'Bitte schreiben Sie Ihre Vorlieben für Tischdeckfarben, Lebensmittel (oder исключения) und gewünschte Tischaccessoires (Kerzen, Gläser usw.) - nicht mehr als 1000 Zeichen.',
-                'it': 'Scrivi le tue preferenze per i colori della tavola, gli articoli alimentari (o исключения) и gli accessori per la tavola desiderati (candele, bicchieri, ecc.) - не больше 1000 символов.'
+'ru': 'Напишите свои предпочтения по цвету сервировки, продуктам (или исключениям), и желаемые аксессуары для стола (свечи, бокалы и прочее) - не более 1000 знаков.',
+'es': 'Escriba sus preferencias de colores para la mesa, artículos de comida (o exclusiones), y accesorios para la mesa (velas, copas, etc.) - no más de 1000 caracteres.',
+'fr': 'Veuillez écrire vos préférences pour les couleurs de la table, les aliments (ou exclusions), et les accessoires de table désirés (bougies, verres, etc.) - pas plus de 1000 caractères.',
+'uk': 'Напишіть свої уподобання щодо кольору сервірування, продуктів (або виключень), і бажані аксесуари для столу (свічки, келихи тощо) - не більше 1000 знаків.',
+'pl': 'Napisz swoje preferencje dotyczące kolorów nakrycia stołu, produktów spożywczych (lub wykluczeń), i pożądanych akcesoriów do stołu (świece, szklanki itp.) - nie więcej niż 1000 znaków.',
+'de': 'Bitte schreiben Sie Ihre Vorlieben für Tischfarben, Lebensmittel (oder Ausschlüsse), und gewünschte Tischaccessoires (Kerzen, Gläser usw.) - nicht mehr als 1000 Zeichen.',
+'it': 'Scrivi le tue preferenze per i colori della tavola, gli alimenti (o esclusioni), e gli accessori desiderati per la tavola (candele, bicchieri, ecc.) - non più di 1000 caratteri.'
             }
             await query.message.reply_text(
                 preferences_request_texts.get(user_data.get_language(),
@@ -518,7 +519,7 @@ async def handle_name(update: Update, context: ContextTypes.DEFAULT_TYPE):
         VALUES (?, ?, ?, ?)
         """
         params = (update.message.from_user.id, language_code, user_data.get_name(), user_data.get_username())
-        execute_query_with_retry(query, params, user_data=user_data)
+        execute_query_with_retry(conn, query, params)
     else:
         logging.error("Failed to create database connection")
 

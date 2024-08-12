@@ -224,7 +224,7 @@ def generate_time_selection_keyboard(language, stage='start', start_time=None):
                 time_buttons.append(InlineKeyboardButton(f"🟢 {time_str}", callback_data=f'time_{time_str}'))
         current_time += timedelta(minutes=30)
 
-    num_buttons_per_row = 4
+    num_buttons_per_row = 3
     rows = [time_buttons[i:i + num_buttons_per_row] for i in range(0, len(time_buttons), num_buttons_per_row)]
 
     time_selection_headers = {

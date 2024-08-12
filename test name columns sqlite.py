@@ -8,7 +8,7 @@ cursor = conn.cursor()
 
 # Выполняем команду PRAGMA для получения информации о таблице
 cursor.execute("PRAGMA table_info(users);")
-#cursor.execute("PRAGMA table_info(orders);")
+cursor.execute("PRAGMA table_info(orders);")
 
 # Получаем и выводим результаты
 columns = cursor.fetchall()
