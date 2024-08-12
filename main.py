@@ -6,19 +6,11 @@ from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton, InputMe
 from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, MessageHandler, ContextTypes, filters
 from abstract_functions import create_connection, execute_query, execute_query_with_retry
 import sqlite3
-
+from constants import UserData, time_selection_headers, people_selection_headers, party_styles_headers, time_set_texts
 from database_logger import log_message, log_query
 from keyboards import language_selection_keyboard, yes_no_keyboard, generate_calendar_keyboard, generate_time_selection_keyboard, generate_person_selection_keyboard, generate_party_styles_keyboard
-
-from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandler, MessageHandler, filters
 from message_handlers import handle_message, handle_city_confirmation
-
-from constants import TemporaryData
-
-# Установите путь к базе данных
-from constants import DATABASE_PATH
-import logging
-import os
+from constants import TemporaryData, DATABASE_PATH
 
 # Включаем логирование и указываем файл для логов
 logging.basicConfig(
@@ -29,7 +21,7 @@ logging.basicConfig(
 )
 
 logger = logging.getLogger(__name__)
-logger.info(f"Database path: {os.path.join(os.path.dirname(__file__), 'sqlite.db')}")
+logger.info(f"Database path: {DATABASE_PATH}")
 
 #########################################################################
 # добавление обработчика ошибок
@@ -69,116 +61,7 @@ BOT_TOKEN = '7407529729:AAErOT5NBpMSO-V-HPAW-MDu_1WQt0TtXng'
 # Создайте соединение с базой данных
 conn = create_connection(DATABASE_PATH)
 
-# async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-#     user_data = context.user_data
-#     user_data['step'] = 'start'
-#     user_id = update.message.from_user.id if update.message else update.callback_query.from_user.id
-#     username = update.message.from_user.username if update.message else update.callback_query.from_user.username
-#
-#     # Сохранение username в базу данных
-#     conn = create_connection(DATABASE_PATH)
-#     if conn is not None:
-#         try:
-#             update_query = "UPDATE users SET username = ?, language = '1111' WHERE user_id= ?"
-#             update_params = (user_id, username)
-#             execute_query(conn, update_query, update_params)
-#         except Exception as e:
-#             print(e)
-#             query = """
-#             INSERT INTO users (user_id, username)
-#             VALUES (?, ?)
-#             """
-#             params = (user_id, username)
-#             execute_query(conn, query, params)
-#         finally:
-#             conn.close()
-#     else:
-#         logging.error("Failed to create database connection")
-#
-#     if update.message:
-#         await update.message.reply_text(
-#             "Choose your language / Выберите язык / Elige tu idioma",
-#             reply_markup=language_selection_keyboard()
-#         )
-#     elif update.callback_query:
-#         await update.callback_query.message.reply_text(
-#             "Choose your language / Выберите язык / Elige tu idioma",
-#             reply_markup=language_selection_keyboard()
-#         )
-
-# # Новая версия 1 рабочая, но тоже запирается_____________________________________
-# import time
-# import sqlite3
-# import logging
-#
-# def execute_query_with_retry(conn, query, params=(), max_retries=5, delay=2):
-#     """Выполняет SQL-запрос с повторными попытками при блокировке базы данных."""
-#     retries = 0
-#     while retries < max_retries:
-#         try:
-#             cursor = conn.cursor()
-#             cursor.execute(query, params)
-#             conn.commit()
-#             return
-#         except sqlite3.OperationalError as e:
-#             if "database is locked" in str(e):
-#                 retries += 1
-#                 logging.warning(f"Database is locked, retrying {retries}/{max_retries}")
-#                 time.sleep(delay)  # Увеличение задержки перед повторной попыткой
-#             else:
-#                 logging.error(f"Error executing query: {e}")
-#                 raise e
-#     raise sqlite3.OperationalError(f"Max retries exceeded for query: {query}")
-#
-# async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-#     user_data = context.user_data
-#     user_data['step'] = 'start'
-#     user_id = update.message.from_user.id if update.message else update.callback_query.from_user.id
-#     username = update.message.from_user.username if update.message else update.callback_query.from_user.username
-#
-#     conn = create_connection(DATABASE_PATH)
-#     if conn is not None:
-#         try:
-#             update_query = "UPDATE users SET username = ?, language = 'en' WHERE user_id= ?"
-#             update_params = (username, user_id)
-#             execute_query_with_retry(conn, update_query, update_params)
-#         except sqlite3.Error as e:
-#             if "no such table" in str(e):
-#                 query = """
-#                 CREATE TABLE IF NOT EXISTS users (
-#                     user_id INTEGER PRIMARY KEY,
-#                     username TEXT,
-#                     language TEXT
-#                 )
-#                 """
-#                 execute_query_with_retry(conn, query)
-#                 query = """
-#                 INSERT INTO users (user_id, username)
-#                 VALUES (?, ?)
-#                 """
-#                 params = (user_id, username)
-#                 execute_query_with_retry(conn, query, params)
-#             else:
-#                 log_message(f"Database error: {e}")
-#         finally:
-#             conn.close()
-#     else:
-#         log_message("Failed to create database connection")
-#
-#     if update.message:
-#         await update.message.reply_text(
-#             "Choose your language / Выберите язык / Elige tu idioma",
-#             reply_markup=language_selection_keyboard()
-#         )
-#     elif update.callback_query:
-#         await update.callback_query.message.reply_text(
-#             "Choose your language / Выберите язык / Elige tu idioma",
-#             reply_markup=language_selection_keyboard()
-#         )
-# #Конец новой версии 1
-
-
-#Версия "соединение с базой данных" сделанная с 13.00 до 14.00 - 8.08.2024
+# Версия "соединение с базой данных" сделанная с 13.00 до 14.00 - 8.08.2024
 import time
 import sqlite3
 import logging
@@ -200,49 +83,6 @@ def execute_query_with_retry(conn, query, params=(), max_retries=5):
             else:
                 logging.error(f"Error executing query: {e}")
                 raise e
-
-# старый старт который не записывает в таблицу
-# async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-#     user_data = context.user_data
-#     user_data['step'] = 'start'
-#     user_id = update.message.from_user.id if update.message else update.callback_query.from_user.id
-#     username = update.message.from_user.username if update.message else update.callback_query.from_user.username
-#
-#     # Сохранение username в базу данных
-#     # conn = create_connection(DATABASE_PATH)
-#     if conn is not None:
-#         try:
-#             update_query = "UPDATE users SET username = ?, language = '1111' WHERE user_id= ?"
-#             update_params = (username, user_id)
-#             execute_query_with_retry(conn, update_query, update_params)
-#         except Exception as e:
-#             print(e)
-#             query = """
-#             INSERT INTO users (user_id, username)
-#             VALUES (?, ?)
-#             """
-#             params = (user_id, username)
-#             execute_query_with_retry(conn, query, params)
-#         finally:
-#             conn.close()
-#     else:
-#         logging.error("Failed to create database connection")
-#
-#     if update.message:
-#         await update.message.reply_text(
-#             "Choose your language / Выберите язык / Elige tu idioma",
-#             reply_markup=language_selection_keyboard()
-#         )
-#     elif update.callback_query:
-#         await update.callback_query.message.reply_text(
-#             "Choose your language / Выберите язык / Elige tu idioma",
-#             reply_markup=language_selection_keyboard()
-#         )
-
-import logging
-
-import logging
-
 
 import sqlite3
 import time
@@ -270,34 +110,21 @@ def execute_query(conn, query, params=()):
     except sqlite3.Error as e:
         log_message(f"Error executing query: {e}")
 
-def execute_query_with_retry(conn, query, params=(), max_retries=5):
-    """Выполняет SQL-запрос с повторными попытками при блокировке базы данных."""
-    retries = 0
-    while retries < max_retries:
-        try:
-            cursor = conn.cursor()
-            log_query(query, params)  # Логирование запроса
-            cursor.execute(query, params)
-            conn.commit()
-            log_message(f"Query executed successfully with retry: {query} with params {params}")
-            break
-        except sqlite3.OperationalError as e:
-            if "database is locked" in str(e):
-                retries += 1
-                log_message(f"Database is locked, retrying {retries}/{max_retries}")
-                time.sleep(1)  # Задержка перед повторной попыткой
-            else:
-                log_message(f"Error executing query with retry: {e}")
-                raise e
-
 # Использование в вашей функции start:
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     logging.info("Функция start запущена")
-    user_data = context.user_data
-    user_data['step'] = 'start'
+
+    # Инициализация данных пользователя
+    user_data = context.user_data.get('user_data', UserData())
+    context.user_data['user_data'] = user_data
+
+    # Установка начальных данных
     user_id = update.message.from_user.id if update.message else update.callback_query.from_user.id
     username = update.message.from_user.username if update.message else update.callback_query.from_user.username
-    language = 'en'  # или получите значение из user_data, если оно доступно
+    user_data.set_user_id(user_id)
+    user_data.set_username(username)
+    user_data.set_step('start')
+    user_data.set_language('en')  # или получите значение из user_data, если оно доступно
 
     logging.info(f"Получен user_id: {user_id}, username: {username}")
 
@@ -316,13 +143,13 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 # Обновление данных пользователя
                 logging.info(f"Обновление данных пользователя: {username}")
                 update_query = "UPDATE users SET username = ?, language = ? WHERE user_id= ?"
-                update_params = (username, language, user_id)
+                update_params = (username, user_data.get_language(), user_id)
                 execute_query_with_retry(conn, update_query, update_params)
             else:
                 # Вставка нового пользователя
                 logging.info(f"Вставка нового пользователя: {username}")
                 insert_query = "INSERT INTO users (user_id, username, language) VALUES (?, ?, ?)"
-                insert_params = (user_id, username, language)
+                insert_params = (user_id, username, user_data.get_language())
                 execute_query_with_retry(conn, insert_query, insert_params)
 
         except Exception as e:
@@ -346,101 +173,20 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     logging.info("Функция start завершена")
 
 async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    logging.info("Функция button_callback запущена")
+
     query = update.callback_query
     await query.answer()
-    user_data = context.user_data
 
-    time_set_texts = {
-        'start_time': {
-            'en': 'Start time set to {}. Now select end time.',
-            'ru': 'Время начала установлено на {}. Теперь выберите время окончания.',
-            'es': 'La hora de inicio se ha establecido en {}. Ahora selecciona la hora de finalización.',
-            'fr': 'L\'heure de début est fixée à {}. Maintenant, sélectionnez l\'heure de fin.',
-            'uk': 'Час початку встановлено на {}. Тепер виберіть час закінчення.',
-            'pl': 'Czas rozpoczęcia ustawiono na {}. Teraz wybierz czas zakończenia.',
-            'de': 'Startzeit auf {} gesetzt. Wählen Sie nun die Endzeit.',
-            'it': 'L\'ora di inizio è stata impostata su {}. Ora seleziona l\'ora di fine.'
-        },
-        'end_time': {
-            'en': 'End time set to {}. Confirm your selection.',
-            'ru': 'Время окончания установлено на {}. Подтвердите свой выбор.',
-            'es': 'La hora de finalización se ha establecido en {}. Confirma tu selección.',
-            'fr': 'L\'heure de fin est fixée à {}. Confirmez votre sélection.',
-            'uk': 'Час закінчення встановлено на {}. Підтвердіть свій вибір.',
-            'pl': 'Czas zakończenia ustawiono na {}. Potwierdź swój wybór.',
-            'de': 'Endzeit auf {} gesetzt. Bestätigen Sie Ihre Auswahl.',
-            'it': 'L\'ora di fine è stata impostata su {}. Conferma la tua selezione.'
-        }
-    }
+    # Инициализация данных пользователя
+    user_data = context.user_data.get('user_data', UserData())
+    context.user_data['user_data'] = user_data
 
-    time_selection_headers = {
-        'start': {
-            'en': 'Select start and end time (minimum duration 2 hours)',
-            'ru': 'Выберите время начала и окончания (минимальная продолжительность 2 часа)',
-            'es': 'Selecciona la hora de inicio y fin (duración mínima 2 horas)',
-            'fr': 'Sélectionnez l\'heure de début et de fin (durée minimale 2 heures)',
-            'uk': 'Виберіть час початку та закінчення (мінімальна тривалість 2 години)',
-            'pl': 'Wybierz czas rozpoczęcia i zakończenia (minimalny czas trwania 2 godziny)',
-            'de': 'Wählen Sie Start- und Endzeit (Mindestdauer 2 Stunden)',
-            'it': 'Seleziona l\'ora di inizio e fine (durata minima 2 ore)'
-        },
-        'end': {
-            'en': 'Planning to end around...',
-            'ru': 'Планирую окончание около...',
-            'es': 'Planeo terminar alrededor de...',
-            'fr': 'Je prévois de terminer vers...',
-            'uk': 'Планую закінчити приблизно о...',
-            'pl': 'Planuję zakończyć około...',
-            'de': 'Ich plane zu beenden um...',
-            'it': 'Prevedo di finire intorno alle...'
-        }
-    }
-
-    people_selection_headers = {
-        'en': 'How many people are attending?',
-        'ru': 'На сколько персон твоя встреча?',
-        'es': '¿Cuántas personas asistirán?',
-        'fr': 'Combien de personnes participent?',
-        'uk': 'На скільки персон твоя зустріч?',
-        'pl': 'Ile osób będzie uczestniczyć?',
-        'de': 'Wie viele Personen nehmen teil?',
-        'it': 'Quante persone parteciperanno?'
-    }
-
-    party_styles_headers = {
-        'en': 'What style do you choose?',
-        'ru': 'Какой стиль ты выбираешь?',
-        'es': '¿Qué стиль eliges?',
-        'fr': 'Quel стиль choisis-tu?',
-        'uk': 'Який стиль ти обираєш?',
-        'pl': 'Jaki стиль wybierasz?',
-        'de': 'Welchen стиль wählst du?',
-        'it': 'Che стиль scegli?'
-    }
-
-#     # if query.data.startswith('lang_'):
-#     #     language_code = query.data.split('_')[1]
-#     #     user_data['language'] = language_code
-#     #     user_data['step'] = 'greeting'
-#
-#         # Обновляем язык в базе данных
-#         conn = create_connection(DATABASE_PATH)
-#         if conn is not None:
-#             try:
-#                 update_query = "UPDATE users SET language = ? WHERE user_id = ?"
-#                 update_params = (language_code, update.callback_query.from_user.id)
-#                 execute_query_with_retry(conn, update_query, update_params)
-#             except Exception as e:
-#                 logging.error(f"Ошибка обновления языка в базе данных: {e}")
-#             finally:
-#                 conn.close()
-#
-# #______________________________
-
+    # Обработка выбора языка
     if query.data.startswith('lang_'):
         language_code = query.data.split('_')[1]
-        user_data['language'] = language_code
-        user_data['step'] = 'greeting'
+        user_data.set_language(language_code)
+        user_data.set_step('greeting')
 
         # Блокируем кнопки языков после выбора
         await query.edit_message_reply_markup(reply_markup=disable_language_buttons(query.message.reply_markup))
@@ -457,7 +203,6 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             finally:
                 conn.close()
 
-
         # Отправляем сообщение с "ожиданием" на выбранном языке
         loading_texts = {
             'en': 'Loading...',
@@ -465,7 +210,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             'es': 'Cargando...',
             'fr': 'Chargement...',
             'uk': 'Завантаження...',
-            'pl': 'Ładowание...',
+            'pl': 'Ładowanie...',
             'de': 'Laden...',
             'it': 'Caricamento...'
         }
@@ -507,100 +252,103 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
 
     elif query.data == 'yes':
-        if user_data['step'] == 'name_received':
-            user_data['step'] = 'calendar'
-            await show_calendar(query, user_data.get('month_offset', 0), user_data.get('language', 'en'))
-        elif user_data['step'] == 'date_confirmation':
-            user_data['step'] = 'time_selection'
+        if user_data.get_step() == 'name_received':
+            user_data.set_step('calendar')
+            await show_calendar(query, user_data.get_month_offset(), user_data.get_language())
+        elif user_data.get_step() == 'date_confirmation':
+            user_data.set_step('time_selection')
             await query.message.reply_text(
-                time_selection_headers['start'].get(user_data['language'], "Select start and end time (minimum duration 2 hours)"),
-                reply_markup=generate_time_selection_keyboard(user_data['language'], 'start')
+                time_selection_headers['start'].get(user_data.get_language(),
+                                                    "Select start and end time (minimum duration 2 hours)"),
+                reply_markup=generate_time_selection_keyboard(user_data.get_language(), 'start')
             )
-        elif user_data['step'] == 'time_confirmation':
-            user_data['step'] = 'people_selection'
+        elif user_data.get_step() == 'time_confirmation':
+            user_data.set_step('people_selection')
             await query.message.reply_text(
-                people_selection_headers.get(user_data['language'], 'How many people are attending?'),
-                reply_markup=generate_person_selection_keyboard(user_data['language'])
+                people_selection_headers.get(user_data.get_language(), 'How many people are attending?'),
+                reply_markup=generate_person_selection_keyboard(user_data.get_language())
             )
-        elif user_data['step'] == 'people_confirmation':
-            user_data['step'] = 'style_selection'
+        elif user_data.get_step() == 'people_confirmation':
+            user_data.set_step('style_selection')
             await query.message.reply_text(
-                party_styles_headers.get(user_data['language'], 'What style do you choose?'),
-                reply_markup=generate_party_styles_keyboard(user_data['language'])
+                party_styles_headers.get(user_data.get_language(), 'What style do you choose?'),
+                reply_markup=generate_party_styles_keyboard(user_data.get_language())
             )
-        elif user_data['step'] == 'style_confirmation':
-            user_data['step'] = 'preferences_request'
+        elif user_data.get_step() == 'style_confirmation':
+            user_data.set_step('preferences_request')
             preferences_request_texts = {
                 'en': 'Please write your preferences for table setting colors, food items (or exclusions), and desired table accessories (candles, glasses, etc.) - no more than 1000 characters.',
                 'ru': 'Напишите свои предпочтения по цвету сервировки и продуктам (или исключения по ним) и желаемые аксессуары сервировки (свечи, бокалы и прочее) - не более 1000 знаков.',
                 'es': 'Escriba sus preferencias de colores para la mesa, artículos de comida (o исключения), и аксессуары для стола (velas, copas, etc.) - не более 1000 знаков.',
-                'fr': 'Veuillez écrire vos préférences pour les couleurs de la table, les aliments (ou исключения), et les accessoires de table désirés (bougies, verres, etc.) - pas plus de 1000 caractères.',
+                'fr': 'Veuillez écrire vos préférences pour les couleurs de la table, les aliments (ou исключения), и les accessoires de table désirés (bougies, verres, etc.) - не более 1000 символов.',
                 'uk': 'Напишіть свої уподобання щодо кольору сервіровки та продуктів (або исключения з них) і бажані аксесуари для сервіровки (свічки, келихи тощо) - не більше 1000 знаків.',
                 'pl': 'Napisz swoje preferencje dotyczące kolorów nakrycia stołu, produktów spożywczych (lub исключения) и аксессуаров для стола (świece, szklanki itp.) - не больше 1000 знаков.',
                 'de': 'Bitte schreiben Sie Ihre Vorlieben für Tischdeckfarben, Lebensmittel (oder исключения) und gewünschte Tischaccessoires (Kerzen, Gläser usw.) - nicht mehr als 1000 Zeichen.',
-                'it': 'Scrivi le tue preferenze per i colori della tavola, gli articoli alimentari (o исключения) e gli accessori per la tavola desiderati (candele, bicchieri, ecc.) - не больше 1000 символов.'
+                'it': 'Scrivi le tue preferenze per i colori della tavola, gli articoli alimentari (o исключения) и gli accessori per la tavola desiderati (candele, bicchieri, ecc.) - не больше 1000 символов.'
             }
             await query.message.reply_text(
-                preferences_request_texts.get(user_data['language'], "Please write your preferences for table setting colors, food items (or exclusions), and desired table accessories (candles, glasses, etc.) - no more than 1000 characters.")
+                preferences_request_texts.get(user_data.get_language(),
+                                              "Please write your preferences for table setting colors, food items (or exclusions), and desired table accessories (candles, glasses, etc.) - no more than 1000 characters.")
             )
 
         # Disable the "no" button
         await query.edit_message_reply_markup(reply_markup=disable_yes_no_buttons(query.message.reply_markup))
 
     elif query.data == 'no':
-        if user_data['step'] == 'calendar':
-            user_data['step'] = 'name_received'
+        if user_data.get_step() == 'calendar':
+            user_data.set_step('name_received')
             await handle_name(query, context)
-        elif user_data['step'] == 'date_confirmation':
-            user_data['step'] = 'calendar'
-            await show_calendar(query, user_data.get('month_offset', 0), user_data.get('language', 'en'))
-        elif user_data['step'] == 'name_received':
-            user_data['step'] = 'greeting'
+        elif user_data.get_step() == 'date_confirmation':
+            user_data.set_step('calendar')
+            await show_calendar(query, user_data.get_month_offset(), user_data.get_language())
+        elif user_data.get_step() == 'name_received':
+            user_data.set_step('greeting')
             await start(update, context)
-        elif user_data['step'] == 'time_selection':
-            user_data.pop('start_time', None)
-            user_data.pop('end_time', None)
+        elif user_data.get_step() == 'time_selection':
+            user_data.clear_time()
             await query.message.reply_text(
-                time_selection_headers['start'].get(user_data['language'], "Select start and end time (minimum duration 2 hours)"),
-                reply_markup=generate_time_selection_keyboard(user_data['language'], 'start')
+                time_selection_headers['start'].get(user_data.get_language(),
+                                                    "Select start and end time (minimum duration 2 hours)"),
+                reply_markup=generate_time_selection_keyboard(user_data.get_language(), 'start')
             )
-        elif user_data['step'] == 'time_confirmation':
-            user_data.pop('start_time', None)
-            user_data.pop('end_time', None)
+        elif user_data.get_step() == 'time_confirmation':
+            user_data.clear_time()
             await query.message.reply_text(
-                time_selection_headers['start'].get(user_data['language'], "Select start and end time (minimum duration 2 hours)"),
-                reply_markup=generate_time_selection_keyboard(user_data['language'], 'start')
+                time_selection_headers['start'].get(user_data.get_language(),
+                                                    "Select start and end time (minimum duration 2 hours)"),
+                reply_markup=generate_time_selection_keyboard(user_data.get_language(), 'start')
             )
-        elif user_data['step'] == 'people_selection':
+        elif user_data.get_step() == 'people_selection':
             await query.message.reply_text(
-                people_selection_headers.get(user_data['language'], 'How many people are attending?'),
-                reply_markup=generate_person_selection_keyboard(user_data['language'])
+                people_selection_headers.get(user_data.get_language(), 'How many people are attending?'),
+                reply_markup=generate_person_selection_keyboard(user_data.get_language())
             )
-        elif user_data['step'] == 'people_confirmation':
-            user_data['step'] = 'people_selection'
+        elif user_data.get_step() == 'people_confirmation':
+            user_data.set_step('people_selection')
             await query.message.reply_text(
-                people_selection_headers.get(user_data['language'], 'How many people are attending?'),
-                reply_markup=generate_person_selection_keyboard(user_data['language'])
+                people_selection_headers.get(user_data.get_language(), 'How many people are attending?'),
+                reply_markup=generate_person_selection_keyboard(user_data.get_language())
             )
-        elif user_data['step'] == 'style_selection':
+        elif user_data.get_step() == 'style_selection':
             await query.message.reply_text(
-                party_styles_headers.get(user_data['language'], 'What style do you choose?'),
-                reply_markup=generate_party_styles_keyboard(user_data['language'])
+                party_styles_headers.get(user_data.get_language(), 'What style do you choose?'),
+                reply_markup=generate_party_styles_keyboard(user_data.get_language())
             )
-        elif user_data['step'] == 'style_confirmation':
-            user_data['step'] = 'style_selection'
+        elif user_data.get_step() == 'style_confirmation':
+            user_data.set_step('style_selection')
             await query.message.reply_text(
-                party_styles_headers.get(user_data['language'], 'What style do you choose?'),
-                reply_markup=generate_party_styles_keyboard(user_data['language'])
+                party_styles_headers.get(user_data.get_language(), 'What style do you choose?'),
+                reply_markup=generate_party_styles_keyboard(user_data.get_language())
             )
 
     elif query.data.startswith('date_'):
         selected_date = query.data.split('_')[1]
-        user_data['step'] = 'date_confirmation'
-        user_data['selected_date'] = selected_date
+        user_data.set_step('date_confirmation')
+        user_data.set_date(selected_date)
 
         # Меняем цвет кнопки на красный и делаем все остальные кнопки неактивными
-        await query.edit_message_reply_markup(reply_markup=disable_calendar_buttons(query.message.reply_markup, selected_date))
+        await query.edit_message_reply_markup(
+            reply_markup=disable_calendar_buttons(query.message.reply_markup, selected_date))
 
         confirmation_texts = {
             'en': f'You selected {selected_date}, correct?',
@@ -613,47 +361,53 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             'it': f'Hai selezionato {selected_date}, corretto?'
         }
         await query.message.reply_text(
-            confirmation_texts.get(user_data['language'], f'You selected {selected_date}, correct?'),
-            reply_markup=yes_no_keyboard(user_data['language'])
+            confirmation_texts.get(user_data.get_language(), f'You selected {selected_date}, correct?'),
+            reply_markup=yes_no_keyboard(user_data.get_language())
         )
 
     elif query.data.startswith('time_'):
         selected_time = query.data.split('_')[1]
-        if 'start_time' not in user_data:
-            user_data['start_time'] = selected_time
+        if not user_data.get_start_time():
+            user_data.set_start_time(selected_time)
             await query.message.reply_text(
-                time_set_texts['start_time'].get(user_data['language'], 'Start time set to {}. Now select end time.').format(selected_time),
-                reply_markup=generate_time_selection_keyboard(user_data['language'], 'end', user_data['start_time'])
+                time_set_texts['start_time'].get(user_data.get_language(),
+                                                 'Start time set to {}. Now select end time.').format(selected_time),
+                reply_markup=generate_time_selection_keyboard(user_data.get_language(), 'end',
+                                                              user_data.get_start_time())
             )
         else:
-            user_data['end_time'] = selected_time
-            start_time = datetime.strptime(user_data['start_time'], '%H:%M')
-            end_time = datetime.strptime(user_data['end_time'], '%H:%M')
+            user_data.set_end_time(selected_time)
+            start_time = datetime.strptime(user_data.get_start_time(), '%H:%M')
+            end_time = datetime.strptime(user_data.get_end_time(), '%H:%M')
             if (end_time - start_time).seconds >= 7200:
-                user_data['step'] = 'time_confirmation'
+                user_data.set_step('time_confirmation')
                 await query.message.reply_text(
-                    time_set_texts['end_time'].get(user_data['language'], 'End time set to {}. Confirm your selection.').format(selected_time),
-                    reply_markup=yes_no_keyboard(user_data.get('language', 'en'))
+                    time_set_texts['end_time'].get(user_data.get_language(),
+                                                   'End time set to {}. Confirm your selection.').format(selected_time),
+                    reply_markup=yes_no_keyboard(user_data.get_language())
                 )
             else:
                 await query.message.reply_text(
                     f"Minimum duration is 2 hours. Please select an end time at least 2 hours after the start time.",
-                    reply_markup=generate_time_selection_keyboard(user_data['language'], 'end', user_data['start_time'])
+                    reply_markup=generate_time_selection_keyboard(user_data.get_language(), 'end',
+                                                                  user_data.get_start_time())
                 )
-        await query.edit_message_reply_markup(reply_markup=disable_time_buttons(query.message.reply_markup, selected_time))
+        await query.edit_message_reply_markup(
+            reply_markup=disable_time_buttons(query.message.reply_markup, selected_time))
 
     elif query.data.startswith('person_'):
         selected_person = query.data.split('_')[1]
-        user_data['step'] = 'people_confirmation'
-        user_data['selected_person'] = selected_person
+        user_data.set_step('people_confirmation')
+        user_data.set_person_count(selected_person)
 
         # Меняем цвет кнопки на красный и делаем все остальные кнопки неактивными
-        await query.edit_message_reply_markup(reply_markup=disable_person_buttons(query.message.reply_markup, selected_person))
+        await query.edit_message_reply_markup(
+            reply_markup=disable_person_buttons(query.message.reply_markup, selected_person))
 
         confirmation_texts = {
             'en': f'You selected {selected_person} people, correct?',
             'ru': f'Вы выбрали {selected_person} человек, правильно?',
-            'es': f'Seleccionaste {selected_person} personas, ¿correcto?',
+            'es': f'Seleccionaste {selected_person} personas, ¿correctо?',
             'fr': f'Vous avez sélectionné {selected_person} personnes, correct ?',
             'uk': f'Ви вибрали {selected_person} людей, правильно?',
             'pl': f'Wybrałeś {selected_person} osób, poprawне?',
@@ -661,46 +415,58 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
             'it': f'Hai selezionato {selected_person} persone, corretto?'
         }
         await query.message.reply_text(
-            confirmation_texts.get(user_data['language'], f'You selected {selected_person} people, correct?'),
-            reply_markup=yes_no_keyboard(user_data['language'])
+            confirmation_texts.get(user_data.get_language(), f'You selected {selected_person} people, correct?'),
+            reply_markup=yes_no_keyboard(user_data.get_language())
         )
 
     elif query.data.startswith('style_'):
         selected_style = query.data.split('_')[1]
-        user_data['step'] = 'style_confirmation'
-        user_data['selected_style'] = selected_style
+        user_data.set_step('style_confirmation')
+        user_data.set_style(selected_style)
 
         # Меняем цвет кнопки на красный и делаем все остальные кнопки неактивными
-        await query.edit_message_reply_markup(reply_markup=disable_style_buttons(query.message.reply_markup, selected_style))
+        await query.edit_message_reply_markup(
+            reply_markup=disable_style_buttons(query.message.reply_markup, selected_style))
 
         confirmation_texts = {
             'en': f'You selected {selected_style} style, correct?',
             'ru': f'Вы выбрали стиль {selected_style}, правильно?',
-            'es': f'Seleccionaste el стиль {selected_style}, ¿correcto?',
+            'es': f'Seleccionaste el стиль {selected_style}, ¿correctо?',
             'fr': f'Vous avez sélectionné le стиль {selected_style}, correct ?',
             'uk': f'Ви вибрали стиль {selected_style}, правильно?',
-            'pl': f'Wybrałeś стиль {selected_style}, poprawне?',
+            'pl': f'Wybrałeś {selected_style} стиль, правильно?',
             'de': f'Sie haben den стиль {selected_style} gewählt, richtig?',
             'it': f'Hai selezionato lo стиль {selected_style}, corretto?'
         }
         await query.message.reply_text(
-            confirmation_texts.get(user_data['language'], f'You selected {selected_style} style, correct?'),
-            reply_markup=yes_no_keyboard(user_data['language'])
+            confirmation_texts.get(user_data.get_language(), f'You selected {selected_style} style, correct?'),
+            reply_markup=yes_no_keyboard(user_data.get_language())
         )
 
     elif query.data.startswith('prev_month_') or query.data.startswith('next_month_'):
         month_offset = int(query.data.split('_')[2])
-        user_data['month_offset'] = month_offset
-        await show_calendar(query, month_offset, user_data.get('language', 'en'))
+        user_data.set_month_offset(month_offset)
+        await show_calendar(query, month_offset, user_data.get_language())
+
+    logging.info("Функция button_callback завершена")
+
 
 async def show_calendar(query, month_offset, language):
+    logging.info(f"Функция show_calendar запущена с параметрами: month_offset={month_offset}, language={language}")
+
+    # Ограничение значений month_offset
     if month_offset < -1:
+        logging.info("month_offset был меньше -1, установлен в -1")
         month_offset = -1
     elif month_offset > 2:
+        logging.info("month_offset был больше 2, установлен в 2")
         month_offset = 2
 
+    # Генерация клавиатуры календаря
     calendar_keyboard = generate_calendar_keyboard(month_offset, language)
+    logging.info(f"Календарная клавиатура сгенерирована для month_offset={month_offset}, language={language}")
 
+    # Тексты для выбора даты на разных языках
     select_date_text = {
         'en': "Select a date:",
         'ru': "Выберите дату:",
@@ -712,72 +478,69 @@ async def show_calendar(query, month_offset, language):
         'it': "Seleziona una data:"
     }
 
+    # Отправка сообщения с клавиатурой календаря
     await query.message.reply_text(
         select_date_text.get(language, 'Select a date:'),
         reply_markup=calendar_keyboard
     )
+    logging.info("Сообщение с клавиатурой календаря отправлено пользователю")
 
 
 async def handle_name(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_data = context.user_data
-    username = update.message.from_user.username if update.message else "Имя пользователя"
+    # Инициализация данных пользователя
+    user_data = context.user_data.get('user_data', UserData())
+    context.user_data['user_data'] = user_data
 
     logging.info("Проверка выполнения: до блока if update.callback_query")
 
     if update.callback_query:
-        user_data['name'] = "Имя пользователя"
+        user_data.set_name("Имя пользователя")
     else:
         logging.info(f"Получено значение из update.message.text: {update.message.text}")
-        user_data['name'] = update.message.text
-        logging.info(f"Имя пользователя, присвоенное в user_data['name']: {user_data['name']}")
+        user_data.set_name(update.message.text)
+        logging.info(f"Имя пользователя, присвоенное в user_data: {user_data.get_name()}")
 
     logging.info("Проверка выполнения: после блока if update.callback_query")
 
-    user_data['step'] = 'name_received'
-    user_data['username'] = username
+    user_data.set_step('name_received')
+    user_data.set_username(update.message.from_user.username if update.message else "Имя пользователя")
 
     logging.info(f"Получено имя пользователя из update.message.text: {update.message.text}")
 
-    # Сохраняем имя пользователя во временное хранилище
-    temp_data.set_user_name(user_data['name'])
-    logging.info(f"Сохранено имя пользователя во временное хранилище: {temp_data.get_user_name()}")
+    language_code = user_data.get_language()
+    logging.info(f"Saving user_name: {user_data.get_name()} and username: {user_data.get_username()}")
 
-    language_code = user_data.get('language', 'en')
-    logging.info(f"Saving user_name: {user_data['name']} and username: {username}")
-
-    # Далее идет код для сохранения в базу данных
-
-    # Извлечение имени пользователя из временного хранилища перед записью в базу данных
+    # Сохранение в базу данных
     conn = create_connection(DATABASE_PATH)
     if conn is not None:
         query = """
         INSERT INTO users (user_id, language, user_name, username)
         VALUES (?, ?, ?, ?)
         """
-        params = (update.message.from_user.id, language_code, temp_data.get_user_name(), username)
-        execute_query(conn, query, params)
+        params = (update.message.from_user.id, language_code, user_data.get_name(), user_data.get_username())
+        execute_query_with_retry(query, params, user_data=user_data)
     else:
         logging.error("Failed to create database connection")
 
     greeting_texts = {
-        'en': f'Hello {temp_data.get_user_name()}! Do you want to see available dates?',
-        'ru': f'Привет {temp_data.get_user_name()}! Хочешь увидеть доступные даты?',
-        'es': f'Hola {temp_data.get_user_name()}! ¿Quieres ver las fechas disponibles?',
-        'fr': f'Bonjour {temp_data.get_user_name()}! Voulez-vous voir les dates disponibles?',
-        'uk': f'Привіт {temp_data.get_user_name()}! Хочеш подивитися які дати доступні?',
-        'pl': f'Cześć {temp_data.get_user_name()}! Chcesz zobaczyć dostępne daty?',
-        'de': f'Hallo {temp_data.get_user_name()}! Möchten Sie verfügbare Daten sehen?',
-        'it': f'Ciao {temp_data.get_user_name()}! Vuoi vedere le date disponibili?'
+        'en': f'Hello {user_data.get_name()}! Do you want to see available dates?',
+        'ru': f'Привет {user_data.get_name()}! Хочешь увидеть доступные даты?',
+        'es': f'Hola {user_data.get_name()}! ¿Quieres ver las fechas disponibles?',
+        'fr': f'Bonjour {user_data.get_name()}! Voulez-vous voir les dates disponibles?',
+        'uk': f'Привіт {user_data.get_name()}! Хочеш подивитися які дати доступні?',
+        'pl': f'Cześć {user_data.get_name()}! Chcesz zobaczyć dostępne daty?',
+        'de': f'Hallo {user_data.get_name()}! Möchten Sie verfügbare Daten sehen?',
+        'it': f'Ciao {user_data.get_name()}! Vuoi vedere le date disponibili?'
     }
 
     if update.message:
         await update.message.reply_text(
-            greeting_texts.get(language_code, f'Hello {temp_data.get_user_name()}! Do you want to see available dates?'),
+            greeting_texts.get(language_code, f'Hello {user_data.get_name()}! Do you want to see available dates?'),
             reply_markup=yes_no_keyboard(language_code)
         )
     elif update.callback_query:
         await update.callback_query.message.reply_text(
-            greeting_texts.get(language_code, f'Hello {temp_data.get_user_name()}! Do you want to see available dates?'),
+            greeting_texts.get(language_code, f'Hello {user_data.get_name()}! Do you want to see available dates?'),
             reply_markup=yes_no_keyboard(language_code)
         )
 
@@ -870,7 +633,6 @@ if __name__ == '__main__':
 
 
     logging.basicConfig(level=logging.DEBUG)
-    #some_database_operation()  # Вызов функции для тестирования
 
     application = ApplicationBuilder().token(BOT_TOKEN).build()
     application.add_handler(CommandHandler('start', start))
