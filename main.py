@@ -296,9 +296,12 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.edit_message_reply_markup(reply_markup=disable_yes_no_buttons(query.message.reply_markup))
 
     elif query.data == 'no':
+        logging.info(f"Текущее состояние user_data.get_step(): {user_data.get_step()}")
         if user_data.get_step() == 'calendar':
             user_data.set_step('name_received')
+            logging.info("Лог перед вызовом handle_name")  # Лог до вызова
             await handle_name(query, context)
+            logging.info("Лог после вызова handle_name")  # Лог после вызова
         elif user_data.get_step() == 'date_confirmation':
             user_data.set_step('calendar')
             await show_calendar(query, user_data.get_month_offset(), user_data.get_language())
@@ -487,41 +490,106 @@ async def show_calendar(query, month_offset, language):
     logging.info("Сообщение с клавиатурой календаря отправлено пользователю")
 
 
+# async def handle_name(update: Update, context: ContextTypes.DEFAULT_TYPE):
+#     # Инициализация данных пользователя
+#     user_data = context.user_data.get('user_data', UserData())
+#     context.user_data['user_data'] = user_data
+#
+#     logging.info("Проверка выполнения: до блока if update.callback_query")
+#
+#     if update.callback_query:
+#         user_data.set_name("Имя пользователя")
+#     else:
+#         logging.info(f"Получено значение из update.message.text: {update.message.text}")
+#         user_data.set_name(update.message.text)
+#         logging.info(f"Имя пользователя, присвоенное в user_data: {user_data.get_name()}")
+#
+#         # Вставляем print для вывода имени пользователя в терминал
+#         print(f"Введенное имя: {update.message.text}")
+#
+#     logging.info("Проверка выполнения: после блока if update.callback_query")
+#
+#     user_data.set_step('name_received')
+#     user_data.set_username(update.message.from_user.username if update.message else "Имя пользователя")
+#
+#     logging.info(f"Получено имя пользователя из update.message.text: {update.message.text}")
+#
+#     language_code = user_data.get_language()
+#     logging.info(f"Saving user_name: {user_data.get_name()} and username: {user_data.get_username()}")
+#
+#     # Сохранение в базу данных
+#     conn = create_connection(DATABASE_PATH)
+#     if conn is not None:
+#         query = """
+#         INSERT INTO users (user_id, language, user_name, username)
+#         VALUES (?, ?, ?, ?)
+#         """
+#         params = (update.message.from_user.id, language_code, user_data.get_name(), user_data.get_username())
+#         execute_query_with_retry(conn, query, params)
+#     else:
+#         logging.error("Failed to create database connection")
+#
+#     greeting_texts = {
+#         'en': f'Hello {user_data.get_name()}! Do you want to see available dates?',
+#         'ru': f'Привет {user_data.get_name()}! Хочешь увидеть доступные даты?',
+#         'es': f'Hola {user_data.get_name()}! ¿Quieres ver las fechas disponibles?',
+#         'fr': f'Bonjour {user_data.get_name()}! Voulez-vous voir les dates disponibles?',
+#         'uk': f'Привіт {user_data.get_name()}! Хочеш подивитися які дати доступні?',
+#         'pl': f'Cześć {user_data.get_name()}! Chcesz zobaczyć dostępne daty?',
+#         'de': f'Hallo {user_data.get_name()}! Möchten Sie verfügbare Daten sehen?',
+#         'it': f'Ciao {user_data.get_name()}! Vuoi vedere le date disponibili?'
+#     }
+#
+#     if update.message:
+#         await update.message.reply_text(
+#             greeting_texts.get(language_code, f'Hello {user_data.get_name()}! Do you want to see available dates?'),
+#             reply_markup=yes_no_keyboard(language_code)
+#         )
+#     elif update.callback_query:
+#         await update.callback_query.message.reply_text(
+#             greeting_texts.get(language_code, f'Hello {user_data.get_name()}! Do you want to see available dates?'),
+#             reply_markup=yes_no_keyboard(language_code)
+#         )
+
 async def handle_name(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Инициализация данных пользователя
     user_data = context.user_data.get('user_data', UserData())
     context.user_data['user_data'] = user_data
 
-    logging.info("Проверка выполнения: до блока if update.callback_query")
+    print("Принт 1: Начало функции handle_name")
 
     if update.callback_query:
+        print("Принт 2: Обнаружен callback_query")
         user_data.set_name("Имя пользователя")
     else:
-        logging.info(f"Получено значение из update.message.text: {update.message.text}")
+        print("Принт 3: Получено сообщение от пользователя")
+        print(f"Принт 4: Значение из update.message.text: {update.message.text}")
         user_data.set_name(update.message.text)
-        logging.info(f"Имя пользователя, присвоенное в user_data: {user_data.get_name()}")
+        print(f"Принт 5: Имя пользователя, присвоенное в user_data: {user_data.get_name()}")
 
-    logging.info("Проверка выполнения: после блока if update.callback_query")
+    print("Принт 6: После блока if update.callback_query")
 
     user_data.set_step('name_received')
     user_data.set_username(update.message.from_user.username if update.message else "Имя пользователя")
 
-    logging.info(f"Получено имя пользователя из update.message.text: {update.message.text}")
+    print(f"Принт 7: Имя пользователя из update.message.text: {update.message.text}")
 
     language_code = user_data.get_language()
-    logging.info(f"Saving user_name: {user_data.get_name()} and username: {user_data.get_username()}")
+    print(f"Принт 8: Сохранение user_name: {user_data.get_name()} и username: {user_data.get_username()}")
 
     # Сохранение в базу данных
     conn = create_connection(DATABASE_PATH)
     if conn is not None:
+        print("Принт 9: Соединение с базой данных установлено")
         query = """
         INSERT INTO users (user_id, language, user_name, username)
         VALUES (?, ?, ?, ?)
         """
         params = (update.message.from_user.id, language_code, user_data.get_name(), user_data.get_username())
         execute_query_with_retry(conn, query, params)
+        print(f"Принт 10: Выполнен запрос INSERT с параметрами: {params}")
     else:
-        logging.error("Failed to create database connection")
+        print("Принт 11: Не удалось создать соединение с базой данных")
 
     greeting_texts = {
         'en': f'Hello {user_data.get_name()}! Do you want to see available dates?',
@@ -535,15 +603,20 @@ async def handle_name(update: Update, context: ContextTypes.DEFAULT_TYPE):
     }
 
     if update.message:
+        print("Принт 12: Ответ пользователю с использованием update.message")
         await update.message.reply_text(
             greeting_texts.get(language_code, f'Hello {user_data.get_name()}! Do you want to see available dates?'),
             reply_markup=yes_no_keyboard(language_code)
         )
     elif update.callback_query:
+        print("Принт 13: Ответ пользователю с использованием update.callback_query")
         await update.callback_query.message.reply_text(
             greeting_texts.get(language_code, f'Hello {user_data.get_name()}! Do you want to see available dates?'),
             reply_markup=yes_no_keyboard(language_code)
         )
+
+    print("Принт 14: Конец функции handle_name")
+
 
 def disable_calendar_buttons(reply_markup, selected_date):
     new_keyboard = []
