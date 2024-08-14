@@ -4,7 +4,7 @@ from telegram.ext import ApplicationBuilder, CallbackQueryHandler, CommandHandle
 import calendar
 from datetime import datetime
 
-# Настройка логирования
+# Настройка логирования####
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.DEBUG
