@@ -13,6 +13,24 @@ logging.basicConfig(
 # Ваш токен
 BOT_TOKEN = '7365546887:AAFimfH_lZxsv-v2RyaSktBRk7ww_s5Vs0U'
 
+# Словарь для замены обычных цифр на надстрочные
+superscript_digits = {
+    '0': '⁰',
+    '1': '¹',
+    '2': '²',
+    '3': '³',
+    '4': '⁴',
+    '5': '⁵',
+    '6': '⁶',
+    '7': '⁷',
+    '8': '⁸',
+    '9': '⁹'
+}
+
+# Функция для преобразования числа в надстрочный формат
+def to_superscript(number):
+    return ''.join(superscript_digits.get(digit, digit) for digit in str(number))
+
 # Генерация кнопок календаря
 def generate_calendar_buttons(year, month, selected_day=None, disable=False):
     now = datetime.now()
@@ -26,17 +44,18 @@ def generate_calendar_buttons(year, month, selected_day=None, disable=False):
     buttons = [[InlineKeyboardButton(day, callback_data="none")] for day in weekdays]
 
     day = 1
-    for col in range(5):
+    for col in range(6):
         for row in range(7):
             if col == 0 and row < first_weekday:
                 buttons[row].append(InlineKeyboardButton(" ", callback_data="none"))
             elif day <= num_days:
+                day_superscript = to_superscript(day)  # Преобразуем день в надстрочный формат
                 if year == current_year and month == current_month and day <= today:
-                    buttons[row].append(InlineKeyboardButton(f"🔴 {day}", callback_data="none"))
+                    buttons[row].append(InlineKeyboardButton(f"🔴 {day_superscript}", callback_data="none"))
                 elif str(day) == selected_day:
-                    buttons[row].append(InlineKeyboardButton(f"🔴 {day}", callback_data=f"day_{day}"))
+                    buttons[row].append(InlineKeyboardButton(f"🔴 {day_superscript}", callback_data=f"day_{day}"))
                 else:
-                    text = f"🟢 {day}" if not disable else f"🟢 {day}"
+                    text = f"🟢 {day_superscript}" if not disable else f"🟢 {day_superscript}"
                     callback_data = f"day_{day}" if not disable else 'none'
                     buttons[row].append(InlineKeyboardButton(text, callback_data=callback_data))
                 day += 1
